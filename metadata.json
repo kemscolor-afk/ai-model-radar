@@ -1,0 +1,6 @@
+{
+  "name": "AI Release Radar",
+  "description": "追蹤各大 AI 廠商最新模型、技術發表與影響力評估日報，整合中文介紹、收費方式與摘要表格。",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
