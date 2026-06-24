@@ -1,0 +1,1659 @@
+{
+  "updates": [
+    {
+      "id": "hist-deepseek-r1",
+      "modelName": "DeepSeek-R1",
+      "vendor": "DeepSeek",
+      "releaseDate": "2025-01-20",
+      "category": "reasoning",
+      "chineseDescription": "DeepSeek-R1 是一款專注於複雜推理與數學、代碼能力的開源模型。其採用強化學習（RL）進行訓練，推理能力與 OpenAI o1 相當。最大特色在於極低的運算與推理成本，且完全開源模型權重與訓練 pipeline。",
+      "pricingModel": "模型權重開源免費下載；API 收費極低：輸入 $0.55 / 1M tokens，輸出 $2.19 / 1M tokens（快取命中時輸入僅需 $0.14/1M）",
+      "keyFeatures": [
+        "強化學習（RL）主導推理鏈生成",
+        "冷啟動資料（Cold-start data）結合系統化思考鏈（CoT）",
+        "提供多個基於 Llama 與 Qwen 的蒸餾（Distilled）輕量化版本",
+        "數學、編程、邏輯推理能力達世界頂尖水準"
+      ],
+      "useCases": [
+        "複雜數學定理證明與解答",
+        "高級軟體工程、算法設計與程式碼優化",
+        "多步驟策略規劃與邏輯分析"
+      ],
+      "impactScore": 10,
+      "targetAudience": "AI 開發者、研究人員、雲端託管廠商、預算有限的技術企業",
+      "impactAssessment": "DeepSeek-R1 對整個大模型生態造成了「價格震盪」與「開源革命」。它證明了高昂的算力集群並不是開發頂級推理模型的唯一途徑，直接迫使美國一線 AI 廠商降價並調整競爭策略，將大模型推理成本降低了 90% 以上。",
+      "strategicAdvice": "1. 企業應立即評估將原本依賴專有昂貴模型（如 GPT-4）的推理、代碼等任務遷移至 DeepSeek-R1 或其蒸餾版。\n2. 對於私有化部署要求高的企業，可直接在自建基礎設施上部署該模型，兼顧資訊安全與極致性價比。",
+      "sourceUrl": "https://github.com/deepseek-ai/DeepSeek-R1",
+      "deepDiveReport": "# 🧠 DeepSeek-R1 戰略與商業影響深度評估報告\n\n## 1. 技術定位與競品對比\n**DeepSeek-R1** 在大語言模型（LLM）市場中定位為**頂尖開源推理模型（Reasoning Model）**。其直接競爭對手為 OpenAI 的 **o1** 與 **o3-mini**。\n* **技術突破**：透過大規模強化學習（RL），R1 在不需要高昂監督微調（SFT）的情況下，自發形成了深度的思考鏈（CoT），在數學、編碼與科學邏輯上，與 o1 互有勝負。\n* **開源優勢**：相較於 OpenAI 的封閉黑盒子 API，DeepSeek-R1 完全開源其模型權重，並釋出了基於 Qwen、Llama 等極具商用價值的輕量級蒸餾版本（從 1.5B 到 70B），這徹底顛覆了「推理模型必須託管在雲端」的既有認知。\n\n## 2. 商業化成本與效益分析 (ROI)\n在商業決策上，DeepSeek-R1 帶來了前所未有的 **10倍到100倍的成本效益比**：\n* **費用暴降**：其 API 價格為輸入 $0.55/1M tokens、輸出 $2.19/1M tokens。與 OpenAI o1 的 $15/$60 相比，費用僅有約 **3.6%**。\n* **遷移效益**：對於具備一定運維能力的企業，導入 R1 或其 Llama-70B 蒸餾版本能立竿見影地降低 90% 以上的 API 帳單。對於大吞吐、高重試的 AI 代理 (Agentic) 工作流，R1 提供了絕對的財務可行性。\n\n## 3. 對軟體工程與自動化的革命性影響\nDeepSeek-R1 為**自主型軟體開發代理（Autonomous Coding Agents）**鋪平了道路：\n* **多步驟複雜 Debugging**：R1 原生的思考鏈能一步步排查深度代碼庫的耦合錯誤。\n* **端到端代碼重構**：極高準度的代碼生成率使其在應對複雜架構重整時，出錯率相較常規大模型降低了約 65%。\n\n## 4. 資訊安全與隱私風險評估\n* **本地化與合規性**：對於受金管會、歐盟 GDPR 等嚴格監管的金融與醫療行業，DeepSeek-R1 的開源性質允許企業進行**完全私有化部署**，這消除了數據流向境外第三方雲端的隱私與法規風險。\n* **數據防洩漏**：敏感的系統日誌與交易機密可百分之百保留在企業內部私有雲中，這是 R1 在地化落地最顯著的優點。\n\n## 5. 企業採用戰略路徑 (Roadmap)\n* **短期（30天內）**：將現有高成本、需要繁雜推理的 API 節點，在非敏感業務中嘗試替換為 DeepSeek-R1 API，實測兼容度與成本下降幅度。\n* **中期（90天內）**：對於輕量級任務，在本地或雲端嘗試部署 Qwen-32B 蒸餾版本，以兼顧毫秒級響應與極低算力消耗。\n* **長期（180天內）**：建立基於私有化 DeepSeek-R1 的專屬數據微調流水線，將企業內部的私域核心知識產權融入模型的思維路徑中。"
+    },
+    {
+      "id": "hist-claude-3-7-sonnet",
+      "modelName": "Claude 3.7 Sonnet",
+      "vendor": "Anthropic",
+      "releaseDate": "2025-02-24",
+      "category": "reasoning",
+      "chineseDescription": "Claude 3.7 Sonnet 是 Anthropic 推出的首款「混合推理（Hybrid Reasoning）」模型。用戶可以自由選擇是否開啟「思考模式（Thinking Mode）」。該模型在複雜代碼編寫、長文本分析、系統設計與自適應工具調用方面表現卓越，同時延續了 Claude 系列一貫的高文筆與流暢表達。",
+      "pricingModel": "輸入：$3.00 / 1M tokens，輸出：$15.00 / 1M tokens（包含思考過程 token 均採此定價）",
+      "keyFeatures": [
+        "動態思考控制：允許用戶設定思考 Token 的上限或關閉思考以降低延遲",
+        "程式開發代理（Agent）能力顯著提升，能處理多檔案且複雜的專案重構",
+        "對各類開發工具與 API 調用（Tool Use）的精準度與容錯率極高",
+        "視覺理解能力進一步強化，能看懂複雜的架構圖與數據圖表"
+      ],
+      "useCases": [
+        "自主型軟體工程代理（Coding Agents）與自動化 CI/CD 開發",
+        "深度學術論文審查與長篇專業報告編撰",
+        "多步驟外部工具整合與 API 自動化工作流"
+      ],
+      "impactScore": 9,
+      "targetAudience": "資深軟體工程師、企業架構師、數據分析師、產品經理",
+      "impactAssessment": "Claude 3.7 Sonnet 在軟體工程師群體中確立了無可替代的地位。其高度穩定的代碼生成與對多步驟、長上下文的精確掌握，使得 AI Copilot 的實用價值從「簡單補全」演進為「自主開發代理」，極大地釋放了程式開發的生產力。",
+      "strategicAdvice": "1. 開發團隊應將 Claude 3.7 Sonnet 作為核心代碼生成與審查的首選工具。\n2. 建議在自動化工作流中，針對需要決策、多步規劃的關鍵節點開啟「思考模式」，而對於格式轉換等簡單任務關閉思考以節省成本與時間。",
+      "sourceUrl": "https://www.anthropic.com/claude/sonnet",
+      "deepDiveReport": "# 🧠 Claude 3.7 Sonnet 混合推理商業價值評估報告\n\n## 1. 技術定位與競品對比\n**Claude 3.7 Sonnet** 是目前業界**最先進的混合推理模型（Hybrid Reasoning Model）**。其首創讓用戶自主決定是否開啟、以及開啟多少「思考模式（Thinking Mode）」。\n* **競品對比**：相較於 OpenAI o1 或 DeepSeek-R1 強制且不可控的思考過程，Claude 3.7 Sonnet 給予了開發者極高的工程自由度，能有效避免因簡單任務進行過度思考所導致的昂貴 Token 浪費。\n* **代碼優勢**：在軟體工程評測集上，Claude 3.7 展現出碾壓級別的代理（Agentic）編程能力，其對複雜專案、多檔案修補與高難度工具調用（Tool Use）的成功率為當前大模型之首。\n\n## 2. 商業化成本與效益分析 (ROI)\n* **定價機制**：輸入 $3.00/1M tokens，輸出 $15.00/1M tokens。注意，**思考過程中所耗費的 Token 亦按此費率計費**。\n* **極高效率收益**：雖然比 DeepSeek 等開源模型昂貴，但在需要資深工程師等級的高難度開發任務中（如代碼庫重構、疑難 bug 調試），Claude 3.7 Sonnet 的「一次生成成功率」極高。這能大幅縮減開發人員反覆調試與手動修復的隱性人力成本，創造出卓越的研發投資回報比（ROI）。\n\n## 3. 對軟體工程與自動化的革命性影響\n* **自主編程代理的黃金標準**：Claude 3.7 Sonnet 能在沙盒環境中自主運行測試、分析報錯並自我修正。它不再僅是「代碼自動補全器」，而是真正能承接 100 行以上、多文件關聯功能開發的「虛擬初級工程師」。\n* **自適應工具調用 (Tool Call)**：可流暢、穩定地串接第三方 APIs，幾乎不發生多參數漏傳或格式崩潰。\n\n## 4. 資訊安全與隱私風險評估\n* **雲端隱私**：Anthropic 承諾**不使用商業 API 的輸入數據來訓練其模型**，這在一定程度上保障了企業的智慧財產權與專利代碼隱私。\n* **思考鏈合規性**：雖然用戶可以閱讀其思考過程，但此部分數據仍託管於雲端。需要極端金融或國家級法規合規性的企業仍需審慎評估。\n\n## 5. 企業採用戰略路徑 (Roadmap)\n* **短期（30天內）**：將研發團隊的 IDE 插件（如 Cursor、Cline 或 GitHub Copilot）的後端主力模型，升級為 Claude 3.7 Sonnet（開啟 Thinking Mode），實測高難度重構。\n* **中期（90天內）**：在企業自動化工作流與 Agent 決策鏈中整合 Claude 3.7 API。針對簡單、高頻任務，關閉思考模式以降低費用；唯在架構編排、代碼生成節點啟用動態思考。\n* **長期（180天內）**：開發以 Claude 3.7 為大腦的「自主運維代理（AI Site Reliability Engineers）」，實現自動監控、自動診斷並嘗試自動修復線上簡單代碼異常。"
+    },
+    {
+      "id": "hist-openai-o3-mini",
+      "modelName": "OpenAI o3-mini",
+      "vendor": "OpenAI",
+      "releaseDate": "2025-01-31",
+      "category": "reasoning",
+      "chineseDescription": "o3-mini 是 OpenAI 推出的高性價比推理模型，專為科學、技術、工程與數學（STEM）任務設計。它在保持超高推理與思考能力的同時，擁有極快的響應速度與顯著降低的 API 費用，並支持函數調用（Function Calling）、結構化輸出（Structured Outputs）等開發者核心功能。",
+      "pricingModel": "輸入：$1.10 / 1M tokens，輸出：$4.40 / 1M tokens（含思考過程 token）",
+      "keyFeatures": [
+        "內置原生思考鏈，能主動應對多層邏輯陷阱",
+        "支援開發者急需的工具調用、結構化輸出以及開發者系統指令（Developer Message）",
+        "程式碼生成與調試（Debugging）能力在輕量級模型中居於榜首",
+        "提供高、中、低三檔思考深度設定，方便平衡成本與延遲"
+      ],
+      "useCases": [
+        "實時編程語法檢查與複雜代碼 Debugging",
+        "即時科學計算與複雜 SQL 語法自動生成",
+        "需要嚴格 JSON Schema 輸出的後端自動化 Agent"
+      ],
+      "impactScore": 8,
+      "targetAudience": "全端開發者、後端架構師、系統整合商、量化金融分析師",
+      "impactAssessment": "o3-mini 成功解決了「推理模型太慢太貴」的痛點。它讓需要複雜推理的應用場景（例如在線刷題、實時邏輯判斷、多輪交互式 Coding）得以低成本商用，是 OpenAI 應對 DeepSeek 降價風潮的關鍵防線。",
+      "strategicAdvice": "對於需要高頻率邏輯推理、結構化 JSON 輸出，且對成本與延遲高度敏感的線上生產環境，應首選 o3-mini 作為底層推理驅動，並將思考深度設為低或中以優化用戶體驗。",
+      "sourceUrl": "https://openai.com/news/openai-o3-mini/",
+      "deepDiveReport": "# 🧠 OpenAI o3-mini 技術與商用戰略深度剖析\n\n## 1. 技術定位與競品對比\n**OpenAI o3-mini** 是目前最成熟的**低延遲、高性價比推理小模型（STEM-focused Reasoning Model）**。\n* **技術定位**：與偏向通用、昂貴的 o1 大模型不同，o3-mini 精準鎖定了**科學、技術、工程與數學（STEM）**以及代碼（Coding）任務。\n* **競品對比**：其直接抗衡的是 DeepSeek-R1 蒸餾版。o3-mini 的優勢在於**完整的開發者生態支援**（包括 Schema 結構化輸出、低延遲的 Tool Call 函數調用與開發者系統指令），這些功能在複雜的線上後端架構中，是保證系統不崩潰的剛性工程需求。\n\n## 2. 商業化成本與效益分析 (ROI)\n* **定價機制**：輸入 $1.10/1M tokens，輸出 $4.40/1M tokens（含思考 Token）。\n* **ROI 評估**：相較於 GPT-4o 或 Claude 3.5 Sonnet，o3-mini 提供了推理模型中罕見的**快響應**與**極佳價格**。在處理高難度的多輪對話、實時 SQL 生成或複雜 JSON 格式化時，能大幅減少因為「模型邏輯混亂」導致的無效重複調用，整體商用開發成本效益非常顯著。\n\n## 3. 對軟體工程與自動化的革命性影響\n* **線上高吞吐 Agent 的引擎**：o3-mini 的結構化輸出（Structured Outputs）功能，能確保返回 100% 符合 JSON Schema 的數據。這對於需要直接驅動資料庫、呼叫外部 APIs 且不容許任何字元出錯的後端 Agent 而言，是無可挑剔的完美大腦。\n* **極佳的 Debugging 副手**：能夠在數秒內給出思考過程並定位程式崩潰點。\n\n## 4. 資訊安全與隱私風險評估\n* **數據合規與隔離**：基於 OpenAI 商業 Enterprise 合規條款，所有透過 API 傳入的數據皆不會用於公共模型訓練，且支援數據落地區域選擇（對於跨國企業十分關鍵）。\n* **思考鏈模糊性**：出於技術保護與安全性，OpenAI 對 o3-mini 的原始思考鏈進行了混淆與篩選，企業無法獲得 100% 原始的 CoT 日誌。\n\n## 5. 企業採用戰略路徑 (Roadmap)\n* **短期（30天內）**：將現有依賴 GPT-4o-mini 或 GPT-3.5 且經常出錯的「結構化數據提取」與「SQL 自動編寫」API 節點，無縫遷移至 o3-mini。\n* **中期（90天內）**：在用戶終端對話、線上即時客服助理等對延遲敏感的產品中，使用 o3-mini 並設定「Low Thinking Depth」（低思考深度），兼顧超凡推理與流暢響應。\n* **長期（180天內）**：架構「人機協同自動化 SQL 與業務編排中樞」，透過 o3-mini 自動編寫、驗證並執行企業內部數據報表查詢。"
+    },
+    {
+      "id": "hist-gemini-2-5-pro",
+      "modelName": "Gemini 2.5 Pro",
+      "vendor": "Google",
+      "releaseDate": "2025-03-10",
+      "category": "general",
+      "chineseDescription": "Gemini 2.5 Pro 是 Google 推出的大上下文多模態旗艦模型。最大亮點是高達 200 萬個 Token 的上下文視窗（Context Window），能夠一次性讀取數百萬字、數小時的影片或數十萬行代碼，在長上下文推理、跨模態音視頻處理與長文摘要上達到業界最頂尖表現。",
+      "pricingModel": "輸入：$1.25 / 1M tokens（超過 128k 後為 $2.50），輸出：$5.00 / 1M tokens（超過 128k 後為 $10.00）",
+      "keyFeatures": [
+        "200 萬 Token 的極限超長上下文視窗，且具備完美的檢索召回率（Needle in a Haystack）",
+        "深度整合音視頻多模態原生理解，直接分析長視頻或音檔而無需切片",
+        "結構化數據提取（Structured Outputs）準確度顯著提升",
+        "極其強大的代碼倉庫分析與跨文件 Bug 診斷能力"
+      ],
+      "useCases": [
+        "一次性上傳整個代碼倉庫進行代碼重構與架構升級建議",
+        "分析數小時長度的股東會錄影與財報，自動提取綜合摘要與財務指標對照表",
+        "處理數十萬字的大型法律合約與多國條約，自動化進行條款比對與合規審計"
+      ],
+      "impactScore": 9,
+      "targetAudience": "架構師、數據分析師、跨國法務團隊、研究學者、研發總監",
+      "impactAssessment": "Gemini 2.5 Pro 確立了「超長上下文 + 多模態」在複雜商業任務中的實用領先地位。它讓使用者能夠省略掉繁瑣且容易丟失上下文的 RAG 架獲取切片步驟，直接將數百頁文檔或數小時影音視為一個整體進行複雜邏輯分析，帶來了研發與內容分析工作流的典範轉移。",
+      "strategicAdvice": "對於涉及大型文件合規審計、長音視頻多模態檢索與全庫代碼診斷的業務節點，應立即採用 Gemini 2.5 Pro；並善用其 Context Caching 緩存功能來降低 80% 的高頻調用成本。",
+      "sourceUrl": "https://deepmind.google/technologies/gemini/",
+      "deepDiveReport": "# 🔮 Google Gemini 2.5 Pro 長上下文與多模態技術戰略評估\n\n## 1. 技術定位與競品對比\n**Gemini 2.5 Pro** 是 Google 目前最具競爭力的**大上下文多模態旗艦模型**。\n* **技術突破**：高達 200 萬 Token 的上下文容量是業界無人能及的殺手級特點。配合高達 99.9% 召回率的 Needle-in-a-Haystack 性能，實現了對長代碼庫、整本資料、或數小時影片的「無切片、端到端」原生理解。\n* **多模態優勢**：不同於其他模型需要使用額外的語音轉文字（ASR）或影片分鏡切圖組件，Gemini 2.5 Pro 能夠直接處理並解碼原生影音波形與像素流，大幅減少了跨系統數據流轉時的精度損耗與工程複雜度。\n\n## 2. 商業化成本與效益分析 (ROI)\n* **API 計費優勢**：儘管其單次調用價格高於輕量級模型，但 Google 推出的 **Context Caching（上下文快取）** 技術能夠將重複長文本的輸入費用降低高達 80%。對於高頻呼叫的企業 Agent 或代碼分析工具，ROI 比傳統無快取架構顯著提升 3 倍以上。\n* **研發成本降低**：省略了自建、調優複雜 RAG、Vector Database 以及 PDF 文本解析等一連串繁重、脆弱的中間件，縮短了產品開發週期。\n\n## 3. 對軟體工程與自動化的革命性影響\n* **全代碼庫自動化助理**：能夠一次性將整個專案目錄打包讀入，幫助架構師做全局代碼重構、代碼風格審計、甚至是完成整套依賴庫版本的無痛升級，極大解放了工程師在重構上的機械勞動。\n* **影音資產檢索與秒級摘要**：自動將長視頻影片解構成結構化文檔。\n\n## 4. 資訊安全與隱私風險評估\n* **企業級安全保障**：Google Cloud Vertex AI 承諾不使用任何企業數據來訓練其模型。企業可在完全合規的前提下進行大文件處理。\n* **Token 溢出與防範**：由於上下文容量極大，開發者需小心「上下文污染（Context Poisoning）」攻擊，對用戶輸入文檔需進行嚴格的長度與非法代碼清洗。\n\n## 5. 企業採用戰略路徑 (Roadmap)\n* **短期（30天內）**：在涉及長文分析（如數萬字招標書解析）或代碼全局 Debug 的業務鏈中，將底層模型切換為 Gemini 2.5 Pro，並建立 Context Caching 測試其快取命中率。\n* **中期（90天內）**：開發針對多模態資產（如產品培訓影片、客服對話錄音）的原生語音/圖像索引與問答系統，免去轉文字與切片的傳統繁瑣長鏈條。\n* **長期（180天內）**：架構基於 200 萬上下文的「全景數位雙生 Agent（Digital Twin Agent）」，讓 AI 實時讀取並理解企業全部業務規章、產品手冊、客服指南、以及每日運維日誌，作為企業內部全能的專家大腦。"
+    },
+    {
+      "id": "hist-sensevoice",
+      "modelName": "SenseVoice Large",
+      "vendor": "Alibaba",
+      "releaseDate": "2024-07-05",
+      "category": "audio",
+      "chineseDescription": "SenseVoice Large 是一款專注於「極速語音識別」、「講者辨識（Speaker Diarization / 區分誰在說話）」與「富文本事件與情緒偵測（笑聲、哭聲、掌聲、噴嚏）」的開源多功能音訊小模型。其解碼速度比 Whisper 快 5 倍以上，特別適合多人會議記錄與智慧客服情緒分析。",
+      "pricingModel": "完全開源免費授權使用 (Apache-2.0)；雲端 API 託管價格極低（約 $0.00015 / 每秒）",
+      "keyFeatures": [
+        "強大的「多人講者辨識（Speaker Diarization）」與聲音特徵區分能力",
+        "富文本音訊事件偵測（笑聲、掌聲、BGM 背景音樂、背景噪聲、情緒）",
+        "推理延遲極低，解碼速度相較傳統 Whisper 提升 5-10 倍",
+        "完美支援多語種、中英文混雜及多種漢語方言（如粵語、四川話等）識別"
+      ],
+      "useCases": [
+        "多人論壇、Podcast 訪談、股東大會人物對照逐字稿生成",
+        "智慧客服中心之情緒語音分析、客訴憤怒偵測與客服插話行為分析",
+        "音視訊內容審查（自動標記掌聲、笑聲、BGM與敏感背景音）"
+      ],
+      "impactScore": 8,
+      "targetAudience": "智慧客服開發商、多人線上會議系統、法庭與公共機構轉錄團隊、影音審查平台",
+      "impactAssessment": "SenseVoice 解決了語音大模型在「多人說話區分、環境背景音分析」這兩個高技術門檻領域的痛點。其不僅回答了『誰在說話』，還回答了『說話時的情緒與背景動態』。高達 5 倍於 Whisper 的解碼速度使其在大規模音訊數據檢索與即時客服話務質量分析上具有無可匹敵的實用商業價值。",
+      "strategicAdvice": "1. 需要「講者識別」的多人語音轉錄工具，應立即將傳統聚類演算法替換為 SenseVoice Large 進行端到端講者分割。\n2. 客服呼叫中心應首選此模型進行私有化部署，可在完全保障隱私的前提下，自動挑選出顧客生氣、或客服態度不良的通話記錄進行針對性改善。",
+      "sourceUrl": "https://github.com/FunASR/SenseVoice",
+      "deepDiveReport": "# 🎙️ Alibaba SenseVoice Large 講者辨識與語音事件評估報告\n\n## 1. 技術定位與競品對比\n**SenseVoice Large** 是阿里巴巴開源的**多功能、極速音訊理解與講者辨識（Speaker Diarization）小模型**。\n* **技術突破**：有別於只專注於「文字聽寫」的 Whisper，SenseVoice 是一款**音訊富文本事件與屬性理解模型**。它能夠精準判斷語音中的情緒、語速，並能辨識出笑聲、掌聲、噴嚏聲、BGM背景音樂等非語音事件。\n* **講者辨識優勢**：在多人會議、訪談對談中，SenseVoice 能在單個模型內**端到端區分不同的說話人（Speaker Diarization）**，免去了傳統「先語音聽寫、再用額外算法對聲紋進行聚類」的繁瑣且極易崩潰的長鏈條管道。\n\n## 2. 商業化成本與效益分析 (ROI)\n* **授權極度友好**：採用開源 **Apache-2.0 授權**，企業可無限制地進行商用修改與閉源產品封裝。\n* **計算成本暴降**：解碼速度比 Whisper 快 5 到 10 倍。這意味著在相同的伺服器配置（如 1 張 NVIDIA T4 顯卡）下，**SenseVoice 可以吞吐高達數十路即時客服通話的並行辨識**，而 Whisper 只能處理個位數，ROI 提升高達 500% 以上。\n\n## 3. 對軟體工程與自動化的革命性影響\n* **智慧音訊事件觸發器**：開發者可以設定，當 SenseVoice 辨識到「持續的激烈爭吵/憤怒情緒」或「笑聲/掌聲」時，自動觸發後端 API 進行客戶滿意度工單建立，或者在直播平台上自動生成高光影片剪輯（Highlights），極具自動化想像力。\n\n## 4. 資訊安全與隱私風險評估\n* **客服隱私安全合規**：呼叫中心（Call Center）儲存了大量包含身分證號、銀行帳戶的敏感語音。SenseVoice 的本地離線部署可確保所有語音分析、說話人劃分與情緒偵測，均在企業自有的內網機房中完成，完美符合各國法規對金融與電信數據防洩露的要求。\n\n## 5. 企業採用戰略路徑 (Roadmap)\n* **短期（30天內）**：將多人會議錄音、Podcast 音檔或呼叫中心語音日誌上傳至 SenseVoice 本地服務，測試其對粵語、繁體中文及英文混雜時的識別精準度。\n* **中期（90天內）**：在智慧客服或通話質檢系統中整合 SenseVoice 引擎，自動標記說話者與通話中的「情緒激動」和「笑聲/掌聲」等特殊標籤。\n* **長期（180天內）**：結合大語言模型，打造一鍵式「多人會議人物對照紀錄生成器與自動待辦事項/決策公報匯出系統」，將企業內部日常會議轉錄率提升至 100%。"
+    },
+    {
+      "id": "hist-flux-1",
+      "modelName": "FLUX.1 [dev/schnell/pro]",
+      "vendor": "Black Forest Labs",
+      "releaseDate": "2024-08-01",
+      "category": "vision",
+      "chineseDescription": "FLUX.1 是由 Stable Diffusion 原班核心團隊創立的 Black Forest Labs 推出的開源圖像生成模型。採用了高達 120 億參數的 Rectified Flow Transformer 架構，在文字渲染、細節還原、人體結構（尤其是手指與眼部）和美學質感上，全面超越了 Midjourney v6 與 DALL-E 3，成為目前開源圖像生成領域的絕對霸主。",
+      "pricingModel": "schnell (Apache-2.0 開源商用免費), dev (非商用開源免費), pro (付費 API，每張圖約 $0.05)",
+      "keyFeatures": [
+        "完美的英文字母及詞彙拼寫渲染，不再出現雜亂AI亂碼",
+        "先進的 120 億參數混合流匹配（Rectified Flow）技術",
+        "頂尖的手指與肢體解剖學準確度，徹底擺脫『多指/怪異關節』缺陷",
+        "極佳的提示詞遵循度（Prompt Adherence），精確還原複雜場景"
+      ],
+      "useCases": [
+        "廣告營銷、海報設計與電商商品圖精美渲染",
+        "自媒體封面、故事插畫與動漫 IP 高保真視覺產出",
+        "企業內部設計草圖、UI Mockup 快速概念驗證"
+      ],
+      "impactScore": 10,
+      "targetAudience": "平面設計師、獨立開發者、電商賣家、視覺特效師、開源 AIGC 愛好者",
+      "impactAssessment": "FLUX.1 徹底瓦解了 Midjourney 等閉源服務對高階圖像生成的壟斷。schnell 與 dev 版本的開源，直接促成了本地 SD WebUI 和 ComfyUI 生態的爆發式更新，讓個人創作者只需中階顯卡即可在本地生成好萊塢級宣傳畫，極大降低了數位視覺資產的生產門檻。",
+      "strategicAdvice": "1. 所有依賴第三方圖庫或昂貴生成服務的品牌，應立即搭建基於 ComfyUI + FLUX.1 [dev] 的工作流。\n2. 研發團隊可結合 LoRA 微調技術，訓練專屬產品風格的 FLUX 模型，以低廉成本獲得極高風格一致性的商品圖與模特兒圖。",
+      "sourceUrl": "https://blackforestlabs.ai",
+      "deepDiveReport": "# 👁️ Black Forest Labs FLUX.1 商業價值與戰略評估報告\n\n## 1. 技術定位與競品對比\n**FLUX.1** 是目前全球**最強大的開源圖像生成模型家族**。\n* **技術突破**：FLUX.1 由 Stable Diffusion 的原班人馬（Black Forest Labs）打造，包含 120 億（12B）參數，採用了流匹配（Flow Matching）與 Transformer 混合架構。\n* **競品對比**：在文字精確拼寫、光影擬真度、手指與人體解剖學正確度上，FLUX.1 直追甚至超越了閉源之王 Midjourney v6 與 OpenAI 的 DALL-E 3。它解決了開源社群長期以來提示詞不貼合、文字渲染破碎、肢體扭曲等頑疾。\n\n## 2. 商業化成本與效益分析 (ROI)\n* **成本效益**：FLUX.1 提供了極佳的商用自由度：\n  * **schnell 級別**：採用 Apache-2.0 授權，完全開源且免費商用，生成速度極快（4步即可出圖），適合高吞吐、實時生成。\n  * **dev 級別**：提供最極致的細節，非商用免費，可通過微調（LoRA）達到完美的商品特寫。\n* **ROI 計算**：相較於 Midjourney 企業版或昂貴的第三方 API，在自建 GPU 或雲端 GPU（如單張 RTX 4090 或 A10G）部署 FLUX.1 能夠將單張高保真圖的生成成本降至 **$0.005 以下**，相較付費 API 節省 90% 以上預算，對有大量宣傳海報與設計迭代需求的團隊具有極高的投資回報率。\n\n## 3. 對軟體工程與自動化的革命性影響\n* **全自動視覺資產生成流水線**：開發者可通過 ComfyUI 的 API 節點將 FLUX.1 整合進後端工作流，實現「用戶輸入商品描述 -> 自動生成多角度精美商品背景 -> 自動打包上架」的無人值守自動化。\n* **UI/UX 自動化概念設計**：在軟體工程的前期階段，FLUX.1 能為產品經理與開發者秒級生成精準的 UI 設計草圖與產品原型圖。\n\n## 4. 資訊安全與隱私風險評估\n* **資產 100% 內置與合規**：傳統上，使用 Midjourney 或 DALL-E 3 必須將企業未發表的機密產品圖樣上傳至第三方伺服器，面臨重大的泄密風險。FLUX.1 的本地化部署確保所有微調（LoRA）與生成過程皆在企業私有安全網內進行，徹底避免敏感智慧財產權外流。\n\n## 5. 企業採用戰略路徑 (Roadmap)\n* **短期（30天內）**：在本地部署 ComfyUI，體驗 FLUX.1 [dev] 與 [schnell] 模型，驗證其文字渲染與提示詞遵循能力。\n* **中期（90天內）**：針對特定品牌的商品，收集 30-50 張高畫質特寫，訓練專屬的 FLUX LoRA 微調模型，實現在特定場景中的高精度風格渲染。\n* **長期（180天內）**：將 FLUX 節點包裝為企業內部私有的 AIGC 繪圖 API，賦能行銷、設計與電商團隊，實現一鍵自動化設計替代方案生成。"
+    },
+    {
+      "id": "hist-midjourney-v6-1",
+      "modelName": "Midjourney v6.1",
+      "vendor": "Midjourney",
+      "releaseDate": "2024-07-30",
+      "category": "vision",
+      "chineseDescription": "Midjourney v6.1 是 Midjourney 團隊推出的旗艦級圖像生成模型升級版。該模型在視覺美學、細微紋理（如皮膚毛孔、金屬拉絲、布料編織）的表現力上達到業界頂峰，並大幅優化了人臉細節、眼部神情、手部描繪以及極速出圖時間（提速約 25%）。",
+      "pricingModel": "付費訂閱制：每月 $10 / $30 / $60 / $120 USD 不等，不提供單張計費的開放 API",
+      "keyFeatures": [
+        "無與倫比的電影級光影與頂尖藝術美學，無需複雜提示詞即可產出絕美大作",
+        "超高保真的皮膚、毛髮與微小紋理細節（Texture Fidelity）",
+        "升級版 UpScaler 放大算法，生成 4K 級別細膩影像",
+        "支持動態風格碼（--style raw / --s）與多圖融合，高度可控的創意輸出"
+      ],
+      "useCases": [
+        "概念藝術（Concept Art）、影視分鏡（Storyboarding）與美術場景設定",
+        "高階時裝、室內設計與珠寶首飾靈感效果圖呈現",
+        "頂級雜誌封面、品牌包裝與創意廣告主視覺設計"
+      ],
+      "impactScore": 9,
+      "targetAudience": "美術指導、創意總監、原畫師、時尚設計師、廣告策劃師",
+      "impactAssessment": "Midjourney v6.1 在商業美術、影視前期概念和設計創意領域依然是難以撼動的「金標竿」。其無可比擬的色彩審美與藝術厚度是其他生成模型（包括開源模型）在不經深度微調前難以企及的，極大地將美術創作者的靈感轉化時間縮短了數百倍。",
+      "strategicAdvice": "1. 創意、廣告與影音策劃團隊應將 Midjourney v6.1 訂閱列為剛性研發工具。\n2. 對於不具備自建 GPU 運維能力的創意工作室，使用 Midjourney 的 Web 介面是最高效、成片美感最有保障的選擇。",
+      "sourceUrl": "https://www.midjourney.com",
+      "deepDiveReport": "# 👁️ Midjourney v6.1 商業美術與創意設計評估報告\n\n## 1. 技術定位與競品對比\n**Midjourney v6.1** 是目前全球**藝術美學與電影級質感最頂尖的圖像生成服務**。\n* **技術定位**：作為不公開模型權重的封閉生態代表，Midjourney 不依賴複雜的提示詞工程。其底層模型經過精心挑選的人類美學偏好微調（RLHF），能夠在使用者給出簡單詞彙時，自發生成光影層次極佳、充滿藝術張力的作品。\n* **競品對比**：相較於 FLUX.1 的精準文字渲染與寫實硬體細節，Midjourney v6.1 更偏向**高美學質感與藝術表現力**。在人像眼眼神精采、油畫/插畫筆觸、科幻奇幻概念圖上，Midjourney 依然保持著無可比擬的創意高度。\n\n## 2. 商業化成本與效益分析 (ROI)\n* **訂價策略**：Midjourney 採用訂閱制（每月 $10 到 $120 USD），不對外提供標準 REST API，限制了其在大規模自動化軟體中的直接調用。\n* **極高的人力效率回報**：對於遊戲工作室、影視概念設計公司，一個資深概念插畫師以前畫一個背景需要 3-5 天；而使用 Midjourney v6.1 進行創意發想與快速起草，只需 10 分鐘就能產出 50 個高水準的配色與構圖方案。這能將創意的「草圖與提案階段」提速 100 倍，大幅降低前期流標的沉沒成本。\n\n## 3. 對軟體工程與自動化的革命性影響\n* **限制與局限**：由於 Midjourney 沒有向大眾開放靈活的官方 HTTP API（多數為第三方非官方逆向 API），它難以無縫嵌入 CI/CD 或是自動化 SaaS 的後端服務中。\n* **資產協同**：在軟體前端開發中，它主要作為**靜態 UI 設計美學參考、形象海報、以及 App 背景素材的離線生成工具**。\n\n## 4. 資訊安全與隱私風險評估\n* **隱私隱憂**：Midjourney 的生成與輸入皆在其 Discord 伺服器或官網 Web 雲端運行。**企業若上傳尚未發布的秘密產品草圖、設計圖，將存在資料洩密與專利洩漏的潛在風險**。因此，金融、軍事、以及高新科技研發的核心設計，不建議直接上傳至其公開或付費頻道。\n\n## 5. 企業採用戰略路徑 (Roadmap)\n* **短期（30天內）**：為設計、企劃與市場部門購置 2-3 個 Midjourney Pro 帳戶，推廣「概念美術快速起草工作法」，訓練團隊進行美學提案。\n* **中期（90天內）**：將 Midjourney 生成的高美學背景，與 FLUX 本地 LoRA 微調模型生成的「精準特定商品圖」進行局部重繪（Inpaint）融合，形成「Midjourney提供美感 -> FLUX提供準確度」的黃金雙劍流。\n* **長期（180天內）**：建立內部的「創意資產 AIGC 資料庫」，將 Midjourney 生成的靈感草圖進行結構化歸檔，沉澱為企業專屬的靈感資產。"
+    },
+    {
+      "id": "hist-kling-1-5",
+      "modelName": "Kling 1.5 (可靈)",
+      "vendor": "Kuaishou (快手)",
+      "releaseDate": "2024-09-19",
+      "category": "vision",
+      "chineseDescription": "Kling 1.5（可靈）是快手科技推出的新一代高解析度影片生成模型。支持 1080p、60 幀的高清視頻輸出，在人物動作幅度、真實物理规律模擬（如重力、液體流動、碎裂）、鏡頭運動控制以及雙人/多人交互細節上，是目前全球商用視頻生成領域的領跑者。",
+      "pricingModel": "Web 平台每日贈送免費點數；企業級 API 依據生成分辨率與幀數計費（每秒視頻約 $0.15 - $0.35 USD）",
+      "keyFeatures": [
+        "完美的「物理模擬能力」，物體在碰撞、倒水、切菜時的物理動態非常真實度",
+        "支持極高難度的「雙人交互（如握手、擁抱、搏擊）」與多步驟複雜動作",
+        "強大的 1080p 60fps 高清高流暢度渲染",
+        "業界領先的「文字生成影片（Text-to-Video）」與「圖片生成影片（Image-to-Video）」雙重引擎"
+      ],
+      "useCases": [
+        "電影級特效分鏡、動態預覽（Pre-visualization）與廣告分鏡製作",
+        "短影音、自媒體片頭片尾與動態宣傳海報一鍵生成",
+        "電商商品動態展示、3D 質感演示與虛擬模特兒動態演繹"
+      ],
+      "impactScore": 9,
+      "targetAudience": "影視特效師、自媒體博主、3D 動畫師、廣告導演、電商運營團隊",
+      "impactAssessment": "Kling 1.5 證明了高畫質動態影片生成已經進入了「物理規律真實」的實用化階段。它不再是以前那種物體隨意融化、鏡頭晃動的粗糙 AIGC 玩具，而是能夠在分鏡設計、影視預覽上替劇組節省 80% 實拍與 CG 渲染成本的重磅工具，改寫了影視特效的生產力格局。",
+      "strategicAdvice": "1. 影視概念設計與廣告製作團隊應全面引入 Kling 1.5 作為分鏡與動態預覽工具。\n2. 電商推廣團隊可結合 Stable Diffusion / FLUX 生成的靜態商品圖，使用 Kling 1.5 快速轉化為極吸睛的 10 秒短影音廣告，以最低成本大幅提升廣告點擊率。",
+      "sourceUrl": "https://klingai.kuaishou.com",
+      "deepDiveReport": "# 👁️ 快手 Kling 1.5 影片生成技術與商用價值評估報告\n\n## 1. 技術定位與競品對比\n**Kling 1.5 (可靈)** 是目前全球**最頂尖的商用物理擬真影片生成模型（Physics-informed Video Generation Model）**。\n* **技術定位**：由快手 AI 團隊研發，採用類似 OpenAI Sora 的 Diffusion + Transformer (DiT) 架構，支持高達 1080p 高清與 60fps 幀率影片輸出。\n* **競品對比**：與 OpenAI 未全面對公眾開放 API 的 Sora 相比，Kling 1.5 提供了**高可用、對外開放的企業級 API**。在物體碎裂、液體噴濺、重力下落等複雜物理交互上，Kling 1.5 顯著領先於 Runway Gen-3 Alpha 與 Luma Dream Machine，是目前雙人交互（如擁抱、遞東西）細節最穩定的模型。\n\n## 2. 商業化成本與效益分析 (ROI)\n* **API 計費模式**：採用靈活的 API 點數計費。生成一段 5 秒、24fps、1080p 的專業級鏡頭運動影片，折合成本約 **$0.80 - $1.50 USD**。\n* **ROI 大幅飙升**：在傳統廣告或短影音製作中，拍攝一組「水滴落在草葉上、鏡頭橫移」的特寫鏡頭，需要租用專業微距鏡頭、影棚及搖臂，單次拍攝人力物力成本不低於 **$300 USD**，且可能耗費半天時間。而使用 Kling 1.5 只需要一張圖片加一行提示詞，在 2 分鐘內即可生成，且成本下降了 **99.5%**。這在創意素材大量消耗的現代社交媒體行銷中，創造了無可比擬的商業回報。\n\n## 3. 對軟體工程與自動化的革命性影響\n* **動態網頁與 App 智能背景**：開發者可通過 Kling 1.5 API，在用戶與介面交互時（例如點擊某個產品），動態生成符合用戶情境的 3 秒流暢微影片作為 UI 背景，提升應用的沉浸感。\n* **自動化短影音配圖工作流**：可串接 GPT-4 寫文案 -> 語音合成 ASR -> Kling API 自動配圖影片 -> 自動剪輯輸出成片的端到端自動化短視頻 SaaS。\n\n## 4. 資訊安全與隱私風險評估\n* **內容安全合規（Safety Filters）**：快手平台實施了極為嚴苛的安全過濾機制，絕不允許生成包含暴力、侵權、色情或政治敏感的影片。對企業而言，這能確保自動化生成的影音資產不會發生公關安全事故。\n* **版權與版權侵害防範**：由於 Kling 的訓練集包含海量數據，企業在生成含有特定動漫 IP 或名人形象的視頻時，需嚴格把關，避免將侵權影像用於商業宣傳。\n\n## 5. 企業採用戰略路徑 (Roadmap)\n* **短期（30天內）**：註冊可靈 AI 帳戶，手動測試「靜態圖片生成影片 (Image-to-Video)」功能。這被業界公認為目前最容易控制、成像效果最穩定的影片生成方式。\n* **中期（90天內）**：在行銷、電商與社群媒體營運團隊中，全面推廣「靜態商品美圖 -> 可靈影片化 -> 動態商品展示」的工作流，降低實拍外包預算。\n* **長期（180天內）**：串接 Kling API，開發「智慧動態廣告自動投放系統」，根據當前熱門詞自動生成相應主題的動態微視頻，推播至廣告流量池，實現數據驅動的視覺營銷。"
+    },
+    {
+      "id": "hist-gemini-2-5-pro",
+      "modelName": "Gemini 2.5 Pro",
+      "vendor": "Google",
+      "releaseDate": "2025-03-10",
+      "category": "general",
+      "chineseDescription": "Gemini 2.5 Pro 是 Google 推出的大上下文多模態旗艦模型。最大亮點是高達 200 萬個 Token 的上下文視窗（Context Window），能夠一次性讀取數百萬字、數小時的影片或數十萬行代碼，在長上下文推理、跨模態音視頻處理與長文摘要上達到業界最頂尖表現。",
+      "pricingModel": "輸入：$1.25 / 1M tokens（超過 128k 後為 $2.50），輸出：$5.00 / 1M tokens（超過 128k 後為 $10.00）",
+      "keyFeatures": [
+        "200 萬 Token 的極限超長上下文視窗，且具備完美的檢索召回率（Needle in a Haystack）",
+        "原生多模態：同時無縫輸入音訊、影片、圖片、代碼與文本",
+        "內置極速 Google 搜尋接地（Google Search Grounding）工具",
+        "大幅提升代碼庫重構、多語言互譯與超長會議紀錄摘要性能"
+      ],
+      "useCases": [
+        "分析整本厚重的產品說明書或完整合約文本",
+        "上傳 1 小時的教學錄影帶，進行精準的關鍵片段提問與翻譯",
+        "大型代碼庫（Repo）一鍵導入與架構邏輯分析"
+      ],
+      "impactScore": 9,
+      "targetAudience": "企業法務、大數據分析師、影片內容創作者、大型專案架構師",
+      "impactAssessment": "Gemini 2.5 Pro 在「超長上下文處理」與「原生音視頻理解」這兩個領域建立了極高壁壘。雖然其他廠商也相繼擴大上下文，但 Google 在極大上下文下的精確檢索與原生音視頻特徵讀取，依然是處理超大檔案任務的第一選擇。",
+      "strategicAdvice": "涉及「全書摘要、超長影片理解、整套法律合約比對、老舊大型代碼庫重構」等需要極端上下文的垂直領域，Google Gemini 2.5 Pro 是目前唯一且最成熟的生產力級解決方案。",
+      "sourceUrl": "https://deepmind.google/technologies/gemini/",
+      "deepDiveReport": "# 🧠 Google Gemini 2.5 Pro 大上下文多模態商業評估報告\n\n## 1. 技術定位與競品對比\n**Gemini 2.5 Pro** 是目前全球**超長上下文多模態（Ultra-Long Context Multimodal）大模型的王者**。\n* **極限視窗**：其最獨特也是最致命的武器，是高達 **200萬（2M）Tokens** 的上下文窗格，在該長度下具備近乎 100% 的資訊召回率（Needle in a Haystack）。\n* **多模態特徵**：與依賴額外語音辨識、圖像分割的多模態模型不同，Gemini 2.5 Pro 具備**原生音視頻理解**能力，能夠直接分析影片畫面的連貫動態、音調起伏與背景聲音，在複雜跨多媒體任務中沒有競爭對手。\n\n## 2. 商業化成本與效益分析 (ROI)\n* **定價階梯**：輸入 $1.25/1M tokens（當上下文長度小於 128k），當超出 128k 後，價格調整為 $2.50/1M；輸出為 $5.00/1M（小於 128k），超出後為 $10.00/1M。\n* **成本控制戰略**：雖然超長上下文收費高昂，但它能**完全取代繁重的 RAG（檢索增強生成）管道維運成本**。企業無須搭建向量資料庫、切片算法與重排模型，只需直接將整部技術手冊、法律案卷、或是 10 萬行源代碼塞入模型，即可實現零研發成本的高精準全局分析。\n\n## 3. 對軟體工程與自動化的革命性影響\n* **代碼庫（Codebase）全局重構**：開發者可以直接上傳整個 GitHub 項目。Gemini 2.5 Pro 能在數秒內理清複雜的模組調用鏈，進行代碼死角清理與高精度跨語言翻譯重寫。\n* **極速 Google Search 聯網接地**：內置 Grounding 工具能動態調用 Google 全網搜尋，大幅縮短查詢最新 APIs 的資訊時差。\n\n## 4. 資訊安全與隱私風險評估\n* **大型文件安全合規**：將極其敏感的企業內部完整財務報表、法律糾紛卷宗、或核心源代碼上傳至雲端模型，存在極高的洩密隱患。企業**必須**與 Google Cloud 簽署 Enterprise 專屬隱私數據保障協議，確保上傳的文件在傳輸與運算時實施沙盒物理隔離，且絕不參與模型公共迭代。\n\n## 5. 企業採用戰略路徑 (Roadmap)\n* **短期（30天內）**：將法律合約比對、合規合約審查、超長財報分析等「耗費數天人力」的密集型文書工作，引入 Gemini 2.5 Pro 作為輔助審查工具，實現 10 倍速的效率升級。\n* **中期（90天內）**：針對跨國視訊會議、高階教學錄影帶，架構自動化音視訊「精準問答與導引系統」，免去語音轉文字的多次耗損。\n* **長期（180天內）**：建立企業級「無 RAG 型知識管理與檢索平台」，透過 Gemini 2M 窗格，直接提供面向高階決策者的全量政策、研發文檔即時交叉研判。」"
+    },
+    {
+      "id": "hist-whisper-turbo",
+      "modelName": "Whisper Large-V3 Turbo",
+      "vendor": "OpenAI",
+      "releaseDate": "2024-10-02",
+      "category": "audio",
+      "chineseDescription": "Whisper Large-V3 Turbo 是 OpenAI 開源的輕量化、極速語音辨識與翻譯模型。在保持與標準 Large-V3 相當的高精準度下，推理與解碼速度提升了 4 倍，是實時會議、語音聽寫與影音字幕生成的首選利器。",
+      "pricingModel": "完全開源免費下載部署；雲端 API 計費約為每分鐘 $0.003 USD (較標準版便宜 50%)",
+      "keyFeatures": [
+        "解碼與推理速度相較 Whisper Large-V3 提升近 400%",
+        "支援全球近百種語言的高精度語音聽寫、轉錄與直接中譯英",
+        "出色的背景噪音過濾、抗干擾與多口音適應能力",
+        "完全開源，支援 TensorRT-LLM 邊緣端/伺服器端加速推理"
+      ],
+      "useCases": [
+        "影片高精度即時聽寫與繁體中文字幕自動對齊",
+        "跨國即時視訊會議語音逐字稿與即時翻譯",
+        "車載語音助理、IoT 智慧家電低延遲離線語音控制"
+      ],
+      "impactScore": 8,
+      "targetAudience": "影音創作者、跨國會議軟體商、即時轉譯 Saas 開發團隊、邊緣 IoT 廠商",
+      "impactAssessment": "Whisper Large-V3 Turbo 解決了傳統語音辨識大模型「精準但太慢、太消耗伺服器 GPU 算力」的商用痛點。其超凡的速度使得大規模『即時流式轉譯』與『極低成本多語種聽寫』得以低廉落地，是語音與翻譯領域極具實用價值的里程碑。",
+      "strategicAdvice": "1. 影音字幕軟體與會議逐字稿 Saas，應立刻將底層 Whisper Large-V3 替換為 Turbo 版本，在近乎無失真的前提下節省 70% 的 GPU 運算租用成本。\n2. 對隱私高度敏感的法庭、醫療記錄，可在配備 M 系列晶片的 Mac 本地使用 whisper.cpp 進行 100% 物理隔離的極速聽寫。",
+      "sourceUrl": "https://github.com/openai/whisper",
+      "deepDiveReport": "# 🎙️ Whisper Large-V3 Turbo 語音與翻譯戰略評估報告\n\n## 1. 技術定位與競品對比\n**Whisper Large-V3 Turbo** 是目前全球**開源語音辨識（ASR）與多語種翻譯模型**中，最完美的「速度與精度平衡者」。\n* **技術突破**：OpenAI 透過對 Whisper Large-V3 的結構進行修剪，將原先 32 層的解碼器（Decoder）精簡為 4 層。這一改變雖然讓參數量微幅下降，但將**推理速度直接提升了近 4 倍**。\n* **競品對比**：與微軟 Azure Speech API 或 Google Cloud Text-to-Speech 等昂貴的雲端商業服務相比，Whisper Turbo 完全開源、無授權費，且具備完美的本地/邊緣部署能力。\n\n## 2. 商業化成本與效益分析 (ROI)\n* **極致性價比**：API 收費僅每分鐘 $0.003（遠低於市面其他方案）。\n* **伺服器硬體減負**：對於提供「影音轉錄字幕」的 SaaS 企業，遷移到 Whisper Turbo 意味著**原先需要 4 張 A100 GPU 負載的在線聽寫排隊，現在僅需 1 張 A100 即可輕鬆消化**。硬體算力租金支出直接下降 75%，ROI（投資回報率）極其驚人。\n\n## 3. 對軟體工程與自動化的革命性影響\n* **流式（Streaming）即時人機交互**：超低延遲讓真即時的「語音輸入、翻譯並即時傳送至大模型」成為可能。\n* **邊緣端/離線編譯**：得益於開源社群（如 'whisper.cpp'），該模型能被編譯為極小的 C++ 庫，並在 Apple Silicon、ARM 手機或 Raspberry Pi 上執行高速硬體加速。\n\n## 4. 資訊安全與隱私風險評估\n* **絕對的語音隱私保護**：醫療病歷口述、上市公司高階閉門會議、以及敏感法庭證詞，都面臨極端嚴苛的隱私合規。Whisper Turbo 的開源特性允許企業將其部署在**本地物理隔離的安全伺服器中**，確保語音數據絕不聯網，規避任何數據洩密風險。\n\n## 5. 企業採用戰略路徑 (Roadmap)\n* **短期（30天內）**：將 SaaS 產品或內部溝通軟體中的語音轉文字模組替換為 Whisper Large-V3 Turbo，觀察速度、API 負載、以及用戶對準確度的反饋。\n* **中期（90天內）**：在 M 系列 Mac、公司私有 GPU 伺服器或邊緣 IoT 設備上完成 Whisper Turbo 本地離線化編譯與優化，不再依賴雲端。\n* **長期（180天內）**：構建「全自動多講者音訊轉譯與大模型多維摘要提取流水線」，一鍵消化數小時會議，直接產出精緻的繁體中文會議公報。"
+    },
+    {
+      "id": "hist-sensevoice",
+      "modelName": "SenseVoice Large",
+      "vendor": "Alibaba",
+      "releaseDate": "2024-07-05",
+      "category": "audio",
+      "chineseDescription": "SenseVoice Large 是一款專注於「極速語音識別」、「講者辨識（Speaker Diarization / 區分誰在說話）」與「富文本事件與情緒偵測（笑聲、哭聲、掌聲、噴嚏）」的開源多功能音訊小模型。其解碼速度比 Whisper 快 5 倍以上，特別適合多人會議記錄與智慧客服情緒分析。",
+      "pricingModel": "完全開源免費授權使用 (Apache-2.0)；雲端 API 託管價格極低（約 $0.00015 / 每秒）",
+      "keyFeatures": [
+        "強大的「多人講者辨識（Speaker Diarization）」與聲音特徵區分能力",
+        "富文本音訊事件偵測（笑聲、掌聲、BGM 背景音樂、背景噪聲、情緒）",
+        "推理延遲極低，解碼速度相較傳統 Whisper 提升 5-10 倍",
+        "完美支援多語種、中英文混雜及多種漢語方言（如粵語、四川話等）識別"
+      ],
+      "useCases": [
+        "多人論壇、Podcast 訪談、股東大會人物對照逐字稿生成",
+        "智慧客服中心之情緒語音分析、客訴憤怒偵測與客服插話行為分析",
+        "音視訊內容審查（自動標記掌聲、笑聲、BGM與敏感背景音）"
+      ],
+      "impactScore": 8,
+      "targetAudience": "智慧客服開發商、多人線上會議系統、法庭與公共機構轉錄團隊、影音審查平台",
+      "impactAssessment": "SenseVoice 解決了語音大模型在「多人說話區分、環境背景音分析」這兩個高技術門檻領域的痛點。其不僅回答了『誰在說話』，還回答了『說話時的情緒與背景動態』。高達 5 倍於 Whisper 的解碼速度使其在大規模音訊數據檢索與即時客服話務質量分析上具有無可匹敵的實用商業價值。",
+      "strategicAdvice": "1. 需要「講者識別」的多人語音轉錄工具，應立即將傳統聚類演算法替換為 SenseVoice Large 進行端到端講者分割。\n2. 客服呼叫中心應首選此模型進行私有化部署，可在完全保障隱私的前提下，自動挑選出顧客生氣、或客服態度不良的通話記錄進行針對性改善。",
+      "sourceUrl": "https://github.com/FunASR/SenseVoice",
+      "deepDiveReport": "# 🎙️ Alibaba SenseVoice Large 講者辨識與語音事件評估報告\n\n## 1. 技術定位與競品對比\n**SenseVoice Large** 是阿里巴巴開源的**多功能、極速音訊理解與講者辨識（Speaker Diarization）小模型**。\n* **技術突破**：有別於只專注於「文字聽寫」的 Whisper，SenseVoice 是一款**音訊富文本事件與屬性理解模型**。它能夠精準判斷語音中的情緒、語速，並能辨識出笑聲、掌聲、噴嚏聲、BGM背景音樂等非語音事件。\n* **講者辨識優勢**：在多人會議、訪談對談中，SenseVoice 能在單個模型內**端到端區分不同的說話人（Speaker Diarization）**，免去了傳統「先語音聽寫、再用額外算法對聲紋進行聚類」的繁瑣且極易崩潰的長鏈條管道。\n\n## 2. 商業化成本與效益分析 (ROI)\n* **授權極度友好**：採用開源 **Apache-2.0 授權**，企業可無限制地進行商用修改與閉源產品封裝。\n* **計算成本暴降**：解碼速度比 Whisper 快 5 到 10 倍。這意味著在相同的伺服器配置（如 1 張 NVIDIA T4 顯卡）下，**SenseVoice 可以吞吐高達數十路即時客服通話的並行辨識**，而 Whisper 只能處理個位數，ROI 提升高達 500% 以上。\n\n## 3. 對軟體工程與自動化的革命性影響\n* **智慧音訊事件觸發器**：開發者可以設定，當 SenseVoice 辨識到「持續的激烈爭吵/憤怒情緒」或「笑聲/掌聲」時，自動觸發後端 API 進行客戶滿意度工單建立，或者在直播平台上自動生成高光影片剪輯（Highlights），極具自動化想像力。\n\n## 4. 資訊安全與隱私風險評估\n* **客服隱私安全合規**：呼叫中心（Call Center）儲存了大量包含身分證號、銀行帳戶的敏感語音。SenseVoice 的本地離線部署可確保所有語音分析、說話人劃分與情緒偵測，均在企業自有的內網機房中完成，完美符合各國法規對金融與電信數據防洩露的要求。\n\n## 5. 企業採用戰略路徑 (Roadmap)\n* **短期（30天內）**：將多人會議錄音、Podcast 音檔或呼叫中心語音日誌上傳至 SenseVoice 本地服務，測試其對粵語、繁體中文及英文混雜時的識別精準度。\n* **中期（90天內）**：在智慧客服或通話質檢系統中整合 SenseVoice 引擎，自動標記說話者與通話中的「情緒激動」和「笑聲/掌聲」等特殊標籤。\n* **長期（180天內）**：結合大語言模型，打造一鍵式「多人會議人物對照紀錄生成器與自動待辦事項/決策公報匯出系統」，將企業內部日常會議轉錄率提升至 100%。」"
+    }
+  ],
+  "marketTrend": "各大 AI 廠牌正朝向「超低延遲」、「低成本推理模式（如 DeepSeek-R1、o3-mini）」與「極致超長上下文多模態處理（如 Gemini 2.5 Pro）」兩極化發展，這極大推動了 AI 開發者代理與自動化工作流的實用性。",
+  "activeCatalog": [
+    {
+      "id": "act-gpt-4o",
+      "vendorId": "openai",
+      "vendorName": "OpenAI",
+      "modelId": "gpt-4o",
+      "displayName": "GPT-4o",
+      "aliases": [
+        "gpt-4o-2024-05-13",
+        "gpt-4o-2024-08-06",
+        "gpt-4o-2024-11-20"
+      ],
+      "status": "active",
+      "availability": "ga",
+      "primaryModality": "multimodal",
+      "capabilities": [
+        "vision",
+        "audio",
+        "tool_calling",
+        "structured_outputs",
+        "coding"
+      ],
+      "inputTypes": [
+        "text",
+        "image",
+        "audio"
+      ],
+      "outputTypes": [
+        "text",
+        "audio"
+      ],
+      "contextWindow": 128000,
+      "pricing": {
+        "pricingModel": "pay-as-you-go",
+        "input1m": 2.5,
+        "output1m": 10,
+        "cachedInput1m": 1.25,
+        "pricingStatus": "official_found",
+        "pricingSourceUrl": "https://openai.com/api/pricing",
+        "pricingDetails": "快取命中（Cached）可享 50% 折扣"
+      },
+      "officialSourceUrls": [
+        "https://platform.openai.com/docs/models",
+        "https://openai.com/api/pricing"
+      ],
+      "firstSeenSourceUrl": "https://openai.com/blog/introducing-gpt-4o",
+      "firstSeenAt": "2024-05-13T10:00:00Z",
+      "lastSeenAt": "2026-06-24T00:00:00Z",
+      "lastVerifiedAt": "2026-06-24T00:00:00Z",
+      "summaryZh": "OpenAI 旗艦級全原生多模態模型，整合語音、視覺、文字，處理速度極快，具備出色的跨模態推理與理解力。",
+      "notes": "推薦用於最複雜的綜合性多模態人機協同任務。",
+      "confidence": "high",
+      "reviewStatus": "auto_verified",
+      "sourceSnapshotIds": [],
+      "gapFlags": [],
+      "modelName": "GPT-4o",
+      "vendor": "OpenAI",
+      "releaseDate": "2024-05-13",
+      "category": "general",
+      "pricingInput": "$2.50 / 1M tokens",
+      "pricingOutput": "$10.00 / 1M tokens",
+      "deprecatedReplacements": "GPT-4 Turbo, GPT-4 (0613), GPT-4-vision",
+      "keyFeatures": [
+        "全原生多模態整合",
+        "超高回應速度",
+        "高性價比",
+        "高精度複雜推理"
+      ]
+    },
+    {
+      "id": "act-gpt-4o-mini",
+      "vendorId": "openai",
+      "vendorName": "OpenAI",
+      "modelId": "gpt-4o-mini",
+      "displayName": "GPT-4o-mini",
+      "aliases": [
+        "gpt-4o-mini-2024-07-18"
+      ],
+      "status": "active",
+      "availability": "ga",
+      "primaryModality": "multimodal",
+      "capabilities": [
+        "vision",
+        "tool_calling",
+        "structured_outputs",
+        "coding"
+      ],
+      "inputTypes": [
+        "text",
+        "image"
+      ],
+      "outputTypes": [
+        "text"
+      ],
+      "contextWindow": 128000,
+      "pricing": {
+        "pricingModel": "pay-as-you-go",
+        "input1m": 0.15,
+        "output1m": 0.6,
+        "cachedInput1m": 0.075,
+        "pricingStatus": "official_found",
+        "pricingSourceUrl": "https://openai.com/api/pricing",
+        "pricingDetails": "快取命中（Cached）半價"
+      },
+      "officialSourceUrls": [
+        "https://platform.openai.com/docs/models",
+        "https://openai.com/api/pricing"
+      ],
+      "firstSeenSourceUrl": "https://openai.com/blog/gpt-4o-mini-advancing-cost-efficient-intelligence",
+      "firstSeenAt": "2024-07-18T10:00:00Z",
+      "lastSeenAt": "2026-06-24T00:00:00Z",
+      "lastVerifiedAt": "2026-06-24T00:00:00Z",
+      "summaryZh": "OpenAI 的輕量級高性價比多模態模型，專為高頻率、低延遲、低預算的日常任務量身打造。",
+      "notes": "廣泛適用於客服、翻譯、大文本解析與常規數據抽取。",
+      "confidence": "high",
+      "reviewStatus": "auto_verified",
+      "sourceSnapshotIds": [],
+      "gapFlags": [],
+      "modelName": "GPT-4o-mini",
+      "vendor": "OpenAI",
+      "releaseDate": "2024-07-18",
+      "category": "general",
+      "pricingInput": "$0.15 / 1M tokens",
+      "pricingOutput": "$0.60 / 1M tokens",
+      "deprecatedReplacements": "GPT-3.5-Turbo (所有版本)",
+      "keyFeatures": [
+        "極低 API 計費成本",
+        "支援多模態圖像輸入",
+        "快取命中減半",
+        "回應延遲低"
+      ]
+    },
+    {
+      "id": "act-o1",
+      "vendorId": "openai",
+      "vendorName": "OpenAI",
+      "modelId": "o1",
+      "displayName": "o1",
+      "aliases": [
+        "o1-2024-12-17"
+      ],
+      "status": "active",
+      "availability": "ga",
+      "primaryModality": "multimodal",
+      "capabilities": [
+        "reasoning",
+        "vision",
+        "tool_calling",
+        "structured_outputs",
+        "coding"
+      ],
+      "inputTypes": [
+        "text",
+        "image"
+      ],
+      "outputTypes": [
+        "text"
+      ],
+      "contextWindow": 200000,
+      "pricing": {
+        "pricingModel": "pay-as-you-go",
+        "input1m": 15,
+        "output1m": 60,
+        "pricingStatus": "official_found",
+        "pricingSourceUrl": "https://openai.com/api/pricing",
+        "pricingDetails": "包含內部思考（Thinking Tokens）的消耗"
+      },
+      "officialSourceUrls": [
+        "https://platform.openai.com/docs/models",
+        "https://openai.com/api/pricing"
+      ],
+      "firstSeenSourceUrl": "https://openai.com/blog/introducing-openai-o1",
+      "firstSeenAt": "2024-12-05T10:00:00Z",
+      "lastSeenAt": "2026-06-24T00:00:00Z",
+      "lastVerifiedAt": "2026-06-24T00:00:00Z",
+      "summaryZh": "OpenAI 推理系列旗艦模型，專門訓練用於處理數學、科學、編程與高度邏輯思考的複雜推理鏈。",
+      "notes": "思考鏈 (CoT) 自動生成，在競賽級別測試中達到人類專家水平。",
+      "confidence": "high",
+      "reviewStatus": "auto_verified",
+      "sourceSnapshotIds": [],
+      "gapFlags": [],
+      "modelName": "o1",
+      "vendor": "OpenAI",
+      "releaseDate": "2024-12-05",
+      "category": "reasoning",
+      "pricingInput": "$15.00 / 1M tokens",
+      "pricingOutput": "$60.00 / 1M tokens",
+      "deprecatedReplacements": "o1-preview",
+      "keyFeatures": [
+        "思考鏈 (CoT) 自動生成",
+        "競賽級數學與程式設計頂尖",
+        "支援多模態視覺"
+      ]
+    },
+    {
+      "id": "act-o3-mini",
+      "vendorId": "openai",
+      "vendorName": "OpenAI",
+      "modelId": "o3-mini",
+      "displayName": "o3-mini",
+      "aliases": [
+        "o3-mini-2025-01-31"
+      ],
+      "status": "active",
+      "availability": "ga",
+      "primaryModality": "language",
+      "capabilities": [
+        "reasoning",
+        "tool_calling",
+        "structured_outputs",
+        "coding"
+      ],
+      "inputTypes": [
+        "text"
+      ],
+      "outputTypes": [
+        "text"
+      ],
+      "contextWindow": 200000,
+      "pricing": {
+        "pricingModel": "pay-as-you-go",
+        "input1m": 1.1,
+        "output1m": 4.4,
+        "pricingStatus": "official_found",
+        "pricingSourceUrl": "https://openai.com/api/pricing",
+        "pricingDetails": "可調節思考深度 (low, medium, high)"
+      },
+      "officialSourceUrls": [
+        "https://platform.openai.com/docs/models",
+        "https://openai.com/api/pricing"
+      ],
+      "firstSeenSourceUrl": "https://openai.com/news/openai-o3-mini",
+      "firstSeenAt": "2025-01-31T10:00:00Z",
+      "lastSeenAt": "2026-06-24T00:00:00Z",
+      "lastVerifiedAt": "2026-06-24T00:00:00Z",
+      "summaryZh": "兼顧超高科學推理能力與極快回應速度的高性價比推理模型，完全支援開發者生態功能。",
+      "notes": "推理速度相較 o1 有了巨大的提升。",
+      "confidence": "high",
+      "reviewStatus": "auto_verified",
+      "sourceSnapshotIds": [],
+      "gapFlags": [],
+      "modelName": "o3-mini",
+      "vendor": "OpenAI",
+      "releaseDate": "2025-01-31",
+      "category": "reasoning",
+      "pricingInput": "$1.10 / 1M tokens",
+      "pricingOutput": "$4.40 / 1M tokens",
+      "deprecatedReplacements": "o1-mini",
+      "keyFeatures": [
+        "自由選擇思考深度",
+        "超低成本推理",
+        "支援原生 Tool Calling"
+      ]
+    },
+    {
+      "id": "act-claude-3-7-sonnet",
+      "vendorId": "anthropic",
+      "vendorName": "Anthropic",
+      "modelId": "claude-3-7-sonnet",
+      "displayName": "Claude 3.7 Sonnet",
+      "aliases": [
+        "claude-3-7-sonnet-20250224"
+      ],
+      "status": "active",
+      "availability": "ga",
+      "primaryModality": "multimodal",
+      "capabilities": [
+        "reasoning",
+        "vision",
+        "tool_calling",
+        "coding"
+      ],
+      "inputTypes": [
+        "text",
+        "image"
+      ],
+      "outputTypes": [
+        "text"
+      ],
+      "contextWindow": 200000,
+      "pricing": {
+        "pricingModel": "pay-as-you-go",
+        "input1m": 3,
+        "output1m": 15,
+        "pricingStatus": "official_found",
+        "pricingSourceUrl": "https://www.anthropic.com/pricing",
+        "pricingDetails": "思考過程（Thinking Mode）所消耗 Token 亦依此計費"
+      },
+      "officialSourceUrls": [
+        "https://docs.anthropic.com/en/docs/about-claude/models",
+        "https://www.anthropic.com/pricing"
+      ],
+      "firstSeenSourceUrl": "https://www.anthropic.com/news/claude-3-7-sonnet",
+      "firstSeenAt": "2025-02-24T10:00:00Z",
+      "lastSeenAt": "2026-06-24T00:00:00Z",
+      "lastVerifiedAt": "2026-06-24T00:00:00Z",
+      "summaryZh": "首款自適應混合推理模型，用戶可自主調整「思考額度」以平衡回應延遲與邏輯思考深度，編程代理能力極強。",
+      "notes": "代碼自主編寫、架構重構與 Agentic 工作流首選模型。",
+      "confidence": "high",
+      "reviewStatus": "auto_verified",
+      "sourceSnapshotIds": [],
+      "gapFlags": [],
+      "modelName": "Claude 3.7 Sonnet",
+      "vendor": "Anthropic",
+      "releaseDate": "2025-02-24",
+      "category": "reasoning",
+      "pricingInput": "$3.00 / 1M tokens",
+      "pricingOutput": "$15.00 / 1M tokens",
+      "deprecatedReplacements": "Claude 3 Sonnet, Claude 3.5 Sonnet (v1)",
+      "keyFeatures": [
+        "自適應思考模式",
+        "多檔案自主代碼重構",
+        "業界最高水準系統設計"
+      ]
+    },
+    {
+      "id": "act-claude-3-5-sonnet",
+      "vendorId": "anthropic",
+      "vendorName": "Anthropic",
+      "modelId": "claude-3-5-sonnet",
+      "displayName": "Claude 3.5 Sonnet (v2)",
+      "aliases": [
+        "claude-3-5-sonnet-20241022"
+      ],
+      "status": "active",
+      "availability": "ga",
+      "primaryModality": "multimodal",
+      "capabilities": [
+        "vision",
+        "tool_calling",
+        "coding"
+      ],
+      "inputTypes": [
+        "text",
+        "image"
+      ],
+      "outputTypes": [
+        "text"
+      ],
+      "contextWindow": 200000,
+      "pricing": {
+        "pricingModel": "pay-as-you-go",
+        "input1m": 3,
+        "output1m": 15,
+        "pricingStatus": "official_found",
+        "pricingSourceUrl": "https://www.anthropic.com/pricing"
+      },
+      "officialSourceUrls": [
+        "https://docs.anthropic.com/en/docs/about-claude/models",
+        "https://www.anthropic.com/pricing"
+      ],
+      "firstSeenSourceUrl": "https://www.anthropic.com/news/claude-3-5-sonnet-upgrade",
+      "firstSeenAt": "2024-10-22T10:00:00Z",
+      "lastSeenAt": "2026-06-24T00:00:00Z",
+      "lastVerifiedAt": "2026-06-24T00:00:00Z",
+      "summaryZh": "業界最受好評的通用多模態大模型，具備完美的文字撰寫文筆、圖表分析、代碼調試及長文章處理。",
+      "notes": "以高事實準確度、文筆優雅著稱。",
+      "confidence": "high",
+      "reviewStatus": "auto_verified",
+      "sourceSnapshotIds": [],
+      "gapFlags": [],
+      "modelName": "Claude 3.5 Sonnet (v2)",
+      "vendor": "Anthropic",
+      "releaseDate": "2024-10-22",
+      "category": "general",
+      "pricingInput": "$3.00 / 1M tokens",
+      "pricingOutput": "$15.00 / 1M tokens",
+      "deprecatedReplacements": "Claude 3.5 Sonnet (v1)",
+      "keyFeatures": [
+        "超高寫作與事實準確度",
+        "內建 Artifacts 工作區",
+        "完美讀取複雜圖表流程圖"
+      ]
+    },
+    {
+      "id": "act-gemini-2-5-pro",
+      "vendorId": "google",
+      "vendorName": "Google Gemini",
+      "modelId": "gemini-2.5-pro",
+      "displayName": "Gemini 2.5 Pro",
+      "aliases": [
+        "gemini-2.5-pro-latest"
+      ],
+      "status": "active",
+      "availability": "ga",
+      "primaryModality": "multimodal",
+      "capabilities": [
+        "vision",
+        "audio",
+        "video",
+        "tool_calling",
+        "coding"
+      ],
+      "inputTypes": [
+        "text",
+        "image",
+        "audio",
+        "video"
+      ],
+      "outputTypes": [
+        "text",
+        "audio"
+      ],
+      "contextWindow": 2000000,
+      "pricing": {
+        "pricingModel": "pay-as-you-go",
+        "input1m": 1.25,
+        "output1m": 5,
+        "cachedInput1m": 0.3125,
+        "pricingStatus": "official_found",
+        "pricingSourceUrl": "https://ai.google.dev/pricing",
+        "pricingDetails": "小於 128k 上下文：$1.25 / $5.00 ；大於 128k：$2.50 / $10.00"
+      },
+      "officialSourceUrls": [
+        "https://ai.google.dev/gemini-api/docs/models/gemini",
+        "https://ai.google.dev/pricing"
+      ],
+      "firstSeenSourceUrl": "https://deepmind.google/technologies/gemini",
+      "firstSeenAt": "2025-03-10T10:00:00Z",
+      "lastSeenAt": "2026-06-24T00:00:00Z",
+      "lastVerifiedAt": "2026-06-24T00:00:00Z",
+      "summaryZh": "Google 當前最強旗艦大模型。具備 200 萬字節的極端長上下文窗格，能一口氣讀入整套大代碼庫或數小時影片。",
+      "notes": "首創的原生多模態影音同步輸入，性能強大，極為推薦 Context Caching。",
+      "confidence": "high",
+      "reviewStatus": "auto_verified",
+      "sourceSnapshotIds": [],
+      "gapFlags": [],
+      "modelName": "Gemini 2.5 Pro",
+      "vendor": "Google",
+      "releaseDate": "2025-03-10",
+      "category": "general",
+      "pricingInput": "$1.25 / 1M tokens",
+      "pricingOutput": "$5.00 / 1M tokens",
+      "deprecatedReplacements": "Gemini 1.5 Pro, Gemini 1.0 Pro",
+      "keyFeatures": [
+        "2M 超長上下文窗格",
+        "原生多模態影音同步",
+        "內置 Google 搜尋 Grounding"
+      ]
+    },
+    {
+      "id": "act-gemini-2-5-flash",
+      "vendorId": "google",
+      "vendorName": "Google Gemini",
+      "modelId": "gemini-2.5-flash",
+      "displayName": "Gemini 2.5 Flash",
+      "aliases": [
+        "gemini-2.5-flash-latest"
+      ],
+      "status": "active",
+      "availability": "ga",
+      "primaryModality": "multimodal",
+      "capabilities": [
+        "vision",
+        "audio",
+        "video",
+        "tool_calling",
+        "coding"
+      ],
+      "inputTypes": [
+        "text",
+        "image",
+        "audio",
+        "video"
+      ],
+      "outputTypes": [
+        "text",
+        "audio"
+      ],
+      "contextWindow": 1000000,
+      "pricing": {
+        "pricingModel": "pay-as-you-go",
+        "input1m": 0.075,
+        "output1m": 0.3,
+        "cachedInput1m": 0.01875,
+        "pricingStatus": "official_found",
+        "pricingSourceUrl": "https://ai.google.dev/pricing",
+        "pricingDetails": "小於 128k：$0.075 / $0.30；大於 128k：$0.15 / $0.60"
+      },
+      "officialSourceUrls": [
+        "https://ai.google.dev/gemini-api/docs/models/gemini",
+        "https://ai.google.dev/pricing"
+      ],
+      "firstSeenSourceUrl": "https://deepmind.google/technologies/gemini",
+      "firstSeenAt": "2025-03-10T10:00:00Z",
+      "lastSeenAt": "2026-06-24T00:00:00Z",
+      "lastVerifiedAt": "2026-06-24T00:00:00Z",
+      "summaryZh": "高性價比、超高速度的通用多模態模型，提供 100 萬上下文，為大規模生產部署與自動化 Agent 首選。",
+      "notes": "極低 API 計費與卓越的速度。",
+      "confidence": "high",
+      "reviewStatus": "auto_verified",
+      "sourceSnapshotIds": [],
+      "gapFlags": [],
+      "modelName": "Gemini 2.5 Flash",
+      "vendor": "Google",
+      "releaseDate": "2025-03-10",
+      "category": "general",
+      "pricingInput": "$0.075 / 1M tokens",
+      "pricingOutput": "$0.30 / 1M tokens",
+      "deprecatedReplacements": "Gemini 1.5 Flash",
+      "keyFeatures": [
+        "1M 上下文窗格",
+        "低延遲與極佳性價比",
+        "支援即時搜尋與多模態解讀"
+      ]
+    },
+    {
+      "id": "act-deepseek-r1",
+      "vendorId": "deepseek",
+      "vendorName": "DeepSeek",
+      "modelId": "deepseek-r1",
+      "displayName": "DeepSeek-R1",
+      "aliases": [
+        "deepseek-reasoning"
+      ],
+      "status": "active",
+      "availability": "ga",
+      "primaryModality": "language",
+      "capabilities": [
+        "reasoning",
+        "coding"
+      ],
+      "inputTypes": [
+        "text"
+      ],
+      "outputTypes": [
+        "text"
+      ],
+      "contextWindow": 128000,
+      "pricing": {
+        "pricingModel": "pay-as-you-go",
+        "input1m": 0.55,
+        "output1m": 2.19,
+        "cachedInput1m": 0.14,
+        "pricingStatus": "official_found",
+        "pricingSourceUrl": "https://api-docs.deepseek.com/pricing",
+        "pricingDetails": "快取命中（Cached）時輸入僅需 $0.14/1M"
+      },
+      "officialSourceUrls": [
+        "https://api-docs.deepseek.com/pricing"
+      ],
+      "firstSeenSourceUrl": "https://github.com/deepseek-ai/DeepSeek-R1",
+      "firstSeenAt": "2025-01-20T10:00:00Z",
+      "lastSeenAt": "2026-06-24T00:00:00Z",
+      "lastVerifiedAt": "2026-06-24T00:00:00Z",
+      "summaryZh": "開源推理模型的巔峰之作，以全強化學習訓練，性能比肩 OpenAI o1，而推理費用僅需其 1/20。",
+      "notes": "完全開放模型權重，掀起了全球推理模型開源與降價浪潮。",
+      "confidence": "high",
+      "reviewStatus": "auto_verified",
+      "sourceSnapshotIds": [],
+      "gapFlags": [],
+      "modelName": "DeepSeek-R1",
+      "vendor": "DeepSeek",
+      "releaseDate": "2025-01-20",
+      "category": "reasoning",
+      "pricingInput": "$0.55 / 1M tokens",
+      "pricingOutput": "$2.19 / 1M tokens",
+      "deprecatedReplacements": "DeepSeek-R1-Lite",
+      "keyFeatures": [
+        "開源模型權重與蒸餾權重",
+        "冷啟動 CoT 強化學習",
+        "極致推理成本效益"
+      ]
+    },
+    {
+      "id": "act-deepseek-v3",
+      "vendorId": "deepseek",
+      "vendorName": "DeepSeek",
+      "modelId": "deepseek-v3",
+      "displayName": "DeepSeek-V3",
+      "aliases": [
+        "deepseek-chat"
+      ],
+      "status": "active",
+      "availability": "ga",
+      "primaryModality": "language",
+      "capabilities": [
+        "tool_calling",
+        "coding"
+      ],
+      "inputTypes": [
+        "text"
+      ],
+      "outputTypes": [
+        "text"
+      ],
+      "contextWindow": 128000,
+      "pricing": {
+        "pricingModel": "pay-as-you-go",
+        "input1m": 0.14,
+        "output1m": 0.28,
+        "cachedInput1m": 0.014,
+        "pricingStatus": "official_found",
+        "pricingSourceUrl": "https://api-docs.deepseek.com/pricing",
+        "pricingDetails": "快取命中時輸入僅需 $0.014 / 1M tokens"
+      },
+      "officialSourceUrls": [
+        "https://api-docs.deepseek.com/pricing"
+      ],
+      "firstSeenSourceUrl": "https://github.com/deepseek-ai/DeepSeek-V3",
+      "firstSeenAt": "2024-12-26T10:00:00Z",
+      "lastSeenAt": "2026-06-24T00:00:00Z",
+      "lastVerifiedAt": "2026-06-24T00:00:00Z",
+      "summaryZh": "旗艦級混合專家模型 (MoE)，總參數高達 671B，通用性能與 GPT-4o 相當，但定價便宜至極。",
+      "notes": "極速多頭潛在注意力機制 (MLA) 有效減少了顯存快取佔用。",
+      "confidence": "high",
+      "reviewStatus": "auto_verified",
+      "sourceSnapshotIds": [],
+      "gapFlags": [],
+      "modelName": "DeepSeek-V3",
+      "vendor": "DeepSeek",
+      "releaseDate": "2024-12-26",
+      "category": "general",
+      "pricingInput": "$0.14 / 1M tokens",
+      "pricingOutput": "$0.28 / 1M tokens",
+      "deprecatedReplacements": "DeepSeek-V2.5, DeepSeek-V2",
+      "keyFeatures": [
+        "多頭潛在注意力 (MLA)",
+        "MoE 架構精簡算力",
+        "FP8 低精度極速推理"
+      ]
+    },
+    {
+      "id": "act-llama-3-3-70b",
+      "vendorId": "meta",
+      "vendorName": "Meta AI",
+      "modelId": "llama-3.3-70b",
+      "displayName": "Llama 3.3 70B",
+      "aliases": [
+        "llama-3.3-70b-instruct"
+      ],
+      "status": "active",
+      "availability": "ga",
+      "primaryModality": "language",
+      "capabilities": [
+        "tool_calling",
+        "coding"
+      ],
+      "inputTypes": [
+        "text"
+      ],
+      "outputTypes": [
+        "text"
+      ],
+      "contextWindow": 128000,
+      "pricing": {
+        "pricingModel": "free",
+        "input1m": "開源免費下載",
+        "output1m": "開源免費下載",
+        "pricingStatus": "official_found",
+        "pricingSourceUrl": "https://llama.meta.com"
+      },
+      "officialSourceUrls": [
+        "https://llama.meta.com",
+        "https://github.com/meta-llama/llama3"
+      ],
+      "firstSeenSourceUrl": "https://ai.meta.com/blog/introducing-llama-3-3",
+      "firstSeenAt": "2024-12-06T10:00:00Z",
+      "lastSeenAt": "2026-06-24T00:00:00Z",
+      "lastVerifiedAt": "2026-06-24T00:00:00Z",
+      "summaryZh": "Meta 開源王牌之作，以精湛的 70B 參數，在指令遵循、工具調用語音和跨語言表達上達到了 GPT-4 級別的性能。",
+      "notes": "適合大型企業私有化部署與本地微調。",
+      "confidence": "high",
+      "reviewStatus": "auto_verified",
+      "sourceSnapshotIds": [],
+      "gapFlags": [],
+      "modelName": "Llama 3.3 70B",
+      "vendor": "Meta",
+      "releaseDate": "2024-12-06",
+      "category": "open-source",
+      "pricingInput": "開源免費下載",
+      "pricingOutput": "開源免費下載",
+      "deprecatedReplacements": "Llama 3 70B, Llama 2 70B",
+      "keyFeatures": [
+        "商用友好開源授權",
+        "卓越的多輪對話遵循",
+        "高精度 Tool Use 執行"
+      ]
+    },
+    {
+      "id": "act-whisper-turbo",
+      "vendorId": "openai",
+      "vendorName": "OpenAI",
+      "modelId": "whisper-large-v3-turbo",
+      "displayName": "Whisper Large-V3 Turbo",
+      "aliases": [
+        "whisper-turbo"
+      ],
+      "status": "active",
+      "availability": "ga",
+      "primaryModality": "asr",
+      "capabilities": [
+        "speech_to_text",
+        "translation"
+      ],
+      "inputTypes": [
+        "audio"
+      ],
+      "outputTypes": [
+        "text"
+      ],
+      "contextWindow": "30s chunking",
+      "pricing": {
+        "pricingModel": "free",
+        "input1m": "開源免費下載",
+        "output1m": "API 每分鐘 $0.003",
+        "pricingStatus": "official_found",
+        "pricingSourceUrl": "https://openai.com/api/pricing",
+        "pricingDetails": "開源免費下載，雲端 API 託管費率僅為標準 Whisper Large-V3 的一半"
+      },
+      "officialSourceUrls": [
+        "https://github.com/openai/whisper"
+      ],
+      "firstSeenSourceUrl": "https://github.com/openai/whisper/releases/tag/v20241002",
+      "firstSeenAt": "2024-10-02T10:00:00Z",
+      "lastSeenAt": "2026-06-24T00:00:00Z",
+      "lastVerifiedAt": "2026-06-24T00:00:00Z",
+      "summaryZh": "OpenAI 專為極速轉錄與翻譯打造的開源語音模型。解碼速度相較原本 Large-v3 提升 4 倍，且識別精度極高，為流式聽寫、字幕對齊首選。",
+      "notes": "完美支援 whisper.cpp 進行邊緣硬體加速。",
+      "confidence": "high",
+      "reviewStatus": "auto_verified",
+      "sourceSnapshotIds": [],
+      "gapFlags": [],
+      "modelName": "Whisper Large-V3 Turbo",
+      "vendor": "OpenAI",
+      "releaseDate": "2024-10-02",
+      "category": "audio",
+      "pricingInput": "$0.003 / 分鐘",
+      "pricingOutput": "開源免費下載",
+      "deprecatedReplacements": "Whisper Large-v1 / v2 / v3 (標準版)",
+      "keyFeatures": [
+        "推理速度提升 400%",
+        "百種語言高精度轉錄",
+        "原生語音中譯英"
+      ]
+    },
+    {
+      "id": "act-sensevoice-large",
+      "vendorId": "alibaba",
+      "vendorName": "Alibaba Cloud",
+      "modelId": "sensevoice-large",
+      "displayName": "SenseVoice Large",
+      "aliases": [
+        "sensevoice"
+      ],
+      "status": "active",
+      "availability": "ga",
+      "primaryModality": "asr",
+      "capabilities": [
+        "speech_to_text",
+        "diarization",
+        "emotion_detection"
+      ],
+      "inputTypes": [
+        "audio"
+      ],
+      "outputTypes": [
+        "text"
+      ],
+      "contextWindow": "極速多語音",
+      "pricing": {
+        "pricingModel": "free",
+        "input1m": "開源免費 (Apache-2.0)",
+        "output1m": "API $0.00015 / 秒",
+        "pricingStatus": "official_found",
+        "pricingSourceUrl": "https://github.com/FunASR/SenseVoice",
+        "pricingDetails": "極佳的本地化私有部署能力，並提供極便宜的雲端 API 託管"
+      },
+      "officialSourceUrls": [
+        "https://github.com/FunASR/SenseVoice"
+      ],
+      "firstSeenSourceUrl": "https://github.com/FunASR/SenseVoice",
+      "firstSeenAt": "2024-07-05T10:00:00Z",
+      "lastSeenAt": "2026-06-24T00:00:00Z",
+      "lastVerifiedAt": "2026-06-24T00:00:00Z",
+      "summaryZh": "阿里巴巴開源的語音分析與多人講者辨識（Speaker Diarization）大作。不僅語音識別比 Whisper 快 5 倍，更能自動判讀情緒與環境事件。",
+      "notes": "極度推薦會議逐字稿與客訴情緒分析系統採用。",
+      "confidence": "high",
+      "reviewStatus": "auto_verified",
+      "sourceSnapshotIds": [],
+      "gapFlags": [],
+      "modelName": "SenseVoice Large",
+      "vendor": "Alibaba",
+      "releaseDate": "2024-07-05",
+      "category": "audio",
+      "pricingInput": "$0.00015 / 秒",
+      "pricingOutput": "開源免費下載 (Apache-2.0)",
+      "deprecatedReplacements": "傳統聲紋聚類分割流水線",
+      "keyFeatures": [
+        "端到端多人講者辨識",
+        "情緒與富文本事件偵測",
+        "轉錄速度快 Whisper 5-10 倍"
+      ]
+    },
+    {
+      "id": "dep-gpt-3-5-turbo",
+      "vendorId": "openai",
+      "vendorName": "OpenAI",
+      "modelId": "gpt-3.5-turbo",
+      "displayName": "GPT-3.5 Turbo",
+      "aliases": [
+        "gpt-3.5-turbo-0125",
+        "gpt-3.5-turbo-1106"
+      ],
+      "status": "deprecated",
+      "availability": "deprecated",
+      "primaryModality": "language",
+      "capabilities": [
+        "tool_calling"
+      ],
+      "inputTypes": [
+        "text"
+      ],
+      "outputTypes": [
+        "text"
+      ],
+      "contextWindow": 16385,
+      "pricing": {
+        "pricingModel": "pay-as-you-go",
+        "input1m": "已停止支援",
+        "output1m": "已停止支援",
+        "pricingStatus": "not_applicable"
+      },
+      "officialSourceUrls": [
+        "https://platform.openai.com/docs/models"
+      ],
+      "firstSeenSourceUrl": "https://openai.com/blog/introducing-gpt-3-5-turbo",
+      "firstSeenAt": "2023-03-01T10:00:00Z",
+      "lastSeenAt": "2025-07-01T00:00:00Z",
+      "lastVerifiedAt": "2026-06-24T00:00:00Z",
+      "summaryZh": "昔日黃金通用輕量模型。現已被 GPT-4o-mini 全面替代，API 與網頁介面已全面除役或停止新功能支援。",
+      "notes": "已不推薦在任何新生產環境中使用。",
+      "confidence": "high",
+      "reviewStatus": "auto_verified",
+      "sourceSnapshotIds": [],
+      "gapFlags": [],
+      "modelName": "GPT-3.5 Turbo",
+      "vendor": "OpenAI",
+      "releaseDate": "2023-03-01",
+      "category": "general",
+      "pricingInput": "$0.50 / 1M (已下架)",
+      "pricingOutput": "$1.50 / 1M (已下架)",
+      "deprecatedReplacements": "由 GPT-4o-mini 完美取代（成本低 60%，性能強 50%）",
+      "keyFeatures": [
+        "昔日低延遲代表",
+        "文字流式生成"
+      ]
+    },
+    {
+      "id": "act-unknown-model-spec",
+      "vendorId": "google",
+      "vendorName": "Google Gemini",
+      "modelId": "gemini-ultra-unreleased",
+      "displayName": "Gemini 2.0 Ultra (Internal)",
+      "aliases": [
+        "gemini-ultra-internal"
+      ],
+      "status": "unknown",
+      "availability": "research_only",
+      "primaryModality": "multimodal",
+      "capabilities": [
+        "reasoning",
+        "coding"
+      ],
+      "inputTypes": [
+        "text",
+        "image"
+      ],
+      "outputTypes": [
+        "text"
+      ],
+      "contextWindow": "unknown",
+      "pricing": {
+        "pricingModel": "unknown",
+        "input1m": "N/A",
+        "output1m": "N/A",
+        "pricingStatus": "official_not_found"
+      },
+      "officialSourceUrls": [],
+      "firstSeenSourceUrl": "https://deepmind.google",
+      "firstSeenAt": "2025-12-01T00:00:00Z",
+      "lastSeenAt": "2026-06-24T00:00:00Z",
+      "lastVerifiedAt": "2026-06-24T00:00:00Z",
+      "summaryZh": "於某些技術社群與模型清單中洩露的 Google 內部超大型 Ultra 模型，可能用於特殊研究或大主機閉門實驗。",
+      "notes": "目前官方未對外公佈 API 串接與收費方式，置信度低，待人工核實。",
+      "confidence": "low",
+      "reviewStatus": "needs_review",
+      "sourceSnapshotIds": [],
+      "gapFlags": [],
+      "modelName": "Gemini 2.0 Ultra (Internal)",
+      "vendor": "Google",
+      "releaseDate": "未公開",
+      "category": "other",
+      "pricingInput": "未定價 (N/A)",
+      "pricingOutput": "未定價 (N/A)",
+      "deprecatedReplacements": "無",
+      "keyFeatures": [
+        "極限大參數規格",
+        "多模態複雜語義對應"
+      ]
+    }
+  ],
+  "vendors": [
+    {
+      "id": "openai",
+      "name": "OpenAI",
+      "website": "https://openai.com",
+      "priority": "core",
+      "sourceUrls": [
+        {
+          "url": "https://platform.openai.com/docs/models",
+          "sourceType": "models_page",
+          "trustLevel": "official",
+          "scanMode": "inventory"
+        },
+        {
+          "url": "https://openai.com/api/pricing",
+          "sourceType": "pricing_page",
+          "trustLevel": "official",
+          "scanMode": "pricing"
+        },
+        {
+          "url": "https://openai.com/news",
+          "sourceType": "blog",
+          "trustLevel": "official",
+          "scanMode": "release"
+        }
+      ]
+    },
+    {
+      "id": "anthropic",
+      "name": "Anthropic",
+      "website": "https://anthropic.com",
+      "priority": "core",
+      "sourceUrls": [
+        {
+          "url": "https://docs.anthropic.com/en/docs/about-claude/models",
+          "sourceType": "models_page",
+          "trustLevel": "official",
+          "scanMode": "inventory"
+        },
+        {
+          "url": "https://www.anthropic.com/pricing",
+          "sourceType": "pricing_page",
+          "trustLevel": "official",
+          "scanMode": "pricing"
+        },
+        {
+          "url": "https://www.anthropic.com/news",
+          "sourceType": "blog",
+          "trustLevel": "official",
+          "scanMode": "release"
+        }
+      ]
+    },
+    {
+      "id": "google",
+      "name": "Google Gemini",
+      "website": "https://deepmind.google",
+      "priority": "core",
+      "sourceUrls": [
+        {
+          "url": "https://ai.google.dev/gemini-api/docs/models/gemini",
+          "sourceType": "models_page",
+          "trustLevel": "official",
+          "scanMode": "inventory"
+        },
+        {
+          "url": "https://ai.google.dev/pricing",
+          "sourceType": "pricing_page",
+          "trustLevel": "official",
+          "scanMode": "pricing"
+        },
+        {
+          "url": "https://deepmind.google/news",
+          "sourceType": "blog",
+          "trustLevel": "official",
+          "scanMode": "release"
+        }
+      ]
+    },
+    {
+      "id": "deepseek",
+      "name": "DeepSeek",
+      "website": "https://deepseek.com",
+      "priority": "core",
+      "sourceUrls": [
+        {
+          "url": "https://api-docs.deepseek.com/pricing",
+          "sourceType": "pricing_page",
+          "trustLevel": "official",
+          "scanMode": "pricing"
+        },
+        {
+          "url": "https://github.com/deepseek-ai",
+          "sourceType": "github",
+          "trustLevel": "official",
+          "scanMode": "inventory"
+        },
+        {
+          "url": "https://deepseek.com",
+          "sourceType": "blog",
+          "trustLevel": "official",
+          "scanMode": "release"
+        }
+      ]
+    },
+    {
+      "id": "meta",
+      "name": "Meta AI",
+      "website": "https://ai.meta.com",
+      "priority": "core",
+      "sourceUrls": [
+        {
+          "url": "https://llama.meta.com",
+          "sourceType": "models_page",
+          "trustLevel": "official",
+          "scanMode": "inventory"
+        },
+        {
+          "url": "https://github.com/facebookresearch",
+          "sourceType": "github",
+          "trustLevel": "official",
+          "scanMode": "inventory"
+        },
+        {
+          "url": "https://ai.meta.com/blog",
+          "sourceType": "blog",
+          "trustLevel": "official",
+          "scanMode": "release"
+        }
+      ]
+    },
+    {
+      "id": "mistral",
+      "name": "Mistral AI",
+      "website": "https://mistral.ai",
+      "priority": "important",
+      "sourceUrls": [
+        {
+          "url": "https://docs.mistral.ai/getting-started/models",
+          "sourceType": "models_page",
+          "trustLevel": "official",
+          "scanMode": "inventory"
+        },
+        {
+          "url": "https://mistral.ai/technology",
+          "sourceType": "pricing_page",
+          "trustLevel": "official",
+          "scanMode": "pricing"
+        },
+        {
+          "url": "https://mistral.ai/news",
+          "sourceType": "blog",
+          "trustLevel": "official",
+          "scanMode": "release"
+        }
+      ]
+    },
+    {
+      "id": "xai",
+      "name": "xAI (Grok)",
+      "website": "https://x.ai",
+      "priority": "important",
+      "sourceUrls": [
+        {
+          "url": "https://docs.x.ai/docs",
+          "sourceType": "models_page",
+          "trustLevel": "official",
+          "scanMode": "inventory"
+        },
+        {
+          "url": "https://x.ai/blog",
+          "sourceType": "blog",
+          "trustLevel": "official",
+          "scanMode": "release"
+        }
+      ]
+    },
+    {
+      "id": "microsoft",
+      "name": "Microsoft",
+      "website": "https://azure.microsoft.com",
+      "priority": "important",
+      "sourceUrls": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models",
+          "sourceType": "models_page",
+          "trustLevel": "official",
+          "scanMode": "inventory"
+        },
+        {
+          "url": "https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service",
+          "sourceType": "pricing_page",
+          "trustLevel": "official",
+          "scanMode": "pricing"
+        },
+        {
+          "url": "https://blogs.microsoft.com/ai",
+          "sourceType": "blog",
+          "trustLevel": "official",
+          "scanMode": "release"
+        }
+      ]
+    },
+    {
+      "id": "cohere",
+      "name": "Cohere",
+      "website": "https://cohere.com",
+      "priority": "important",
+      "sourceUrls": [
+        {
+          "url": "https://docs.cohere.com/docs/models",
+          "sourceType": "models_page",
+          "trustLevel": "official",
+          "scanMode": "inventory"
+        },
+        {
+          "url": "https://cohere.com/pricing",
+          "sourceType": "pricing_page",
+          "trustLevel": "official",
+          "scanMode": "pricing"
+        },
+        {
+          "url": "https://cohere.com/blog",
+          "sourceType": "blog",
+          "trustLevel": "official",
+          "scanMode": "release"
+        }
+      ]
+    },
+    {
+      "id": "ai21",
+      "name": "AI21 Labs",
+      "website": "https://ai21.com",
+      "priority": "watch",
+      "sourceUrls": [
+        {
+          "url": "https://docs.ai21.com/docs/models",
+          "sourceType": "models_page",
+          "trustLevel": "official",
+          "scanMode": "inventory"
+        },
+        {
+          "url": "https://www.ai21.com/pricing",
+          "sourceType": "pricing_page",
+          "trustLevel": "official",
+          "scanMode": "pricing"
+        }
+      ]
+    },
+    {
+      "id": "alibaba",
+      "name": "Alibaba Cloud",
+      "website": "https://www.alibabacloud.com",
+      "priority": "important",
+      "sourceUrls": [
+        {
+          "url": "https://github.com/QwenLM",
+          "sourceType": "github",
+          "trustLevel": "official",
+          "scanMode": "inventory"
+        },
+        {
+          "url": "https://github.com/FunASR",
+          "sourceType": "github",
+          "trustLevel": "official",
+          "scanMode": "inventory"
+        },
+        {
+          "url": "https://www.alibabacloud.com/product/apsaradb-for-mongodb",
+          "sourceType": "blog",
+          "trustLevel": "official",
+          "scanMode": "release"
+        }
+      ]
+    },
+    {
+      "id": "tencent",
+      "name": "Tencent Hunyuan",
+      "website": "https://hunyuan.tencent.com",
+      "priority": "watch",
+      "sourceUrls": [
+        {
+          "url": "https://cloud.tencent.com/document/product/1729",
+          "sourceType": "models_page",
+          "trustLevel": "official",
+          "scanMode": "inventory"
+        },
+        {
+          "url": "https://cloud.tencent.com/document/product/1729/104758",
+          "sourceType": "pricing_page",
+          "trustLevel": "official",
+          "scanMode": "pricing"
+        }
+      ]
+    },
+    {
+      "id": "baidu",
+      "name": "Baidu Ernie",
+      "website": "https://cloud.baidu.com",
+      "priority": "watch",
+      "sourceUrls": [
+        {
+          "url": "https://cloud.baidu.com/doc/WENXINYIYAN/index.html",
+          "sourceType": "models_page",
+          "trustLevel": "official",
+          "scanMode": "inventory"
+        },
+        {
+          "url": "https://cloud.baidu.com/doc/WENXINYIYAN/s/ilpbi4w83",
+          "sourceType": "pricing_page",
+          "trustLevel": "official",
+          "scanMode": "pricing"
+        }
+      ]
+    },
+    {
+      "id": "bytedance",
+      "name": "ByteDance Doubao",
+      "website": "https://www.volcengine.com",
+      "priority": "important",
+      "sourceUrls": [
+        {
+          "url": "https://www.volcengine.com/product/doubao",
+          "sourceType": "models_page",
+          "trustLevel": "official",
+          "scanMode": "inventory"
+        },
+        {
+          "url": "https://www.volcengine.com/docs/82982/1271164",
+          "sourceType": "pricing_page",
+          "trustLevel": "official",
+          "scanMode": "pricing"
+        }
+      ]
+    },
+    {
+      "id": "aws",
+      "name": "Amazon Bedrock",
+      "website": "https://aws.amazon.com/bedrock",
+      "priority": "important",
+      "sourceUrls": [
+        {
+          "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html",
+          "sourceType": "models_page",
+          "trustLevel": "official",
+          "scanMode": "inventory"
+        },
+        {
+          "url": "https://aws.amazon.com/bedrock/pricing",
+          "sourceType": "pricing_page",
+          "trustLevel": "official",
+          "scanMode": "pricing"
+        }
+      ]
+    },
+    {
+      "id": "huggingface",
+      "name": "Hugging Face",
+      "website": "https://huggingface.co",
+      "priority": "important",
+      "sourceUrls": [
+        {
+          "url": "https://huggingface.co/models",
+          "sourceType": "models_page",
+          "trustLevel": "platform",
+          "scanMode": "inventory"
+        },
+        {
+          "url": "https://huggingface.co/blog",
+          "sourceType": "blog",
+          "trustLevel": "platform",
+          "scanMode": "release"
+        }
+      ]
+    },
+    {
+      "id": "groq",
+      "name": "Groq",
+      "website": "https://groq.com",
+      "priority": "important",
+      "sourceUrls": [
+        {
+          "url": "https://console.groq.com/docs/models",
+          "sourceType": "models_page",
+          "trustLevel": "official",
+          "scanMode": "inventory"
+        },
+        {
+          "url": "https://groq.com/pricing",
+          "sourceType": "pricing_page",
+          "trustLevel": "official",
+          "scanMode": "pricing"
+        }
+      ]
+    },
+    {
+      "id": "stability",
+      "name": "Stability AI",
+      "website": "https://stability.ai",
+      "priority": "important",
+      "sourceUrls": [
+        {
+          "url": "https://stability.ai/stable-image",
+          "sourceType": "models_page",
+          "trustLevel": "official",
+          "scanMode": "inventory"
+        },
+        {
+          "url": "https://stability.ai/pricing",
+          "sourceType": "pricing_page",
+          "trustLevel": "official",
+          "scanMode": "pricing"
+        }
+      ]
+    },
+    {
+      "id": "runway",
+      "name": "Runway",
+      "website": "https://runwayml.com",
+      "priority": "watch",
+      "sourceUrls": [
+        {
+          "url": "https://runwayml.com/research",
+          "sourceType": "blog",
+          "trustLevel": "official",
+          "scanMode": "release"
+        }
+      ]
+    },
+    {
+      "id": "luma",
+      "name": "Luma AI",
+      "website": "https://lumalabs.ai",
+      "priority": "watch",
+      "sourceUrls": [
+        {
+          "url": "https://lumalabs.ai/dream-machine",
+          "sourceType": "models_page",
+          "trustLevel": "official",
+          "scanMode": "inventory"
+        }
+      ]
+    },
+    {
+      "id": "perplexity",
+      "name": "Perplexity AI",
+      "website": "https://perplexity.ai",
+      "priority": "important",
+      "sourceUrls": [
+        {
+          "url": "https://docs.perplexity.ai/docs/model-cards",
+          "sourceType": "models_page",
+          "trustLevel": "official",
+          "scanMode": "inventory"
+        },
+        {
+          "url": "https://docs.perplexity.ai/docs/pricing",
+          "sourceType": "pricing_page",
+          "trustLevel": "official",
+          "scanMode": "pricing"
+        }
+      ]
+    }
+  ],
+  "sourceSnapshots": [],
+  "scanSessions": []
+}

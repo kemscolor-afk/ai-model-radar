@@ -210,7 +210,7 @@ export default function ActiveModelsCatalog({ apiKeyConfigured, onSelectUpdate }
     };
     const cfg = map[status] || map.needs_review;
     return (
-      <span className={`inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-bold border ${cfg.cls}`}>
+      <span className={`inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-xs font-bold border ${cfg.cls}`}>
         {cfg.icon}{cfg.label}
       </span>
     );
@@ -226,7 +226,7 @@ export default function ActiveModelsCatalog({ apiKeyConfigured, onSelectUpdate }
     };
     const cfg = map[status] || map.official_not_found;
     return (
-      <span className={`text-[10px] font-bold ${cfg.cls} flex items-center gap-0.5`}>
+      <span className={`text-xs font-bold ${cfg.cls} flex items-center gap-0.5`}>
         {cfg.label}
         {sourceUrl && (
           <a href={sourceUrl} target="_blank" rel="noopener noreferrer" className="ml-0.5 hover:underline" title="定價來源">
@@ -241,17 +241,17 @@ export default function ActiveModelsCatalog({ apiKeyConfigured, onSelectUpdate }
     const map: Record<string, string> = { high: "text-emerald-500", medium: "text-amber-500", low: "text-rose-500" };
     const label: Record<string, string> = { high: "高", medium: "中", low: "低" };
     if (!confidence) return null;
-    return <span className={`text-[10px] font-bold ${map[confidence] || "text-slate-400"}`}>可信度: {label[confidence] || confidence}</span>;
+    return <span className={`text-xs font-bold ${map[confidence] || "text-slate-400"}`}>可信度: {label[confidence] || confidence}</span>;
   };
 
   const renderStatusRibbon = (model: ActiveCatalogModel) => {
     const s = model.status;
-    if (s === "deprecated") return <div className="absolute top-2 right-2 px-2 py-0.5 rounded-sm text-[10px] font-bold uppercase tracking-wider bg-red-100 text-red-800">已正式下架</div>;
-    if (s === "possibly_deprecated") return <div className="absolute top-2 right-2 px-2 py-0.5 rounded-sm text-[10px] font-bold uppercase tracking-wider bg-orange-100 text-orange-800">⚠ 可能退役</div>;
-    if (s === "legacy") return <div className="absolute top-2 right-2 px-2 py-0.5 rounded-sm text-[10px] font-bold uppercase tracking-wider bg-amber-100 text-amber-800">舊版 (Legacy)</div>;
-    if (s === "preview" || s === "beta") return <div className="absolute top-2 right-2 px-2 py-0.5 rounded-sm text-[10px] font-bold uppercase tracking-wider bg-blue-100 text-blue-800">預覽/測試版</div>;
-    if (s === "unknown") return <div className="absolute top-2 right-2 px-2 py-0.5 rounded-sm text-[10px] font-bold uppercase tracking-wider bg-slate-200 text-slate-600">未分類</div>;
-    return <div className="absolute top-2 right-2 px-2 py-0.5 rounded-sm text-[10px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800">現役 (Active)</div>;
+    if (s === "deprecated") return <div className="absolute top-2 right-2 px-2 py-0.5 rounded-sm text-xs font-bold uppercase tracking-wider bg-red-100 text-red-800">已正式下架</div>;
+    if (s === "possibly_deprecated") return <div className="absolute top-2 right-2 px-2 py-0.5 rounded-sm text-xs font-bold uppercase tracking-wider bg-orange-100 text-orange-800">⚠ 可能退役</div>;
+    if (s === "legacy") return <div className="absolute top-2 right-2 px-2 py-0.5 rounded-sm text-xs font-bold uppercase tracking-wider bg-amber-100 text-amber-800">舊版 (Legacy)</div>;
+    if (s === "preview" || s === "beta") return <div className="absolute top-2 right-2 px-2 py-0.5 rounded-sm text-xs font-bold uppercase tracking-wider bg-blue-100 text-blue-800">預覽/測試版</div>;
+    if (s === "unknown") return <div className="absolute top-2 right-2 px-2 py-0.5 rounded-sm text-xs font-bold uppercase tracking-wider bg-slate-200 text-slate-600">未分類</div>;
+    return <div className="absolute top-2 right-2 px-2 py-0.5 rounded-sm text-xs font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800">現役 (Active)</div>;
   };
 
   return (
@@ -427,7 +427,7 @@ export default function ActiveModelsCatalog({ apiKeyConfigured, onSelectUpdate }
 
                 <div className="space-y-3">
                   <div>
-                    <span className="text-[10px] text-slate-400 font-bold tracking-wider uppercase">
+                    <span className="text-xs text-slate-400 font-bold tracking-wider uppercase">
                       {model.vendor}
                     </span>
                     <h3 className="text-base font-bold text-slate-900 font-display mt-0.5 pr-16">
@@ -449,11 +449,11 @@ export default function ActiveModelsCatalog({ apiKeyConfigured, onSelectUpdate }
                   {/* Pricing and Context metrics */}
                   <div className="grid grid-cols-2 gap-2 text-[11px] font-mono">
                     <div className="bg-slate-50 p-2 rounded-lg">
-                      <span className="block text-[10px] text-slate-400 font-sans">上下文長度</span>
+                      <span className="block text-xs text-slate-400 font-sans">上下文長度</span>
                       <span className="font-bold text-slate-800 block mt-0.5">{model.contextWindow}</span>
                     </div>
                     <div className="bg-emerald-50/40 p-2 rounded-lg">
-                      <span className="block text-[10px] text-emerald-600 font-sans flex items-center gap-1">
+                      <span className="block text-xs text-emerald-600 font-sans flex items-center gap-1">
                         Input 費率
                         {renderPricingStatus(
                           pricing?.pricingStatus as string,
@@ -466,7 +466,7 @@ export default function ActiveModelsCatalog({ apiKeyConfigured, onSelectUpdate }
 
                   {/* Gap flag warning */}
                   {hasGapFlags && (
-                    <div className="bg-amber-50 border border-amber-200 p-2 rounded-lg flex items-start gap-1.5 text-[10px] text-amber-800">
+                    <div className="bg-amber-50 border border-amber-200 p-2 rounded-lg flex items-start gap-1.5 text-xs text-amber-800">
                       <AlertTriangle className="w-3 h-3 shrink-0 mt-0.5" />
                       <span>
                         <strong>資料缺口：</strong>{model.gapFlags?.join("、")}
@@ -477,7 +477,7 @@ export default function ActiveModelsCatalog({ apiKeyConfigured, onSelectUpdate }
                   {/* Replacements details */}
                   {model.deprecatedReplacements && (
                     <div className="bg-indigo-50/40 border border-indigo-100/30 p-2.5 rounded-lg text-[11px]">
-                      <span className="block text-[10px] text-indigo-600 font-bold mb-0.5">
+                      <span className="block text-xs text-indigo-600 font-bold mb-0.5">
                         {isDeprecated ? "取代它的推薦模型：" : "已被此模型替代之舊系列："}
                       </span>
                       <span className="text-indigo-950 font-medium">{model.deprecatedReplacements}</span>
@@ -487,7 +487,7 @@ export default function ActiveModelsCatalog({ apiKeyConfigured, onSelectUpdate }
                   {/* Features tags */}
                   <div className="flex flex-wrap gap-1 pt-1">
                     {model.keyFeatures?.slice(0, 3).map((feat, idx) => (
-                      <span key={idx} className="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-sm text-[10px]">
+                      <span key={idx} className="px-2 py-0.5 bg-slate-100 text-slate-600 rounded-sm text-xs">
                         {feat}
                       </span>
                     ))}
@@ -503,7 +503,7 @@ export default function ActiveModelsCatalog({ apiKeyConfigured, onSelectUpdate }
                     產出針對性評估報告
                   </button>
                   {/* Source links & timestamps */}
-                  <div className="flex flex-wrap items-center gap-2 text-[10px] text-slate-400">
+                  <div className="flex flex-wrap items-center gap-2 text-xs text-slate-400">
                     {model.lastVerifiedAt && (
                       <span className="flex items-center gap-0.5">
                         <Clock className="w-2.5 h-2.5" />

@@ -407,7 +407,7 @@ export default function App() {
                   </div>
                   <div>
                     <h2 className="text-lg font-bold font-display text-white flex items-center gap-2">
-                      24H 智能全自動背景監測引擎 <span className="text-[10px] bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-2 py-0.5 rounded-full font-mono">DAEMON ACTIVE</span>
+                      24H 智能全自動背景監測引擎 <span className="text-xs bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-2 py-0.5 rounded-full font-mono">DAEMON ACTIVE</span>
                     </h2>
                     <p className="text-xs text-slate-400">
                       系統已設定每 24 小時自動連線 Google Grounding 聯網輪詢。無須任何手動介入，自動分析、翻譯、評估並更新。
@@ -427,9 +427,9 @@ export default function App() {
                     <Gauge className="w-6 h-6" />
                   </div>
                   <div>
-                    <span className="block text-[10px] uppercase text-slate-500 font-bold tracking-wider">背景監測狀態</span>
+                    <span className="block text-xs uppercase text-slate-500 font-bold tracking-wider">背景監測狀態</span>
                     <span className="text-sm font-bold text-emerald-400 block mt-0.5">● 背景常駐守護中</span>
-                    <span className="text-[10px] text-slate-400">輪詢週期: 每 24 小時一次</span>
+                    <span className="text-xs text-slate-400">輪詢週期: 每 24 小時一次</span>
                   </div>
                 </div>
 
@@ -439,9 +439,9 @@ export default function App() {
                     <CheckCircle className="w-6 h-6" />
                   </div>
                   <div>
-                    <span className="block text-[10px] uppercase text-slate-500 font-bold tracking-wider">上次自動更新基準 (Last Scan)</span>
+                    <span className="block text-xs uppercase text-slate-500 font-bold tracking-wider">上次自動更新基準 (Last Scan)</span>
                     <span className="text-xs font-mono font-semibold text-slate-200 block mt-0.5">{lastScanTime || "2026-06-23 04:00:00 CST"}</span>
-                    <span className="text-[10px] text-slate-400">已自動解析大廠 Blog 與 Tech 論文</span>
+                    <span className="text-xs text-slate-400">已自動解析大廠 Blog 與 Tech 論文</span>
                   </div>
                 </div>
 
@@ -452,11 +452,11 @@ export default function App() {
                     <Clock className="w-6 h-6" />
                   </div>
                   <div>
-                    <span className="block text-[10px] uppercase text-slate-500 font-bold tracking-wider">下次掃描倒數</span>
+                    <span className="block text-xs uppercase text-slate-500 font-bold tracking-wider">下次掃描倒數</span>
                     <span className="text-lg font-mono font-black text-indigo-400 block tracking-widest mt-0.5">
                       {nextScanCountdown || "07:29:41"}
                     </span>
-                    <span className="text-[10px] text-slate-400">預計排程: {nextScanTime || "04:00:00 CST"}</span>
+                    <span className="text-xs text-slate-400">預計排程: {nextScanTime || "04:00:00 CST"}</span>
                   </div>
                 </div>
 
@@ -489,7 +489,7 @@ export default function App() {
                     <div key={site.name} className="bg-slate-900/60 p-2.5 rounded-lg border border-slate-800 flex items-center justify-between group hover:border-slate-700 transition">
                       <div className="flex flex-col min-w-0">
                         <span className="font-medium text-slate-300 truncate">{site.name}</span>
-                        <a href={site.url} target="_blank" rel="noopener noreferrer" className="text-[10px] text-slate-500 hover:text-indigo-400 truncate flex items-center gap-0.5">
+                        <a href={site.url} target="_blank" rel="noopener noreferrer" className="text-xs text-slate-500 hover:text-indigo-400 truncate flex items-center gap-0.5">
                           官網連結 <ArrowUpRight className="w-2 h-2" />
                         </a>
                       </div>
@@ -554,7 +554,7 @@ export default function App() {
 
                     <div className="flex items-center gap-2">
                       <div className="flex flex-col">
-                        <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">最近天數</span>
+                        <span className="text-xs text-slate-500 font-bold uppercase tracking-wider">最近天數</span>
                         <select
                           value={scanDays}
                           onChange={(e) => setScanDays(Number(e.target.value))}
@@ -623,7 +623,7 @@ export default function App() {
                   
                   <div className="bg-indigo-950/30 p-3 rounded-lg border border-indigo-900/30">
                     <div className="flex items-center gap-1.5 text-indigo-300 font-bold mb-1">
-                      <span className="px-1.5 py-0.5 bg-indigo-500/20 text-[10px] rounded font-mono">9-10</span>
+                      <span className="px-1.5 py-0.5 bg-indigo-500/20 text-xs rounded font-mono">9-10</span>
                       <span>全球顛覆者</span>
                     </div>
                     <p className="text-slate-400 text-[11px] leading-relaxed">
@@ -633,7 +633,7 @@ export default function App() {
 
                   <div className="bg-emerald-950/20 p-3 rounded-lg border border-emerald-900/20">
                     <div className="flex items-center gap-1.5 text-emerald-300 font-bold mb-1">
-                      <span className="px-1.5 py-0.5 bg-emerald-500/20 text-[10px] rounded font-mono">7-8</span>
+                      <span className="px-1.5 py-0.5 bg-emerald-500/20 text-xs rounded font-mono">7-8</span>
                       <span>產業推動者</span>
                     </div>
                     <p className="text-slate-400 text-[11px] leading-relaxed">
@@ -643,7 +643,7 @@ export default function App() {
 
                   <div className="bg-amber-950/20 p-3 rounded-lg border border-amber-900/20">
                     <div className="flex items-center gap-1.5 text-amber-300 font-bold mb-1">
-                      <span className="px-1.5 py-0.5 bg-amber-500/20 text-[10px] rounded font-mono">5-6</span>
+                      <span className="px-1.5 py-0.5 bg-amber-500/20 text-xs rounded font-mono">5-6</span>
                       <span>功能漸進者</span>
                     </div>
                     <p className="text-slate-400 text-[11px] leading-relaxed">
@@ -653,7 +653,7 @@ export default function App() {
 
                   <div className="bg-slate-900 p-3 rounded-lg border border-slate-800">
                     <div className="flex items-center gap-1.5 text-slate-300 font-bold mb-1">
-                      <span className="px-1.5 py-0.5 bg-slate-800 text-[10px] rounded font-mono">3-4</span>
+                      <span className="px-1.5 py-0.5 bg-slate-800 text-xs rounded font-mono">3-4</span>
                       <span>細微優化者</span>
                     </div>
                     <p className="text-slate-400 text-[11px] leading-relaxed">
@@ -663,7 +663,7 @@ export default function App() {
 
                   <div className="bg-rose-950/10 p-3 rounded-lg border border-rose-900/10">
                     <div className="flex items-center gap-1.5 text-rose-300 font-bold mb-1">
-                      <span className="px-1.5 py-0.5 bg-rose-500/20 text-[10px] rounded font-mono">1-2</span>
+                      <span className="px-1.5 py-0.5 bg-rose-500/20 text-xs rounded font-mono">1-2</span>
                       <span>老舊退役級</span>
                     </div>
                     <p className="text-slate-400 text-[11px] leading-relaxed">
@@ -698,7 +698,7 @@ export default function App() {
           <section className="bg-linear-to-r from-slate-900 to-indigo-950 text-white rounded-2xl p-6 shadow-sm relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/10 rounded-full blur-2xl pointer-events-none" />
             <div className="space-y-2">
-              <span className="text-[10px] font-bold text-indigo-300 font-mono tracking-widest uppercase block">
+              <span className="text-xs font-bold text-indigo-300 font-mono tracking-widest uppercase block">
                 Daily Trend Analyst • 本日市場大趨勢解析
               </span>
               <h3 className="text-base font-bold font-display text-white">AI 技術雷達最新觀察</h3>
@@ -718,7 +718,7 @@ export default function App() {
               <h2 className="text-lg font-bold text-slate-900 font-display">AI 模型與技術情報總覽摘要表</h2>
               <div className="flex flex-wrap items-center gap-2 mt-1">
                 <p className="text-xs text-slate-500">已收錄 {filteredUpdates.length} 款模型，支援中文規格介紹與計費機制比對</p>
-                <span className="inline-flex items-center gap-1 text-[10px] bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded-full font-medium">
+                <span className="inline-flex items-center gap-1 text-xs bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded-full font-medium">
                   🔄 篩選自適應：隨資料自動增列廠商與分類
                 </span>
               </div>
@@ -826,7 +826,7 @@ export default function App() {
                           <div className="font-bold text-slate-900 font-display text-[14px]">
                             {update.modelName}
                           </div>
-                          <span className={`inline-block text-[10px] font-bold px-2 py-0.5 rounded-full mt-1 ${vendorBadge}`}>
+                          <span className={`inline-block text-xs font-bold px-2 py-0.5 rounded-full mt-1 ${vendorBadge}`}>
                             {update.vendor}
                           </span>
                         </td>
@@ -862,7 +862,7 @@ export default function App() {
                         <td className="py-4 px-4 text-center whitespace-nowrap">
                           <div className="inline-flex items-center gap-1">
                             <span className="font-extrabold font-mono text-slate-800">{update.impactScore}</span>
-                            <span className="text-[10px] text-slate-400">/10</span>
+                            <span className="text-xs text-slate-400">/10</span>
                           </div>
                         </td>
 
