@@ -264,9 +264,6 @@ export default function App() {
                 本站整理市場上可用的 AI 模型，協助使用者依照文字、影像、語音、影片、embedding、reranking、coding、agent 等需求，快速查找可用模型、官方來源、計費方式與生命週期狀態。
               </p>
             </div>
-            <div className="rounded-md bg-white px-3 py-2 text-sm font-semibold text-indigo-800 ring-1 ring-indigo-100">
-              前台唯讀，不提供手動掃描或資料控制
-            </div>
           </div>
         </section>
 
