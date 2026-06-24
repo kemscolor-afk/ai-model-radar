@@ -489,7 +489,7 @@ export default function App() {
                     <div key={site.name} className="bg-slate-900/60 p-2.5 rounded-lg border border-slate-800 flex items-center justify-between group hover:border-slate-700 transition">
                       <div className="flex flex-col min-w-0">
                         <span className="font-medium text-slate-300 truncate">{site.name}</span>
-                        <a href={site.url} target="_blank" rel="noopener noreferrer" className="text-[9px] text-slate-500 hover:text-indigo-400 truncate flex items-center gap-0.5">
+                        <a href={site.url} target="_blank" rel="noopener noreferrer" className="text-[10px] text-slate-500 hover:text-indigo-400 truncate flex items-center gap-0.5">
                           官網連結 <ArrowUpRight className="w-2 h-2" />
                         </a>
                       </div>

@@ -70,7 +70,7 @@ export default function LLMPipelineVisualizer({ currentStep, steps, isActive }: 
                       <IconComponent className={`w-5 h-5 ${iconColor}`} />
                     )}
                   </div>
-                  <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${badgeStyle}`}>
+                  <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${badgeStyle}`}>
                     {badgeText}
                   </span>
                 </div>

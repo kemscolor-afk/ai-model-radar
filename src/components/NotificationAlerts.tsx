@@ -158,7 +158,7 @@ export default function NotificationAlerts({ recentUpdates, onSelectUpdate }: No
                 </div>
                 <div className="flex-1">
                   <p className="font-medium text-[13px]">{alert.message}</p>
-                  <div className="flex gap-4 mt-1.5 text-[10px] text-slate-400 font-mono">
+                  <div className="flex gap-4 mt-1.5 text-xs text-slate-400 font-mono">
                     <span>廠商: {alert.update.vendor}</span>
                     <span>計費: {alert.update.pricingModel.substring(0, 30)}...</span>
                   </div>
@@ -206,7 +206,7 @@ export default function NotificationAlerts({ recentUpdates, onSelectUpdate }: No
                   localStorage.removeItem("ai_radar_subscriber");
                   setIsSubscribed(false);
                 }}
-                className="text-[10px] text-indigo-300 hover:underline hover:text-indigo-200"
+                className="text-xs text-indigo-300 hover:underline hover:text-indigo-200"
               >
                 取消訂閱或更換郵件
               </button>

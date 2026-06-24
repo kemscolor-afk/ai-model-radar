@@ -210,7 +210,7 @@ export default function ActiveModelsCatalog({ apiKeyConfigured, onSelectUpdate }
     };
     const cfg = map[status] || map.needs_review;
     return (
-      <span className={`inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[9px] font-bold border ${cfg.cls}`}>
+      <span className={`inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-bold border ${cfg.cls}`}>
         {cfg.icon}{cfg.label}
       </span>
     );
@@ -226,7 +226,7 @@ export default function ActiveModelsCatalog({ apiKeyConfigured, onSelectUpdate }
     };
     const cfg = map[status] || map.official_not_found;
     return (
-      <span className={`text-[9px] font-bold ${cfg.cls} flex items-center gap-0.5`}>
+      <span className={`text-[10px] font-bold ${cfg.cls} flex items-center gap-0.5`}>
         {cfg.label}
         {sourceUrl && (
           <a href={sourceUrl} target="_blank" rel="noopener noreferrer" className="ml-0.5 hover:underline" title="定價來源">
@@ -241,17 +241,17 @@ export default function ActiveModelsCatalog({ apiKeyConfigured, onSelectUpdate }
     const map: Record<string, string> = { high: "text-emerald-500", medium: "text-amber-500", low: "text-rose-500" };
     const label: Record<string, string> = { high: "高", medium: "中", low: "低" };
     if (!confidence) return null;
-    return <span className={`text-[9px] font-bold ${map[confidence] || "text-slate-400"}`}>可信度: {label[confidence] || confidence}</span>;
+    return <span className={`text-[10px] font-bold ${map[confidence] || "text-slate-400"}`}>可信度: {label[confidence] || confidence}</span>;
   };
 
   const renderStatusRibbon = (model: ActiveCatalogModel) => {
     const s = model.status;
-    if (s === "deprecated") return <div className="absolute top-2 right-2 px-2 py-0.5 rounded-sm text-[9px] font-bold uppercase tracking-wider bg-red-100 text-red-800">已正式下架</div>;
-    if (s === "possibly_deprecated") return <div className="absolute top-2 right-2 px-2 py-0.5 rounded-sm text-[9px] font-bold uppercase tracking-wider bg-orange-100 text-orange-800">⚠ 可能退役</div>;
-    if (s === "legacy") return <div className="absolute top-2 right-2 px-2 py-0.5 rounded-sm text-[9px] font-bold uppercase tracking-wider bg-amber-100 text-amber-800">舊版 (Legacy)</div>;
-    if (s === "preview" || s === "beta") return <div className="absolute top-2 right-2 px-2 py-0.5 rounded-sm text-[9px] font-bold uppercase tracking-wider bg-blue-100 text-blue-800">預覽/測試版</div>;
-    if (s === "unknown") return <div className="absolute top-2 right-2 px-2 py-0.5 rounded-sm text-[9px] font-bold uppercase tracking-wider bg-slate-200 text-slate-600">未分類</div>;
-    return <div className="absolute top-2 right-2 px-2 py-0.5 rounded-sm text-[9px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800">現役 (Active)</div>;
+    if (s === "deprecated") return <div className="absolute top-2 right-2 px-2 py-0.5 rounded-sm text-[10px] font-bold uppercase tracking-wider bg-red-100 text-red-800">已正式下架</div>;
+    if (s === "possibly_deprecated") return <div className="absolute top-2 right-2 px-2 py-0.5 rounded-sm text-[10px] font-bold uppercase tracking-wider bg-orange-100 text-orange-800">⚠ 可能退役</div>;
+    if (s === "legacy") return <div className="absolute top-2 right-2 px-2 py-0.5 rounded-sm text-[10px] font-bold uppercase tracking-wider bg-amber-100 text-amber-800">舊版 (Legacy)</div>;
+    if (s === "preview" || s === "beta") return <div className="absolute top-2 right-2 px-2 py-0.5 rounded-sm text-[10px] font-bold uppercase tracking-wider bg-blue-100 text-blue-800">預覽/測試版</div>;
+    if (s === "unknown") return <div className="absolute top-2 right-2 px-2 py-0.5 rounded-sm text-[10px] font-bold uppercase tracking-wider bg-slate-200 text-slate-600">未分類</div>;
+    return <div className="absolute top-2 right-2 px-2 py-0.5 rounded-sm text-[10px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800">現役 (Active)</div>;
   };
 
   return (
@@ -503,7 +503,7 @@ export default function ActiveModelsCatalog({ apiKeyConfigured, onSelectUpdate }
                     產出針對性評估報告
                   </button>
                   {/* Source links & timestamps */}
-                  <div className="flex flex-wrap items-center gap-2 text-[9px] text-slate-400">
+                  <div className="flex flex-wrap items-center gap-2 text-[10px] text-slate-400">
                     {model.lastVerifiedAt && (
                       <span className="flex items-center gap-0.5">
                         <Clock className="w-2.5 h-2.5" />

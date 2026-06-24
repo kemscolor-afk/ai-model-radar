@@ -93,7 +93,7 @@ export default function DeepDiveReport({ update, onClose }: DeepDiveReportProps)
             <div className="text-center p-2 bg-white rounded-lg border border-slate-100 shadow-2xs">
               <span className="block text-xs text-slate-500 mb-1">影響力評分</span>
               <span className="text-2xl font-black font-mono text-indigo-600">{update.impactScore}</span>
-              <span className="text-[10px] text-slate-400"> / 10 級</span>
+              <span className="text-xs text-slate-400"> / 10 級</span>
             </div>
             <div className="text-center p-2 bg-white rounded-lg border border-slate-100 shadow-2xs">
               <span className="block text-xs text-slate-500 mb-1">技術分類</span>
