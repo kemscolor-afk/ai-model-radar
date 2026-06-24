@@ -145,6 +145,28 @@ export type PricingStatus =
   | "ambiguous"
   | "not_applicable";
 
+export type LifecycleStatus =
+  | "discovered"
+  | "source_verified"
+  | "published"
+  | "deprecated"
+  | "retired"
+  | "unknown";
+
+export type DataQuality =
+  | "verified"
+  | "pricing_unverified"
+  | "needs_review"
+  | "source_missing"
+  | "data_dirty"
+  | "retired_confirmed";
+
+export type AvailableVia =
+  | "api"
+  | "web"
+  | "open_weights"
+  | "hosted_platform";
+
 export interface AiModelPricing {
   pricingModel: "pay-as-you-go" | "flat-rate" | "free" | "tiered" | "unknown";
   input1m: number | string; // 收費費率，如 2.50 或 "開源免費"
@@ -164,6 +186,9 @@ export interface AiModel {
   displayName: string;
   aliases: string[];
   status: ModelStatus;
+  lifecycleStatus?: LifecycleStatus;
+  dataQuality?: DataQuality;
+  availableVia?: AvailableVia[];
   availability: ModelAvailability;
   primaryModality: PrimaryModality;
   capabilities: string[]; // reasoning, tool_calling, structured_outputs, coding 等
@@ -175,6 +200,10 @@ export interface AiModel {
   pricingSourceUrl?: string; // 價格來源連結
   firstSeenSourceUrl: string;
   firstSeenAt: string;
+  officialLaunchDate?: string;
+  firstAvailableDate?: string;
+  deprecatedAt?: string;
+  retiredAt?: string;
   lastSeenAt: string;
   lastVerifiedAt: string;
   summaryZh: string;

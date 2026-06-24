@@ -3,6 +3,7 @@ import path from "path";
 import fs from "fs";
 import crypto from "crypto";
 import dotenv from "dotenv";
+import cron from "node-cron";
 import { GoogleGenAI, Type } from "@google/genai";
 import { preseededUpdates } from "./src/data/historical_data";
 import { defaultVendors } from "./src/data/vendors";
@@ -45,6 +46,7 @@ if (apiKey && apiKey !== "MY_GEMINI_API_KEY") {
 }
 
 const GEMINI_MODEL = "gemini-2.0-flash";
+const ENABLE_SCHEDULED_SCAN = process.env.ENABLE_SCHEDULED_SCAN !== "false";
 
 // ============================================================
 // Persistent Data Store – Atomic File-based Persistence
@@ -110,6 +112,232 @@ async function atomicWrite(): Promise<void> {
 
 function saveData(): void {
   enqueueWrite();
+}
+
+async function extractModelIdsWithLlm(
+  vendorName: string,
+  sourceUrl: string,
+  cleanedText: string
+): Promise<{
+  modelIds: string[];
+  pricingModelIds: string[];
+  deprecatedModelIds: string[];
+}> {
+  if (!ai || !cleanedText.trim()) {
+    return { modelIds: [], pricingModelIds: [], deprecatedModelIds: [] };
+  }
+
+  const prompt = `Extract AI model identifiers from this official source.
+Vendor: ${vendorName}
+Source: ${sourceUrl}
+
+Return only model IDs explicitly visible in the source text. Also identify which IDs appear in pricing context and which are marked deprecated or retired.
+
+Source text:
+---
+${cleanedText.slice(0, 50000)}
+---`;
+
+  const response = await ai.models.generateContent({
+    model: GEMINI_MODEL,
+    contents: prompt,
+    config: {
+      responseMimeType: "application/json",
+      responseSchema: {
+        type: Type.OBJECT,
+        properties: {
+          modelIds: { type: Type.ARRAY, items: { type: Type.STRING } },
+          pricingModelIds: { type: Type.ARRAY, items: { type: Type.STRING } },
+          deprecatedModelIds: { type: Type.ARRAY, items: { type: Type.STRING } },
+        },
+        required: ["modelIds", "pricingModelIds", "deprecatedModelIds"],
+      },
+    },
+  });
+
+  const text = response.text;
+  if (!text) return { modelIds: [], pricingModelIds: [], deprecatedModelIds: [] };
+  const parsed = JSON.parse(text.trim());
+  return {
+    modelIds: Array.isArray(parsed.modelIds) ? parsed.modelIds : [],
+    pricingModelIds: Array.isArray(parsed.pricingModelIds) ? parsed.pricingModelIds : [],
+    deprecatedModelIds: Array.isArray(parsed.deprecatedModelIds) ? parsed.deprecatedModelIds : [],
+  };
+}
+
+async function runScheduledDataRefresh(): Promise<void> {
+  const targetVendors = serverVendors.filter((vendor) =>
+    ["core", "important"].includes(vendor.priority)
+  );
+  const sessionId = `scheduled-${Date.now()}`;
+  const session: InventoryScanSession = {
+    id: sessionId,
+    startedAt: new Date().toISOString(),
+    vendorIds: targetVendors.map((vendor) => vendor.id),
+    snapshotIds: [],
+    newModelsFound: 0,
+    modelsUpdated: 0,
+    gapCheckResults: [],
+    status: "running",
+  };
+  serverScanSessions.unshift(session);
+
+  try {
+    for (const vendor of targetVendors) {
+      const vendorSnapshots: SourceSnapshot[] = [];
+      const sources = vendor.sourceUrls.filter((source) =>
+        ["inventory", "pricing"].includes(source.scanMode)
+      );
+
+      for (const source of sources) {
+        const snapshotId = `snap-${vendor.id}-${Date.now()}-${Math.random()
+          .toString(36)
+          .slice(2, 6)}`;
+        let fetchStatus: FetchStatus = "success";
+        let httpStatus: number | undefined;
+        let cleanedText = "";
+        let errorMessage: string | undefined;
+        let extractedModelIds: string[] = [];
+        let extractedPricingModelIds: string[] = [];
+        let extractedDeprecatedModelIds: string[] = [];
+        let llmExtractionRan = false;
+
+        try {
+          const controller = new AbortController();
+          const timeout = setTimeout(() => controller.abort(), 15000);
+          const response = await fetch(source.url, {
+            signal: controller.signal,
+            headers: {
+              "User-Agent":
+                "Mozilla/5.0 (compatible; AI-Model-Radar/2.0; scheduled-readonly-refresh)",
+              Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,text/plain;q=0.8,*/*;q=0.7",
+            },
+          });
+          clearTimeout(timeout);
+          httpStatus = response.status;
+
+          if (!response.ok) {
+            fetchStatus = "error";
+            errorMessage = `HTTP ${response.status} ${response.statusText}`;
+          } else {
+            cleanedText = cleanText(await response.text());
+          }
+        } catch (error: any) {
+          fetchStatus = error.name === "AbortError" ? "timeout" : "error";
+          errorMessage = error.message || String(error);
+        }
+
+        const contentHash = cleanedText ? computeHash(cleanedText) : "";
+        const previous = serverSourceSnapshots.find(
+          (snapshot) =>
+            snapshot.sourceUrl === source.url &&
+            snapshot.contentHash === contentHash &&
+            contentHash !== ""
+        );
+
+        if (previous) {
+          fetchStatus = "skipped_no_change";
+          extractedModelIds = previous.extractedModelIds;
+          extractedPricingModelIds = previous.extractedPricingModelIds;
+          extractedDeprecatedModelIds = previous.extractedDeprecatedModelIds;
+        } else if (cleanedText) {
+          llmExtractionRan = Boolean(ai);
+          try {
+            const extracted = await extractModelIdsWithLlm(vendor.name, source.url, cleanedText);
+            extractedModelIds = extracted.modelIds;
+            extractedPricingModelIds = extracted.pricingModelIds;
+            extractedDeprecatedModelIds = extracted.deprecatedModelIds;
+          } catch (error: any) {
+            errorMessage = `LLM extraction failed: ${error.message || String(error)}`;
+          }
+        }
+
+        const snapshot: SourceSnapshot = {
+          id: snapshotId,
+          vendorId: vendor.id,
+          vendorName: vendor.name,
+          sourceUrl: source.url,
+          sourceType: source.sourceType,
+          trustLevel: source.trustLevel,
+          scanMode: source.scanMode,
+          fetchedAt: new Date().toISOString(),
+          fetchStatus,
+          httpStatus,
+          contentHash,
+          cleanedText:
+            cleanedText.length > 20000
+              ? cleanedText.slice(0, 20000) + "\n[TRUNCATED]"
+              : cleanedText,
+          extractedModelIds,
+          extractedPricingModelIds,
+          extractedDeprecatedModelIds,
+          errorMessage,
+          llmExtractionRan,
+          scanSessionId: sessionId,
+        };
+
+        serverSourceSnapshots.push(snapshot);
+        vendorSnapshots.push(snapshot);
+        session.snapshotIds.push(snapshotId);
+      }
+
+      const previousCatalogModelIds = serverActiveCatalog
+        .filter((model) => model.vendorId === vendor.id)
+        .map((model) => model.modelId || model.modelName);
+      const gapResults = runGapCheck(vendor.id, vendorSnapshots, previousCatalogModelIds);
+      session.gapCheckResults.push(...gapResults);
+
+      const now = new Date().toISOString();
+      serverActiveCatalog = serverActiveCatalog.map((model) => {
+        if (model.vendorId !== vendor.id) return model;
+        const modelId = (model.modelId || model.modelName).toLowerCase().trim();
+        const disappeared = gapResults.some(
+          (gap) =>
+            gap.modelId.toLowerCase().trim() === modelId &&
+            gap.flags.includes("disappeared_from_all_sources")
+        );
+        const deprecated = vendorSnapshots.some((snapshot) =>
+          snapshot.extractedDeprecatedModelIds.some(
+            (id) => id.toLowerCase().trim() === modelId
+          )
+        );
+
+        return {
+          ...model,
+          lastSeenAt: disappeared ? model.lastSeenAt : now,
+          lastVerifiedAt: disappeared ? model.lastVerifiedAt : now,
+          lifecycleStatus: disappeared
+            ? "unknown"
+            : deprecated
+              ? "deprecated"
+              : model.lifecycleStatus || "source_verified",
+          dataQuality: disappeared
+            ? "needs_review"
+            : model.dataQuality || "verified",
+          gapFlags: gapResults
+            .filter((gap) => gap.modelId.toLowerCase().trim() === modelId)
+            .flatMap((gap) => gap.flags),
+        };
+      });
+
+      serverVendors = serverVendors.map((item) =>
+        item.id === vendor.id
+          ? { ...item, lastScannedAt: new Date().toISOString(), lastInventoryScannedAt: new Date().toISOString() }
+          : item
+      );
+    }
+
+    session.completedAt = new Date().toISOString();
+    session.status = "completed";
+    session.modelsUpdated = serverActiveCatalog.length;
+    saveData();
+  } catch (error: any) {
+    session.status = "error";
+    session.errorMessage = error.message || String(error);
+    session.completedAt = new Date().toISOString();
+    saveData();
+    console.error("[scheduled_refresh] Failed:", error);
+  }
 }
 
 // Load persisted data on startup
@@ -1203,6 +1431,20 @@ if (process.env.NODE_ENV !== "production") {
   app.get("*", (_req, res) => {
     res.sendFile(path.join(distPath, "index.html"));
   });
+}
+
+if (ENABLE_SCHEDULED_SCAN) {
+  cron.schedule(
+    "0 4 * * *",
+    () => {
+      console.log("[scheduled_refresh] Starting daily model directory refresh.");
+      runScheduledDataRefresh().catch((error) => {
+        console.error("[scheduled_refresh] Unhandled error:", error);
+      });
+    },
+    { timezone: "Asia/Taipei" }
+  );
+  console.log("[scheduled_refresh] Daily refresh scheduled at 04:00 Asia/Taipei.");
 }
 
 // ============================================================

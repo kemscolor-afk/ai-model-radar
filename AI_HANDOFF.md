@@ -25,6 +25,25 @@
 - 將全站基礎字級提高到 17px，並放大主要輸入、卡片與按鈕文字。
 - 新增本文件，並由 `/AI_HANDOFF.md` 提供瀏覽。
 - 修正 `clean` script，避免 Windows PowerShell 下 `rm -rf` 失效。
+- 曾短暫補回主觀閱讀優先度說明；此方向已在 2026-06-25 的產品定位重構中廢棄。
+
+## 2026-06-25 產品定位重構
+
+### 新定位
+
+產品改為「AI 模型可用性目錄」。核心任務是回答監控範圍內有哪些模型可使用、可用方式、計費、生命週期狀態、官方來源與最後確認時間。
+
+### 已完成
+
+- 移除「發佈情報 / 活躍模型目錄」雙頁籤，改成單頁模型目錄。
+- 移除主觀排行與高優先度更新 UI。
+- 新增 lifecycleStatus：discovered、source_verified、published、deprecated、retired、unknown。
+- 新增 dataQuality：verified、pricing_unverified、needs_review、source_missing、data_dirty、retired_confirmed。
+- 新增 availableVia：API、Web、Open weights、Hosted platform。
+- 拆分日期欄位：firstSeenAt、officialLaunchDate、firstAvailableDate、deprecatedAt、retiredAt、lastVerifiedAt。
+- 詳情抽屜改為模型目錄資訊，不再是深度報告。
+- 前台仍維持唯讀，不提供掃描、刪除、驗證或訂閱控制。
+- 後端新增每日 04:00 Asia/Taipei 的 node-cron 更新工作流。
 
 ### 現況
 
