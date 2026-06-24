@@ -23,8 +23,16 @@ import type {
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
-app.use(express.json());
+const PORT = Number(process.env.PORT || 3000);
+app.use(express.json({ limit: "256kb" }));
+
+function readOnlyResponse(res: express.Response) {
+  return res.status(403).json({
+    error: "READ_ONLY_MODE",
+    message:
+      "此站目前為唯讀情報站。瀏覽、搜尋與篩選可用，但掃描、驗證、刪除與資料寫入功能已停用。",
+  });
+}
 
 // ============================================================
 // Gemini AI Client
@@ -315,10 +323,16 @@ app.get("/api/scan/sessions", (_req, res) => {
   res.json({ sessions: serverScanSessions });
 });
 
+app.get("/AI_HANDOFF.md", (_req, res) => {
+  res.type("text/markdown").sendFile(path.join(process.cwd(), "AI_HANDOFF.md"));
+});
+
 // ============================================================
 // 7. Release Scan Pipeline (Google Search Grounding allowed)
 // ============================================================
 app.post("/api/scan/releases", async (req, res) => {
+  return readOnlyResponse(res);
+
   if (!ai) {
     return res.status(400).json({
       error:
@@ -476,6 +490,8 @@ app.post("/api/scan/releases", async (req, res) => {
 
 // Backward-compatible alias – forward body to the releases handler
 app.post("/api/scan", async (req, res) => {
+  return readOnlyResponse(res);
+
   // Re-use the same logic as /api/scan/releases by making an internal fetch
   // Since we can't call app.handle directly, we just delegate to the releases route via redirect
   // or duplicate the minimal logic. Simplest: just set the url and use next().
@@ -499,6 +515,8 @@ app.post("/api/scan", async (req, res) => {
 //    Step 4: Merge into catalog with vendorId+normalizedModelId dedup
 // ============================================================
 app.post("/api/scan/inventory", async (req, res) => {
+  return readOnlyResponse(res);
+
   if (!ai) {
     return res.status(400).json({
       error: "Gemini API 金鑰尚未設定或無效。請新增 GEMINI_API_KEY 環境變數。",
@@ -1039,6 +1057,8 @@ ${cleanedText.slice(0, 60000)}
 // 9. Verify Deprecated (uses Google Search Grounding)
 // ============================================================
 app.post("/api/verify-deprecated", async (req, res) => {
+  return readOnlyResponse(res);
+
   if (!ai) {
     return res.status(400).json({
       error: "Gemini API 金鑰尚未設定。請新增 GEMINI_API_KEY。",
@@ -1116,6 +1136,8 @@ app.post("/api/verify-deprecated", async (req, res) => {
 // 10. Deep-dive Report (on-demand, NOT pre-generated)
 // ============================================================
 app.post("/api/assess-deep", async (req, res) => {
+  return readOnlyResponse(res);
+
   if (!ai) {
     return res.status(400).json({
       error: "Gemini API 金鑰尚未設定。請新增 GEMINI_API_KEY。",

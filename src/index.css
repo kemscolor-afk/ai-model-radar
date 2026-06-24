@@ -7,6 +7,26 @@
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 }
 
+@layer base {
+  html {
+    font-size: 17px;
+  }
+
+  body {
+    margin: 0;
+    background: #f8fafc;
+    color: #0f172a;
+    text-rendering: optimizeLegibility;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+}
+
 /* Custom fade animations & scrollbars */
 @layer utilities {
   .custom-scrollbar::-webkit-scrollbar {
@@ -24,4 +44,3 @@
     background: #94a3b8;
   }
 }
-
