@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import DeepDiveReport from "./components/DeepDiveReport";
 import { initialActiveCatalog } from "./data/active_catalog";
+import { expandedSeedCatalog } from "./data/expanded_catalog";
 import {
   availableViaLabels,
   countMonitoredVendors,
@@ -90,7 +91,7 @@ function sortModels(models: DirectoryModel[], sortBy: DirectorySortKey): Directo
 
 export default function App() {
   const [catalog, setCatalog] = useState<DirectoryModel[]>(
-    initialActiveCatalog.map(normalizeDirectoryModel)
+    [...initialActiveCatalog, ...expandedSeedCatalog].map(normalizeDirectoryModel)
   );
   const [vendors, setVendors] = useState<Vendor[]>([]);
   const [selectedModel, setSelectedModel] = useState<DirectoryModel | null>(null);
@@ -262,6 +263,9 @@ export default function App() {
               </p>
               <p className="text-base leading-7 text-indigo-950">
                 本站整理市場上可用的 AI 模型，協助使用者依照文字、影像、語音、影片、embedding、reranking、coding、agent 等需求，快速查找可用模型、官方來源、計費方式與生命週期狀態。
+              </p>
+              <p className="text-base leading-7 text-indigo-950">
+                監控範圍包含全球主流商用模型大廠、開源/開放權重模型，以及語音辨識、TTS、speaker diarization、影像生成、影片生成、embedding、reranking、程式碼與 agent 工作流等模型類型。
               </p>
             </div>
           </div>

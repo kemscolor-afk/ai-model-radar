@@ -217,5 +217,173 @@ export const defaultVendors: Vendor[] = [
       { url: "https://docs.perplexity.ai/docs/model-cards", sourceType: "models_page", trustLevel: "official", scanMode: "inventory" },
       { url: "https://docs.perplexity.ai/docs/pricing", sourceType: "pricing_page", trustLevel: "official", scanMode: "pricing" }
     ]
+  },
+  {
+    id: "elevenlabs",
+    name: "ElevenLabs",
+    website: "https://elevenlabs.io",
+    priority: "important",
+    sourceUrls: [
+      { url: "https://elevenlabs.io/docs/overview/models", sourceType: "models_page", trustLevel: "official", scanMode: "inventory" },
+      { url: "https://elevenlabs.io/docs/overview/capabilities/text-to-speech", sourceType: "docs", trustLevel: "official", scanMode: "inventory" },
+      { url: "https://elevenlabs.io/pricing", sourceType: "pricing_page", trustLevel: "official", scanMode: "pricing" }
+    ]
+  },
+  {
+    id: "assemblyai",
+    name: "AssemblyAI",
+    website: "https://www.assemblyai.com",
+    priority: "important",
+    sourceUrls: [
+      { url: "https://www.assemblyai.com/", sourceType: "models_page", trustLevel: "official", scanMode: "inventory" },
+      { url: "https://www.assemblyai.com/pricing", sourceType: "pricing_page", trustLevel: "official", scanMode: "pricing" }
+    ]
+  },
+  {
+    id: "deepgram",
+    name: "Deepgram",
+    website: "https://deepgram.com",
+    priority: "important",
+    sourceUrls: [
+      { url: "https://developers.deepgram.com/docs/models-languages-overview", sourceType: "models_page", trustLevel: "official", scanMode: "inventory" },
+      { url: "https://developers.deepgram.com/docs/diarization", sourceType: "docs", trustLevel: "official", scanMode: "inventory" },
+      { url: "https://deepgram.com/pricing", sourceType: "pricing_page", trustLevel: "official", scanMode: "pricing" }
+    ]
+  },
+  {
+    id: "pyannote",
+    name: "pyannote",
+    website: "https://github.com/pyannote/pyannote-audio",
+    priority: "important",
+    sourceUrls: [
+      { url: "https://huggingface.co/pyannote/speaker-diarization-community-1", sourceType: "model_card", trustLevel: "platform", scanMode: "inventory" },
+      { url: "https://github.com/pyannote/pyannote-audio", sourceType: "github", trustLevel: "official", scanMode: "inventory" }
+    ]
+  },
+  {
+    id: "blackforest",
+    name: "Black Forest Labs",
+    website: "https://bfl.ai",
+    priority: "important",
+    sourceUrls: [
+      { url: "https://docs.bfl.ml/quick_start/introduction", sourceType: "models_page", trustLevel: "official", scanMode: "inventory" },
+      { url: "https://github.com/black-forest-labs/flux", sourceType: "github", trustLevel: "official", scanMode: "inventory" },
+      { url: "https://bfl.ai/", sourceType: "pricing_page", trustLevel: "official", scanMode: "pricing" }
+    ]
+  },
+  {
+    id: "ideogram",
+    name: "Ideogram",
+    website: "https://ideogram.ai",
+    priority: "important",
+    sourceUrls: [
+      { url: "https://developer.ideogram.ai/ideogram-api/api-overview", sourceType: "models_page", trustLevel: "official", scanMode: "inventory" },
+      { url: "https://docs.ideogram.ai/plans-and-pricing/ideogram-api", sourceType: "pricing_page", trustLevel: "official", scanMode: "pricing" }
+    ]
+  },
+  {
+    id: "voyage",
+    name: "Voyage AI",
+    website: "https://www.voyageai.com",
+    priority: "important",
+    sourceUrls: [
+      { url: "https://docs.voyageai.com/docs/embeddings", sourceType: "models_page", trustLevel: "official", scanMode: "inventory" },
+      { url: "https://www.voyageai.com/pricing", sourceType: "pricing_page", trustLevel: "official", scanMode: "pricing" }
+    ]
+  },
+  {
+    id: "jina",
+    name: "Jina AI",
+    website: "https://jina.ai",
+    priority: "important",
+    sourceUrls: [
+      { url: "https://jina.ai/embeddings/", sourceType: "models_page", trustLevel: "official", scanMode: "inventory" },
+      { url: "https://jina.ai/reranker/", sourceType: "models_page", trustLevel: "official", scanMode: "inventory" }
+    ]
+  },
+  {
+    id: "nvidia",
+    name: "NVIDIA",
+    website: "https://build.nvidia.com",
+    priority: "important",
+    sourceUrls: [
+      { url: "https://build.nvidia.com/models", sourceType: "models_page", trustLevel: "official", scanMode: "inventory" },
+      { url: "https://huggingface.co/nvidia", sourceType: "huggingface", trustLevel: "platform", scanMode: "inventory" }
+    ]
+  },
+  {
+    id: "together",
+    name: "Together AI",
+    website: "https://www.together.ai",
+    priority: "important",
+    sourceUrls: [
+      { url: "https://docs.together.ai/docs/serverless-models", sourceType: "models_page", trustLevel: "official", scanMode: "inventory" },
+      { url: "https://www.together.ai/pricing", sourceType: "pricing_page", trustLevel: "official", scanMode: "pricing" }
+    ]
+  },
+  {
+    id: "replicate",
+    name: "Replicate",
+    website: "https://replicate.com",
+    priority: "important",
+    sourceUrls: [
+      { url: "https://replicate.com/collections/flux", sourceType: "models_page", trustLevel: "platform", scanMode: "inventory" },
+      { url: "https://replicate.com/explore", sourceType: "models_page", trustLevel: "platform", scanMode: "inventory" }
+    ]
+  },
+  {
+    id: "fireworks",
+    name: "Fireworks AI",
+    website: "https://fireworks.ai",
+    priority: "important",
+    sourceUrls: [
+      { url: "https://docs.fireworks.ai/models", sourceType: "models_page", trustLevel: "official", scanMode: "inventory" },
+      { url: "https://fireworks.ai/pricing", sourceType: "pricing_page", trustLevel: "official", scanMode: "pricing" }
+    ]
+  },
+  {
+    id: "cerebras",
+    name: "Cerebras",
+    website: "https://www.cerebras.ai",
+    priority: "important",
+    sourceUrls: [
+      { url: "https://inference-docs.cerebras.ai/introduction", sourceType: "models_page", trustLevel: "official", scanMode: "inventory" }
+    ]
+  },
+  {
+    id: "sambanova",
+    name: "SambaNova",
+    website: "https://sambanova.ai",
+    priority: "important",
+    sourceUrls: [
+      { url: "https://docs.sambanova.ai/cloud/docs/get-started/supported-models", sourceType: "models_page", trustLevel: "official", scanMode: "inventory" }
+    ]
+  },
+  {
+    id: "midjourney",
+    name: "Midjourney",
+    website: "https://www.midjourney.com",
+    priority: "watch",
+    sourceUrls: [
+      { url: "https://docs.midjourney.com", sourceType: "docs", trustLevel: "official", scanMode: "inventory" }
+    ]
+  },
+  {
+    id: "kling",
+    name: "Kling AI",
+    website: "https://klingai.com",
+    priority: "watch",
+    sourceUrls: [
+      { url: "https://app.klingai.com", sourceType: "models_page", trustLevel: "official", scanMode: "inventory" }
+    ]
+  },
+  {
+    id: "pika",
+    name: "Pika",
+    website: "https://pika.art",
+    priority: "watch",
+    sourceUrls: [
+      { url: "https://pika.art", sourceType: "models_page", trustLevel: "official", scanMode: "inventory" }
+    ]
   }
 ];

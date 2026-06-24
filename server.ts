@@ -8,6 +8,7 @@ import { GoogleGenAI, Type } from "@google/genai";
 import { preseededUpdates } from "./src/data/historical_data";
 import { defaultVendors } from "./src/data/vendors";
 import { initialActiveCatalog } from "./src/data/active_catalog";
+import { expandedSeedCatalog } from "./src/data/expanded_catalog";
 import type {
   ActiveCatalogModel,
   Vendor,
@@ -67,8 +68,25 @@ interface DataStore {
 let serverUpdates = [...preseededUpdates];
 let serverMarketTrend =
   "各大 AI 廠牌正朝向「超低延遲」、「低成本推理模式（如 DeepSeek-R1、o3-mini）」與「極致超長上下文多模態處理（如 Gemini 2.5 Pro）」兩極化發展，這極大推動了 AI 開發者代理與自動化工作流的實用性。";
-let serverActiveCatalog: ActiveCatalogModel[] = [...initialActiveCatalog];
-let serverVendors: Vendor[] = [...defaultVendors];
+function mergeCatalogSeeds(models: ActiveCatalogModel[]): ActiveCatalogModel[] {
+  const merged = new Map<string, ActiveCatalogModel>();
+  for (const model of [...models, ...expandedSeedCatalog]) {
+    const key = `${model.vendorId || model.vendor}::${model.modelId || model.modelName}`.toLowerCase();
+    merged.set(key, { ...merged.get(key), ...model });
+  }
+  return Array.from(merged.values());
+}
+
+let serverActiveCatalog: ActiveCatalogModel[] = mergeCatalogSeeds(initialActiveCatalog);
+function mergeVendorSeeds(vendors: Vendor[]): Vendor[] {
+  const merged = new Map<string, Vendor>();
+  for (const vendor of [...vendors, ...defaultVendors]) {
+    merged.set(vendor.id, { ...merged.get(vendor.id), ...vendor });
+  }
+  return Array.from(merged.values());
+}
+
+let serverVendors: Vendor[] = mergeVendorSeeds(defaultVendors);
 let serverSourceSnapshots: SourceSnapshot[] = [];
 let serverScanSessions: InventoryScanSession[] = [];
 
@@ -347,8 +365,8 @@ try {
     const data: Partial<DataStore> = JSON.parse(raw);
     if (data.updates) serverUpdates = data.updates;
     if (data.marketTrend) serverMarketTrend = data.marketTrend;
-    if (data.activeCatalog) serverActiveCatalog = data.activeCatalog;
-    if (data.vendors) serverVendors = data.vendors;
+    if (data.activeCatalog) serverActiveCatalog = mergeCatalogSeeds(data.activeCatalog);
+    if (data.vendors) serverVendors = mergeVendorSeeds(data.vendors);
     if (data.sourceSnapshots) serverSourceSnapshots = data.sourceSnapshots;
     if (data.scanSessions) serverScanSessions = data.scanSessions;
     console.log("[DataStore] Loaded persisted data from data_store.json");
