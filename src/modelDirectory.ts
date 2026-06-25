@@ -158,6 +158,8 @@ export function displayTerms(values: string[]): string[] {
 export function isCorruptedText(value?: string): boolean {
   if (!value) return true;
   const suspicious = (value.match(/[�嚙蝓蹓選]/g) || []).length;
+  const questionRuns = (value.match(/\?{2,}/g) || []).join("").length;
+  if (questionRuns > Math.max(4, value.length * 0.08)) return true;
   return suspicious > Math.max(3, value.length * 0.08);
 }
 
@@ -206,6 +208,30 @@ function inferAvailableVia(model: ActiveCatalogModel): AvailableVia[] {
   return Array.from(via);
 }
 
+function buildReadableSummary(model: ActiveCatalogModel): string {
+  const modality = modalityLabels[model.primaryModality || "unknown"] || model.primaryModality || "unknown（未分類）";
+  const capabilities = displayTerms(model.capabilities?.length ? model.capabilities : model.keyFeatures || []);
+  const via = inferAvailableVia(model).map((item) => availableViaLabels[item]);
+  const capabilityText = capabilities.length
+    ? capabilities.slice(0, 5).join("、")
+    : "模型用途與能力待官方文件補充";
+  const viaText = via.length ? via.join("、") : "官方來源";
+  return `${model.vendor} 的 ${model.modelName} 是 ${modality}模型，主要支援 ${capabilityText}，可透過 ${viaText} 使用。`;
+}
+
+function normalizeSummary(model: ActiveCatalogModel): string {
+  const raw = model.chineseDescription || model.summaryZh;
+  if (!raw || isCorruptedText(raw)) return buildReadableSummary(model);
+
+  const asciiLetters = (raw.match(/[A-Za-z]/g) || []).length;
+  const cjkLetters = (raw.match(/[\u4e00-\u9fff]/g) || []).length;
+  if (asciiLetters > cjkLetters * 2) {
+    return buildReadableSummary(model);
+  }
+
+  return raw;
+}
+
 export function normalizeDirectoryModel(model: ActiveCatalogModel): DirectoryModel {
   const lifecycleStatus = inferLifecycle(model);
   const dataQuality = inferDataQuality(model, lifecycleStatus);
@@ -228,7 +254,7 @@ export function normalizeDirectoryModel(model: ActiveCatalogModel): DirectoryMod
     inputTypes: displayTerms(model.inputTypes || []),
     outputTypes: displayTerms(model.outputTypes || []),
     contextWindow: String(model.contextWindow || "N/A"),
-    pricingSummary: `Input: ${model.pricingInput || model.pricing?.input1m || "N/A"} / Output: ${
+    pricingSummary: `輸入 Input: ${model.pricingInput || model.pricing?.input1m || "N/A"} / 輸出 Output: ${
       model.pricingOutput || model.pricing?.output1m || "N/A"
     }`,
     pricingDetails: model.pricing?.pricingDetails,
@@ -246,7 +272,7 @@ export function normalizeDirectoryModel(model: ActiveCatalogModel): DirectoryMod
     reviewStatus: model.reviewStatus,
     dataQuality,
     notes: readableText(model.notes || model.deprecatedReplacements, ""),
-    summary: readableText(model.chineseDescription || model.summaryZh),
+    summary: normalizeSummary(model),
   };
 }
 

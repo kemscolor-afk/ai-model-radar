@@ -128,12 +128,12 @@ export default function DeepDiveReport({ model, onClose }: DeepDiveReportProps) 
           <section className="space-y-3 rounded-lg border border-emerald-100 bg-emerald-50 p-5">
             <h3 className="flex items-center gap-2 text-lg font-bold text-emerald-950">
               <DollarSign className="h-5 w-5 text-emerald-700" />
-              Pricing
+              計費 pricing
             </h3>
             <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
-              <DetailRow label="pricing 摘要" value={model.pricingSummary} />
+              <DetailRow label="計費摘要 pricing" value={model.pricingSummary} />
               <DetailRow label="pricingStatus" value={model.pricingStatus} />
-              <DetailRow label="pricing 詳情" value={model.pricingDetails} />
+              <DetailRow label="計費詳情 pricing details" value={model.pricingDetails} />
               <DetailRow
                 label="pricingSourceUrl"
                 value={

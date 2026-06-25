@@ -448,13 +448,13 @@ export default function App() {
                       <p className="mt-1 font-semibold text-slate-900">{model.contextWindow}</p>
                     </div>
                     <div className="rounded-md bg-slate-50 p-3">
-                      <span className="font-bold text-slate-500">Input</span>
+                      <span className="font-bold text-slate-500">輸入 inputTypes</span>
                       <p className="mt-1 font-semibold text-slate-900">
                         {model.inputTypes.length ? model.inputTypes.join(", ") : "未提供"}
                       </p>
                     </div>
                     <div className="rounded-md bg-slate-50 p-3">
-                      <span className="font-bold text-slate-500">Output</span>
+                      <span className="font-bold text-slate-500">輸出 outputTypes</span>
                       <p className="mt-1 font-semibold text-slate-900">
                         {model.outputTypes.length ? model.outputTypes.join(", ") : "未提供"}
                       </p>
@@ -470,7 +470,7 @@ export default function App() {
                   </div>
 
                   <div className="rounded-md bg-emerald-50 p-3">
-                    <span className="text-sm font-bold text-emerald-700">Pricing</span>
+                    <span className="text-sm font-bold text-emerald-700">計費 pricing</span>
                     <p className="mt-1 text-sm font-semibold text-emerald-950">
                       {model.pricingSummary}
                     </p>
