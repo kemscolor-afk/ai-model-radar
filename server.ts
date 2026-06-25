@@ -26,7 +26,48 @@ dotenv.config();
 
 const app = express();
 const PORT = Number(process.env.PORT || 3000);
+app.disable("x-powered-by");
 app.use(express.json({ limit: "256kb" }));
+
+app.use((_req, res, next) => {
+  res.setHeader("X-Content-Type-Options", "nosniff");
+  res.setHeader("X-Frame-Options", "DENY");
+  res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
+  res.setHeader("Permissions-Policy", "camera=(), microphone=(), geolocation=()");
+  res.setHeader(
+    "Content-Security-Policy",
+    [
+      "default-src 'self'",
+      "script-src 'self'",
+      "style-src 'self' 'unsafe-inline'",
+      "img-src 'self' data: https:",
+      "font-src 'self' data:",
+      "connect-src 'self'",
+      "frame-ancestors 'none'",
+      "base-uri 'self'",
+      "form-action 'self'",
+    ].join("; ")
+  );
+  next();
+});
+
+const legacyMutationPaths = new Set([
+  "/api/scan",
+  "/api/scan/releases",
+  "/api/scan/inventory",
+  "/api/verify-deprecated",
+  "/api/assess-deep",
+]);
+
+app.use((req, res, next) => {
+  if (req.method !== "GET" && legacyMutationPaths.has(req.path)) {
+    return res.status(404).json({
+      error: "NOT_FOUND",
+      message: "This public site is read-only.",
+    });
+  }
+  next();
+});
 
 function readOnlyResponse(res: express.Response) {
   return res.status(403).json({
@@ -524,15 +565,48 @@ function runGapCheck(
 // API Routes
 // ============================================================
 
+function publicSnapshot(snapshot: SourceSnapshot) {
+  return {
+    id: snapshot.id,
+    vendorId: snapshot.vendorId,
+    vendorName: snapshot.vendorName,
+    sourceUrl: snapshot.sourceUrl,
+    sourceType: snapshot.sourceType,
+    trustLevel: snapshot.trustLevel,
+    scanMode: snapshot.scanMode,
+    fetchedAt: snapshot.fetchedAt,
+    fetchStatus: snapshot.fetchStatus,
+    httpStatus: snapshot.httpStatus,
+    contentHash: snapshot.contentHash,
+    extractedModelIds: snapshot.extractedModelIds,
+    extractedPricingModelIds: snapshot.extractedPricingModelIds,
+    extractedDeprecatedModelIds: snapshot.extractedDeprecatedModelIds,
+    llmExtractionRan: snapshot.llmExtractionRan,
+    scanSessionId: snapshot.scanSessionId,
+  };
+}
+
+function publicScanSession(session: InventoryScanSession) {
+  return {
+    id: session.id,
+    startedAt: session.startedAt,
+    completedAt: session.completedAt,
+    vendorIds: session.vendorIds,
+    snapshotCount: session.snapshotIds.length,
+    newModelsFound: session.newModelsFound,
+    modelsUpdated: session.modelsUpdated,
+    gapCheckCount: session.gapCheckResults.length,
+    status: session.status,
+  };
+}
+
 // 1. Health check
 app.get("/api/health", (_req, res) => {
   res.json({
     status: "ok",
-    apiKeyConfigured: !!ai,
     model: GEMINI_MODEL,
     time: new Date().toISOString(),
     catalogCount: serverActiveCatalog.length,
-    snapshotCount: serverSourceSnapshots.length,
   });
 });
 
@@ -553,7 +627,7 @@ app.get("/api/vendors", (_req, res) => {
 
 // 5. Source Snapshots
 app.get("/api/scan/snapshots", (_req, res) => {
-  res.json({ snapshots: serverSourceSnapshots });
+  res.json({ snapshots: serverSourceSnapshots.map(publicSnapshot) });
 });
 
 app.get("/api/scan/snapshots/:vendorId", (req, res) => {
@@ -561,16 +635,16 @@ app.get("/api/scan/snapshots/:vendorId", (req, res) => {
   const filtered = serverSourceSnapshots.filter(
     (s) => s.vendorId === vendorId
   );
-  res.json({ snapshots: filtered, vendorId });
+  res.json({ snapshots: filtered.map(publicSnapshot), vendorId });
 });
 
 // 6. Scan sessions
 app.get("/api/scan/sessions", (_req, res) => {
-  res.json({ sessions: serverScanSessions });
+  res.json({ sessions: serverScanSessions.map(publicScanSession) });
 });
 
 app.get("/AI_HANDOFF.md", (_req, res) => {
-  res.type("text/markdown").sendFile(path.join(process.cwd(), "AI_HANDOFF.md"));
+  res.status(404).json({ error: "NOT_FOUND" });
 });
 
 // ============================================================

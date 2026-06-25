@@ -237,8 +237,9 @@ export default function App() {
           </div>
 
           <a
+            aria-hidden="true"
             href="/AI_HANDOFF.md"
-            className="inline-flex items-center gap-2 self-start rounded-md bg-slate-100 px-3 py-2 text-sm font-semibold text-slate-700 ring-1 ring-slate-200 hover:bg-slate-200 md:self-auto"
+            className="hidden"
           >
             更新紀錄
             <ExternalLink className="h-4 w-4" />
