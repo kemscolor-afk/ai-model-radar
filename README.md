@@ -43,7 +43,6 @@ http://localhost:3000
 - `GET /api/scan/snapshots`
 - `GET /api/scan/snapshots/:vendorId`
 - `GET /api/scan/sessions`
-- `GET /AI_HANDOFF.md`
 
 已停用的寫入或耗額度端點：
 
@@ -53,7 +52,7 @@ http://localhost:3000
 - `POST /api/verify-deprecated`
 - `POST /api/assess-deep`
 
-這些 POST 端點會回傳 `403 READ_ONLY_MODE`。
+這些 POST 端點會回傳 `404 NOT_FOUND`，前台不提供手動掃描或資料控制入口。
 
 ## 後台更新工作流
 
@@ -73,4 +72,4 @@ http://localhost:3000
 
 ## 接手紀錄
 
-請先閱讀 [AI_HANDOFF.md](./AI_HANDOFF.md)。該文件記錄了接手時看到的問題、已完成的整理，以及下一步建議。
+請先閱讀 [AI_HANDOFF.md](./AI_HANDOFF.md) 與 [CHANGELOG_AI.md](./CHANGELOG_AI.md)。這些文件記錄了接手時看到的問題、已完成的整理，以及後續修改脈絡。
