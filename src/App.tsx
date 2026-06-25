@@ -277,10 +277,10 @@ export default function App() {
 
         <section className="rounded-lg border border-indigo-100 bg-indigo-50 p-4">
           <h2 className="text-lg font-bold text-indigo-950">模型可用性目錄</h2>
-          <p className="mt-2 max-w-5xl text-[10px] leading-4 text-indigo-950">
+          <p className="mt-2 max-w-5xl text-xs leading-5 text-indigo-950">
             本站收錄「指定監控廠商與平台中，官方文件、API 文件、模型頁、定價頁、模型卡或公開平台頁面可確認的可用模型」。若模型僅由新聞、社群或 AI 搜尋發現，會先列為待查核，不視為正式可用模型。
           </p>
-          <p className="mt-1 max-w-5xl text-[10px] leading-4 text-indigo-950">
+          <p className="mt-1 max-w-5xl text-xs leading-5 text-indigo-950">
             本站整理市場上可用的 AI 模型，協助使用者依照文字、影像、語音、影片、embedding（向量嵌入）、reranking（檢索排序重排）、coding（程式碼能力）、agent（代理工作流）等需求，快速查找官方來源、計費方式與生命週期狀態。
           </p>
         </section>
