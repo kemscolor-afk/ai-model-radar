@@ -48,7 +48,9 @@
 ## 2026-06-25 監控範圍擴張
 
 - 監控廠商從原本偏核心 LLM 廠商擴張到 38 個 vendor / platform。
-- 種子模型目錄擴張到 41 筆去重後模型，涵蓋商用模型、開源/開放權重模型、ASR（自動語音辨識）、TTS（text-to-speech，文字轉語音）、speaker diarization（說話者分離）、image generation（影像生成）、video generation（影片生成）、embedding（向量嵌入）、reranking（檢索排序重排）、coding（程式碼）與 agent（代理工作流）。
+- 種子模型目錄擴張到 53 筆模型，涵蓋商用模型、開源/開放權重模型、ASR（自動語音辨識）、TTS（text-to-speech，文字轉語音）、speaker diarization（說話者分離）、image generation（影像生成）、video generation（影片生成）、embedding（向量嵌入）、reranking（檢索排序重排）、coding（程式碼）與 agent（代理工作流）。
+- 來源盤點邏輯已從單純 `sourceUrls` 擴充為可選 `productLines`：重點廠商應先盤點公司官方 AI / Cloud / Developer 入口，再拆成模型家族頁、API 文件、模型清單與定價頁。新聞與社群只作為 discovered 線索，不能直接升級為正式可用模型。
+- ByteDance 已拆出 Doubao、Seedream、Seedance 產品線來源；Seedance 2.0 以官方 Seed 頁與 BytePlus ModelArk API 文件列為 source_verified，Seedance 2.5 仍只作為待追蹤線索，不列入正式可用清單。
 - 新增 `src/data/expanded_catalog.ts`，避免舊 `data_store.json` 只載入少量模型時讓前台覆蓋回 15 筆。
 - 後端啟動時會合併 data_store 與新 seed catalog / vendors，並用 vendorId + modelId 去重。
 

@@ -17,6 +17,7 @@ import type {
   GapFlag,
   InventoryScanSession,
   FetchStatus,
+  VendorSource,
 } from "./src/types";
 
 // ============================================================
@@ -125,6 +126,19 @@ function mergeVendorSeeds(vendors: Vendor[]): Vendor[] {
     merged.set(vendor.id, { ...merged.get(vendor.id), ...vendor });
   }
   return Array.from(merged.values());
+}
+
+function getVendorScanSources(vendor: Vendor): VendorSource[] {
+  const byUrl = new Map<string, VendorSource>();
+  for (const source of vendor.sourceUrls || []) {
+    byUrl.set(source.url, source);
+  }
+  for (const productLine of vendor.productLines || []) {
+    for (const source of productLine.sourceUrls || []) {
+      byUrl.set(source.url, source);
+    }
+  }
+  return Array.from(byUrl.values());
 }
 
 let serverVendors: Vendor[] = mergeVendorSeeds(defaultVendors);
@@ -244,7 +258,7 @@ async function runScheduledDataRefresh(): Promise<void> {
   try {
     for (const vendor of targetVendors) {
       const vendorSnapshots: SourceSnapshot[] = [];
-      const sources = vendor.sourceUrls.filter((source) =>
+      const sources = getVendorScanSources(vendor).filter((source) =>
         ["inventory", "pricing"].includes(source.scanMode)
       );
 
@@ -877,7 +891,7 @@ app.post("/api/scan/inventory", async (req, res) => {
       const vendorSnapshots: SourceSnapshot[] = [];
 
       // ----- Step 1: HTTP Fetch each sourceUrl -----
-      for (const source of vendor.sourceUrls.filter(
+      for (const source of getVendorScanSources(vendor).filter(
         (s) => s.scanMode === "inventory" || s.scanMode === "pricing"
       )) {
         const snapId = `snap-${vendor.id}-${Date.now()}-${Math.random()

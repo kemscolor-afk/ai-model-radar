@@ -142,12 +142,43 @@ export const defaultVendors: Vendor[] = [
   },
   {
     id: "bytedance",
-    name: "ByteDance Doubao",
+    name: "ByteDance Seed / Doubao",
     website: "https://www.volcengine.com",
     priority: "important",
     sourceUrls: [
       { url: "https://www.volcengine.com/product/doubao", sourceType: "models_page", trustLevel: "official", scanMode: "inventory" },
+      { url: "https://seed.bytedance.com/en/seedance2_0", sourceType: "models_page", trustLevel: "official", scanMode: "inventory" },
+      { url: "https://docs.byteplus.com/en/docs/ModelArk/1520757", sourceType: "api_reference", trustLevel: "official", scanMode: "inventory" },
       { url: "https://www.volcengine.com/docs/82982/1271164", sourceType: "pricing_page", trustLevel: "official", scanMode: "pricing" }
+    ],
+    productLines: [
+      {
+        name: "Doubao",
+        description: "General language, multimodal, speech, and enterprise API models.",
+        modalities: ["language", "multimodal", "tts", "asr"],
+        sourceUrls: [
+          { url: "https://www.volcengine.com/product/doubao", sourceType: "models_page", trustLevel: "official", scanMode: "inventory" },
+          { url: "https://www.volcengine.com/docs/82379", sourceType: "docs", trustLevel: "official", scanMode: "inventory" },
+          { url: "https://www.volcengine.com/docs/82982/1271164", sourceType: "pricing_page", trustLevel: "official", scanMode: "pricing" }
+        ]
+      },
+      {
+        name: "Seedream",
+        description: "Image generation and image editing model family.",
+        modalities: ["image"],
+        sourceUrls: [
+          { url: "https://www.volcengine.com/product/doubao", sourceType: "models_page", trustLevel: "official", scanMode: "inventory" }
+        ]
+      },
+      {
+        name: "Seedance",
+        description: "Video generation model family; check ByteDance Seed, Volcano Engine, and BytePlus ModelArk instead of only the Doubao landing page.",
+        modalities: ["video"],
+        sourceUrls: [
+          { url: "https://seed.bytedance.com/en/seedance2_0", sourceType: "models_page", trustLevel: "official", scanMode: "inventory" },
+          { url: "https://docs.byteplus.com/en/docs/ModelArk/1520757", sourceType: "api_reference", trustLevel: "official", scanMode: "inventory" }
+        ]
+      }
     ]
   },
   {

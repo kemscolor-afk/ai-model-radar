@@ -39,12 +39,20 @@ export interface VendorSource {
   scanMode: "inventory" | "pricing" | "release" | "news";
 }
 
+export interface VendorProductLine {
+  name: string;
+  description: string;
+  modalities: PrimaryModality[];
+  sourceUrls: VendorSource[];
+}
+
 export interface Vendor {
   id: string;
   name: string;
   website: string;
   priority: "core" | "important" | "watch";
   sourceUrls: VendorSource[];
+  productLines?: VendorProductLine[];
   lastScannedAt?: string;
   lastInventoryScannedAt?: string;
   lastReleaseScannedAt?: string;

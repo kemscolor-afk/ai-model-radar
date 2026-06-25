@@ -58,7 +58,9 @@ http://localhost:3000
 
 前台不提供手動掃描。後端使用 `node-cron` 每日 04:00 Asia/Taipei 執行模型目錄更新：
 
-1. 讀取 vendors sourceUrls。
+1. 讀取 vendors sourceUrls 與 productLines。
+   - 對多產品線廠商，先從公司官方 AI / Cloud / Developer 入口盤點 productLines，再往下追模型家族頁、API 文件、模型清單與定價頁。
+   - 新聞、社群與搜尋結果只能作為 discovered（發現）線索；必須回到官方產品頁、API 文件、模型卡或平台頁確認後，才可進入正式可用模型目錄。
 2. 逐一 fetch 官方來源。
 3. 產生 contentHash。
 4. 若 hash 無變化，不重跑抽取。

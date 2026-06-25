@@ -63,7 +63,7 @@ const vendorDisplayNames: Record<string, string> = {
   alibaba: "Alibaba Qwen（阿里巴巴通義千問）",
   tencent: "Tencent Hunyuan（騰訊混元）",
   baidu: "Baidu ERNIE（百度文心）",
-  bytedance: "ByteDance Doubao（字節跳動豆包）",
+  bytedance: "ByteDance（字節跳動）",
   zhipu: "Zhipu AI（智譜 AI）",
   moonshot: "Moonshot AI（月之暗面）",
   baichuan: "Baichuan AI（百川智能）",
