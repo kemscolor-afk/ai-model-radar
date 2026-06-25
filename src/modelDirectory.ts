@@ -49,6 +49,63 @@ export interface DirectoryModel {
   summary: string;
 }
 
+const vendorDisplayNames: Record<string, string> = {
+  openai: "OpenAI（OpenAI）",
+  anthropic: "Anthropic（Anthropic）",
+  google: "Google Gemini（Google Gemini）",
+  deepseek: "DeepSeek（深度求索）",
+  meta: "Meta AI（Meta AI）",
+  mistral: "Mistral AI（Mistral AI）",
+  xai: "xAI Grok（xAI Grok）",
+  microsoft: "Microsoft（微軟）",
+  cohere: "Cohere（Cohere）",
+  ai21: "AI21 Labs（AI21 Labs）",
+  alibaba: "Alibaba Qwen（阿里巴巴通義千問）",
+  tencent: "Tencent Hunyuan（騰訊混元）",
+  baidu: "Baidu ERNIE（百度文心）",
+  bytedance: "ByteDance Doubao（字節跳動豆包）",
+  zhipu: "Zhipu AI（智譜 AI）",
+  moonshot: "Moonshot AI（月之暗面）",
+  baichuan: "Baichuan AI（百川智能）",
+  minimax: "MiniMax（MiniMax）",
+  modelbest: "ModelBest（面壁智能）",
+  sensetime: "SenseTime（商湯科技）",
+  aws: "Amazon Bedrock（亞馬遜 Bedrock）",
+  huggingface: "Hugging Face（Hugging Face）",
+  groq: "Groq（Groq）",
+  stability: "Stability AI（Stability AI）",
+  runway: "Runway（Runway）",
+  luma: "Luma AI（Luma AI）",
+  perplexity: "Perplexity AI（Perplexity AI）",
+  elevenlabs: "ElevenLabs（ElevenLabs）",
+  assemblyai: "AssemblyAI（AssemblyAI）",
+  deepgram: "Deepgram（Deepgram）",
+  pyannote: "pyannote（pyannote）",
+  blackforest: "Black Forest Labs（Black Forest Labs）",
+  ideogram: "Ideogram（Ideogram）",
+  voyage: "Voyage AI（Voyage AI）",
+  jina: "Jina AI（Jina AI）",
+  nvidia: "NVIDIA（輝達）",
+  together: "Together AI（Together AI）",
+  replicate: "Replicate（Replicate）",
+  fireworks: "Fireworks AI（Fireworks AI）",
+  cerebras: "Cerebras（Cerebras）",
+  sambanova: "SambaNova（SambaNova）",
+  midjourney: "Midjourney（Midjourney）",
+  kling: "Kling AI（可靈 AI）",
+  pika: "Pika（Pika）",
+};
+
+export function displayVendorName(model: Pick<ActiveCatalogModel, "vendorId" | "vendor" | "vendorName">): string {
+  const key = model.vendorId?.toLowerCase();
+  if (key && vendorDisplayNames[key]) return vendorDisplayNames[key];
+
+  const raw = model.vendor || model.vendorName || "";
+  const normalized = raw.toLowerCase();
+  const matched = Object.entries(vendorDisplayNames).find(([id]) => normalized.includes(id));
+  return matched ? matched[1] : `${raw}（${raw}）`;
+}
+
 export const lifecycleLabels: Record<LifecycleStatus, string> = {
   discovered: "discovered（已發現，待官方確認）",
   source_verified: "source verified（官方來源確認）",
@@ -244,7 +301,7 @@ export function normalizeDirectoryModel(model: ActiveCatalogModel): DirectoryMod
 
   return {
     id: model.id,
-    vendor: model.vendor,
+    vendor: displayVendorName(model),
     vendorId: model.vendorId,
     modelName: model.modelName,
     modelId: model.modelId || model.displayName || model.modelName,
