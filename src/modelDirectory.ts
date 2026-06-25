@@ -50,47 +50,110 @@ export interface DirectoryModel {
 }
 
 export const lifecycleLabels: Record<LifecycleStatus, string> = {
-  discovered: "待確認",
-  source_verified: "官方來源確認",
-  published: "正式展示",
-  deprecated: "Deprecated",
-  retired: "Retired",
-  unknown: "需查核",
+  discovered: "discovered（已發現，待官方確認）",
+  source_verified: "source verified（官方來源確認）",
+  published: "published（正式展示）",
+  deprecated: "deprecated（官方仍可用但不建議新專案使用）",
+  retired: "retired（已下架或 API 不再可用）",
+  unknown: "unknown（狀態不足，需查核）",
 };
 
 export const dataQualityLabels: Record<DataQuality, string> = {
-  verified: "已確認",
-  pricing_unverified: "價格待確認",
-  needs_review: "需查核",
-  source_missing: "缺少官方來源",
-  data_dirty: "資料待清理",
-  retired_confirmed: "已確認下架",
+  verified: "verified（官方來源與重要欄位已確認）",
+  pricing_unverified: "pricing unverified（模型存在但價格未確認）",
+  needs_review: "needs review（來源矛盾或資料不足）",
+  source_missing: "source missing（缺少官方來源）",
+  data_dirty: "data dirty（舊資料或疑似壞資料）",
+  retired_confirmed: "retired confirmed（已確認下架）",
 };
 
 export const modalityLabels: Record<string, string> = {
-  language: "文字",
-  text: "文字",
-  image: "影像",
-  vision: "視覺",
-  video: "影片",
-  audio: "語音",
-  embedding: "Embedding",
-  reranking: "Reranking",
-  tts: "TTS",
-  asr: "ASR",
-  music: "音樂",
-  robotics: "機器人",
-  multimodal: "多模態",
-  unknown: "未分類",
-  other: "其他",
+  language: "language（文字語言）",
+  text: "text（文字）",
+  image: "image（影像生成 / 影像處理）",
+  vision: "vision（視覺理解）",
+  video: "video（影片生成 / 影片理解）",
+  audio: "audio（語音 / 音訊）",
+  embedding: "embedding（向量嵌入）",
+  reranking: "reranking（檢索排序重排）",
+  tts: "TTS（text-to-speech，文字轉語音）",
+  asr: "ASR（automatic speech recognition，自動語音辨識）",
+  music: "music（音樂生成 / 音訊模型）",
+  robotics: "robotics（機器人）",
+  multimodal: "multimodal（多模態）",
+  unknown: "unknown（未分類）",
+  other: "other（其他）",
 };
 
 export const availableViaLabels: Record<AvailableVia, string> = {
   api: "API",
   web: "Web",
-  open_weights: "Open weights",
-  hosted_platform: "Hosted platform",
+  open_weights: "open weights（開放權重）",
+  hosted_platform: "hosted platform（平台託管）",
 };
+
+const technicalTermLabels: Record<string, string> = {
+  text: "text（文字）",
+  image: "image（影像）",
+  audio: "audio（音訊）",
+  video: "video（影片）",
+  code: "code（程式碼）",
+  ranking: "ranking（排序結果）",
+  speaker_labels: "speaker labels（說話者標籤）",
+  text_generation: "text generation（文字生成）",
+  image_generation: "image generation（影像生成）",
+  image_editing: "image editing（影像編輯）",
+  video_generation: "video generation（影片生成）",
+  video_editing: "video editing（影片編輯）",
+  text_to_video: "text-to-video（文字生成影片）",
+  image_to_video: "image-to-video（影像生成影片）",
+  text_to_image: "text-to-image（文字生成影像）",
+  text_to_speech: "text-to-speech（文字轉語音）",
+  text_to_dialogue: "text-to-dialogue（文字生成對話語音）",
+  speech_to_text: "speech-to-text（語音轉文字）",
+  speaker_diarization: "speaker diarization（說話者分離）",
+  speaker_segmentation: "speaker segmentation（說話者分段）",
+  streaming_asr: "streaming ASR（串流語音辨識）",
+  language_detection: "language detection（語言偵測）",
+  timestamps: "timestamps（時間戳）",
+  voice_generation: "voice generation（語音生成）",
+  dubbing: "dubbing（配音）",
+  embedding: "embedding（向量嵌入）",
+  reranking: "reranking（檢索排序重排）",
+  semantic_search: "semantic search（語意搜尋）",
+  search_ranking: "search ranking（搜尋排序）",
+  multilingual_search: "multilingual search（多語搜尋）",
+  rag: "RAG（檢索增強生成）",
+  classification: "classification（分類）",
+  code_search: "code search（程式碼搜尋）",
+  coding: "coding（程式碼能力）",
+  agents: "agents（代理工作流）",
+  agent: "agent（代理工作流）",
+  tool_calling: "tool calling（工具呼叫）",
+  tool_use: "tool use（工具使用）",
+  structured_outputs: "structured outputs（結構化輸出）",
+  reasoning: "reasoning（推理）",
+  math: "math（數學推理）",
+  vision: "vision（視覺理解）",
+  multimodal_understanding: "multimodal understanding（多模態理解）",
+  open_weights: "open weights（開放權重）",
+  open_model: "open model（開放模型）",
+  fine_tuning: "fine-tuning（微調）",
+  instruction_following: "instruction following（指令遵循）",
+  enterprise_search: "enterprise search（企業搜尋）",
+  typography: "typography（文字排版生成）",
+  small_language_model: "small language model（小型語言模型）",
+  edge_inference: "edge inference（邊緣推論）",
+  synthetic_data: "synthetic data（合成資料）",
+};
+
+export function displayTerm(value: string): string {
+  return technicalTermLabels[value] || value;
+}
+
+export function displayTerms(values: string[]): string[] {
+  return values.map(displayTerm);
+}
 
 export function isCorruptedText(value?: string): boolean {
   if (!value) return true;
@@ -162,8 +225,8 @@ export function normalizeDirectoryModel(model: ActiveCatalogModel): DirectoryMod
     lifecycleStatus,
     primaryModality: model.primaryModality || "unknown",
     availableVia: inferAvailableVia(model),
-    inputTypes: model.inputTypes || [],
-    outputTypes: model.outputTypes || [],
+    inputTypes: displayTerms(model.inputTypes || []),
+    outputTypes: displayTerms(model.outputTypes || []),
     contextWindow: String(model.contextWindow || "N/A"),
     pricingSummary: `Input: ${model.pricingInput || model.pricing?.input1m || "N/A"} / Output: ${
       model.pricingOutput || model.pricing?.output1m || "N/A"
@@ -179,7 +242,7 @@ export function normalizeDirectoryModel(model: ActiveCatalogModel): DirectoryMod
     retiredAt: model.retiredAt,
     lastSeenAt: model.lastSeenAt,
     lastVerifiedAt: model.lastVerifiedAt,
-    capabilities: model.capabilities?.length ? model.capabilities : model.keyFeatures || [],
+    capabilities: displayTerms(model.capabilities?.length ? model.capabilities : model.keyFeatures || []),
     reviewStatus: model.reviewStatus,
     dataQuality,
     notes: readableText(model.notes || model.deprecatedReplacements, ""),

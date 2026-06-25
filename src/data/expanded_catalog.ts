@@ -101,7 +101,7 @@ export const expandedSeedCatalog: ActiveCatalogModel[] = [
     pricingStatus: "official_found",
     officialSourceUrls: ["https://developers.openai.com/api/docs/models/all"],
     pricingSourceUrl: "https://openai.com/api/pricing",
-    summary: "General purpose multimodal OpenAI model for text, vision, coding, tool use and structured outputs.",
+    summary: "用途說明：OpenAI ?? multimodal?????????? text?????vision?????coding??????tool use??????? structured outputs????????",
   }),
   seed({
     id: "seed-openai-o3",
@@ -117,7 +117,7 @@ export const expandedSeedCatalog: ActiveCatalogModel[] = [
     pricingStatus: "official_found",
     officialSourceUrls: ["https://developers.openai.com/api/docs/models/all", "https://openai.com/index/introducing-o3-and-o4-mini/"],
     pricingSourceUrl: "https://openai.com/api/pricing",
-    summary: "OpenAI reasoning model for complex tasks, coding, math, tool use and visual reasoning.",
+    summary: "用途說明：OpenAI reasoning??????????????coding??????math???????tool use??????? visual reasoning???????",
   }),
   seed({
     id: "seed-openai-gpt-image-1",
@@ -133,7 +133,7 @@ export const expandedSeedCatalog: ActiveCatalogModel[] = [
     pricingStatus: "official_found",
     officialSourceUrls: ["https://developers.openai.com/api/docs/models"],
     pricingSourceUrl: "https://openai.com/api/pricing",
-    summary: "OpenAI image generation and editing model available through developer APIs.",
+    summary: "用途說明：OpenAI image generation??????? image editing???????????? developer API ???",
   }),
   seed({
     id: "seed-anthropic-claude-sonnet-4",
@@ -149,7 +149,7 @@ export const expandedSeedCatalog: ActiveCatalogModel[] = [
     pricingStatus: "official_found",
     officialSourceUrls: ["https://platform.claude.com/docs/en/about-claude/models/overview", "https://www.anthropic.com/news/claude-4"],
     pricingSourceUrl: "https://www.anthropic.com/pricing",
-    summary: "Anthropic Claude model family for production text, coding, agentic workflows and multimodal use cases.",
+    summary: "用途說明：Anthropic Claude ?????????? text?????coding??????agentic workflows???????? multimodal??????????",
   }),
   seed({
     id: "seed-google-veo-3",
@@ -165,7 +165,7 @@ export const expandedSeedCatalog: ActiveCatalogModel[] = [
     pricingStatus: "official_found",
     officialSourceUrls: ["https://ai.google.dev/gemini-api/docs/changelog", "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models"],
     pricingSourceUrl: "https://ai.google.dev/pricing",
-    summary: "Google video generation model family for text-to-video and image-to-video workflows.",
+    summary: "用途說明：Google video generation????????????? text-to-video????????? image-to-video????????????",
   }),
   seed({
     id: "seed-google-imagen-4",
@@ -181,7 +181,7 @@ export const expandedSeedCatalog: ActiveCatalogModel[] = [
     pricingStatus: "official_found",
     officialSourceUrls: ["https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models"],
     pricingSourceUrl: "https://ai.google.dev/pricing",
-    summary: "Google image generation model family for text-to-image and image editing workflows.",
+    summary: "用途說明：Google image generation????????????? text-to-image????????? image editing??????????",
   }),
   seed({
     id: "seed-google-gemma",
@@ -196,7 +196,7 @@ export const expandedSeedCatalog: ActiveCatalogModel[] = [
     availableVia: ["open_weights", "hosted_platform"],
     pricingStatus: "not_applicable",
     officialSourceUrls: ["https://ai.google.dev/gemma/docs"],
-    summary: "Google open model family built from Gemini research and available for local or hosted deployment.",
+    summary: "用途說明：Google open model??????????? Gemini ?????? local deployment??????? hosted deployment???????",
   }),
   seed({
     id: "seed-meta-llama-33",
@@ -211,7 +211,7 @@ export const expandedSeedCatalog: ActiveCatalogModel[] = [
     availableVia: ["open_weights", "hosted_platform"],
     pricingStatus: "not_applicable",
     officialSourceUrls: ["https://llama.meta.com"],
-    summary: "Meta open-weight language model commonly served through open model hosts and local inference stacks.",
+    summary: "用途說明：Meta open-weight??????language model??????????????????? local inference?????????",
   }),
   seed({
     id: "seed-mistral-large",
@@ -227,7 +227,7 @@ export const expandedSeedCatalog: ActiveCatalogModel[] = [
     pricingStatus: "official_found",
     officialSourceUrls: ["https://docs.mistral.ai/getting-started/models"],
     pricingSourceUrl: "https://mistral.ai/technology",
-    summary: "Mistral flagship API model family for text, reasoning and coding tasks.",
+    summary: "用途說明：Mistral ?? API ??????? text generation???????reasoning????? coding????????",
   }),
   seed({
     id: "seed-qwen3",
@@ -242,7 +242,7 @@ export const expandedSeedCatalog: ActiveCatalogModel[] = [
     availableVia: ["api", "open_weights", "hosted_platform"],
     pricingStatus: "official_found",
     officialSourceUrls: ["https://github.com/QwenLM", "https://huggingface.co/Qwen"],
-    summary: "Alibaba Qwen language model family covering open weights and hosted API deployments.",
+    summary: "用途說明：Alibaba Qwen language model??????????? open weights??????? hosted API??? API????",
   }),
   seed({
     id: "seed-qwen-omni",
@@ -257,7 +257,7 @@ export const expandedSeedCatalog: ActiveCatalogModel[] = [
     availableVia: ["api", "open_weights", "hosted_platform"],
     pricingStatus: "official_not_found",
     officialSourceUrls: ["https://github.com/QwenLM"],
-    summary: "Qwen multimodal model family for language, vision, audio and video understanding tasks.",
+    summary: "用途說明：Qwen multimodal???????????? language?????vision?????audio????? video understanding?????????",
   }),
   seed({
     id: "seed-cohere-command-a",
@@ -273,7 +273,7 @@ export const expandedSeedCatalog: ActiveCatalogModel[] = [
     pricingStatus: "official_found",
     officialSourceUrls: ["https://docs.cohere.com/docs/models"],
     pricingSourceUrl: "https://cohere.com/pricing",
-    summary: "Cohere command model family for enterprise assistants, RAG and tool-using applications.",
+    summary: "用途說明：Cohere Command ??????? enterprise assistants???????RAG????????? tool use?????????",
   }),
   seed({
     id: "seed-cohere-embed-4",
@@ -289,7 +289,7 @@ export const expandedSeedCatalog: ActiveCatalogModel[] = [
     pricingStatus: "official_found",
     officialSourceUrls: ["https://docs.cohere.com/docs/cohere-embed"],
     pricingSourceUrl: "https://cohere.com/pricing",
-    summary: "Cohere embedding model family for search, RAG, semantic similarity and classification.",
+    summary: "用途說明：Cohere embedding????????????? search?????RAG?????????semantic similarity???????? classification?????",
   }),
   seed({
     id: "seed-cohere-rerank",
@@ -305,7 +305,7 @@ export const expandedSeedCatalog: ActiveCatalogModel[] = [
     pricingStatus: "official_found",
     officialSourceUrls: ["https://docs.cohere.com/docs/rerank"],
     pricingSourceUrl: "https://cohere.com/pricing",
-    summary: "Cohere reranking model family for ranking retrieved passages and search results.",
+    summary: "用途說明：Cohere reranking??????????????????? retrieved passages??????? search results???????",
   }),
   seed({
     id: "seed-elevenlabs-eleven-v3",
@@ -321,7 +321,7 @@ export const expandedSeedCatalog: ActiveCatalogModel[] = [
     pricingStatus: "official_found",
     officialSourceUrls: ["https://elevenlabs.io/docs/overview/models", "https://elevenlabs.io/docs/overview/capabilities/text-to-speech"],
     pricingSourceUrl: "https://elevenlabs.io/pricing",
-    summary: "ElevenLabs speech generation model for text-to-speech and dialogue-style voice output.",
+    summary: "用途說明：ElevenLabs speech generation??????????? text-to-speech???????? dialogue-style voice output??????????",
   }),
   seed({
     id: "seed-assemblyai-universal",
@@ -337,7 +337,7 @@ export const expandedSeedCatalog: ActiveCatalogModel[] = [
     pricingStatus: "official_found",
     officialSourceUrls: ["https://www.assemblyai.com/", "https://www.assemblyai.com/pricing"],
     pricingSourceUrl: "https://www.assemblyai.com/pricing",
-    summary: "AssemblyAI speech recognition model family for transcription, language detection, timestamps and diarization workflows.",
+    summary: "用途說明：AssemblyAI speech recognition????????????? transcription?????language detection???????timestamps?????? speaker diarization????????",
   }),
   seed({
     id: "seed-deepgram-nova-flux",
@@ -353,7 +353,7 @@ export const expandedSeedCatalog: ActiveCatalogModel[] = [
     pricingStatus: "official_found",
     officialSourceUrls: ["https://developers.deepgram.com/docs/models-languages-overview", "https://developers.deepgram.com/docs/diarization"],
     pricingSourceUrl: "https://deepgram.com/pricing",
-    summary: "Deepgram speech models for pre-recorded and streaming transcription, including diarization support.",
+    summary: "用途說明：Deepgram speech models????????? pre-recorded transcription????????streaming transcription??????? speaker diarization????????",
   }),
   seed({
     id: "seed-pyannote-diarization",
@@ -368,7 +368,7 @@ export const expandedSeedCatalog: ActiveCatalogModel[] = [
     availableVia: ["open_weights", "hosted_platform"],
     pricingStatus: "not_applicable",
     officialSourceUrls: ["https://huggingface.co/pyannote/speaker-diarization-community-1", "https://github.com/pyannote/pyannote-audio"],
-    summary: "Open speaker diarization pipeline for assigning speaker labels over audio recordings.",
+    summary: "用途說明：??? speaker diarization???????pipeline???? audio recordings???????? speaker labels????????",
   }),
   seed({
     id: "seed-bfl-flux",
@@ -384,7 +384,7 @@ export const expandedSeedCatalog: ActiveCatalogModel[] = [
     pricingStatus: "official_found",
     officialSourceUrls: ["https://docs.bfl.ml/quick_start/introduction", "https://github.com/black-forest-labs/flux"],
     pricingSourceUrl: "https://bfl.ai/",
-    summary: "Black Forest Labs FLUX model family for image generation and editing through API, hosted platforms and open-weight releases.",
+    summary: "用途說明：Black Forest Labs FLUX image model??????????? image generation???????image editing???????API?hosted platforms??????? open-weight releases?????????",
   }),
   seed({
     id: "seed-stability-sd35",
@@ -400,7 +400,7 @@ export const expandedSeedCatalog: ActiveCatalogModel[] = [
     pricingStatus: "official_found",
     officialSourceUrls: ["https://stability.ai/stable-image"],
     pricingSourceUrl: "https://stability.ai/pricing",
-    summary: "Stability AI image model family for generation and editing, including API and open-weight workflows.",
+    summary: "用途說明：Stability AI image model??????????? image generation???????image editing???????API ? open-weight??????????",
   }),
   seed({
     id: "seed-runway-gen",
@@ -415,7 +415,7 @@ export const expandedSeedCatalog: ActiveCatalogModel[] = [
     availableVia: ["api", "web"],
     pricingStatus: "official_found",
     officialSourceUrls: ["https://docs.dev.runwayml.com/", "https://runwayml.com/en/api"],
-    summary: "Runway generative media model family for video generation, editing and image-to-video product integrations.",
+    summary: "用途說明：Runway generative media?????????????? video generation???????video editing??????? image-to-video?????????????",
   }),
   seed({
     id: "seed-luma-ray-2",
@@ -430,7 +430,7 @@ export const expandedSeedCatalog: ActiveCatalogModel[] = [
     availableVia: ["api", "web"],
     pricingStatus: "official_found",
     officialSourceUrls: ["https://docs.lumalabs.ai/docs/video-generation"],
-    summary: "Luma video generation model for text-to-video and image-to-video workflows.",
+    summary: "用途說明：Luma video generation??????????? text-to-video????????? image-to-video????????????",
   }),
   seed({
     id: "seed-ideogram",
@@ -446,7 +446,7 @@ export const expandedSeedCatalog: ActiveCatalogModel[] = [
     pricingStatus: "official_found",
     officialSourceUrls: ["https://developer.ideogram.ai/ideogram-api/api-overview", "https://docs.ideogram.ai/plans-and-pricing/ideogram-api"],
     pricingSourceUrl: "https://about.ideogram.ai/api-pricing",
-    summary: "Ideogram image generation and editing model with strong typography-oriented image workflows.",
+    summary: "用途說明：Ideogram image generation??????? image editing????????????? typography?????????????????",
   }),
   seed({
     id: "seed-voyage-embedding",
@@ -462,7 +462,7 @@ export const expandedSeedCatalog: ActiveCatalogModel[] = [
     pricingStatus: "official_found",
     officialSourceUrls: ["https://docs.voyageai.com/docs/embeddings"],
     pricingSourceUrl: "https://www.voyageai.com/pricing",
-    summary: "Voyage embedding models for semantic retrieval, RAG, code search and domain-specific search.",
+    summary: "用途說明：Voyage embedding??????????? semantic retrieval???????RAG?????????code search???????? domain-specific search???????",
   }),
   seed({
     id: "seed-jina-embeddings-reranker",
@@ -478,7 +478,7 @@ export const expandedSeedCatalog: ActiveCatalogModel[] = [
     pricingStatus: "official_found",
     officialSourceUrls: ["https://jina.ai/embeddings/", "https://jina.ai/reranker/"],
     pricingSourceUrl: "https://jina.ai/api-dashboard",
-    summary: "Jina AI retrieval models for embeddings and reranking in multilingual search and RAG systems.",
+    summary: "用途說明：Jina AI retrieval models????????? embedding??????? reranking??????????? multilingual search??????? RAG ???",
   }),
   seed({
     id: "seed-microsoft-phi",
@@ -493,7 +493,7 @@ export const expandedSeedCatalog: ActiveCatalogModel[] = [
     availableVia: ["open_weights", "hosted_platform"],
     pricingStatus: "not_applicable",
     officialSourceUrls: ["https://huggingface.co/microsoft", "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/"],
-    summary: "Microsoft Phi small model family for lightweight language and vision tasks across hosted and local deployments.",
+    summary: "用途說明：Microsoft Phi small model????????????? language????? vision?????????? hosted deployment??????? local deployment???????",
   }),
   seed({
     id: "seed-nvidia-nemotron",
@@ -508,6 +508,6 @@ export const expandedSeedCatalog: ActiveCatalogModel[] = [
     availableVia: ["api", "open_weights", "hosted_platform"],
     pricingStatus: "official_found",
     officialSourceUrls: ["https://build.nvidia.com/models", "https://huggingface.co/nvidia"],
-    summary: "NVIDIA model family for language, reasoning, synthetic data and enterprise inference stacks.",
+    summary: "用途說明：NVIDIA ??????? language?????reasoning?????synthetic data??????? enterprise inference stacks?????????",
   }),
 ];

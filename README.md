@@ -14,7 +14,7 @@
 
 本站收錄「指定監控廠商與平台中，官方文件、API 文件、模型頁、定價頁、模型卡或公開平台頁面可確認的可用模型」。若模型僅由新聞、社群或 AI 搜尋發現，會先列為待查核，不視為正式可用模型。
 
-監控範圍包含全球主流商用模型大廠、知名開源/開放權重模型，以及語音辨識、TTS、speaker diarization、影像生成、影片生成、embedding、reranking、程式碼與 agent 工作流等模型類型。
+監控範圍包含全球主流商用模型大廠、知名開源/開放權重模型，以及 ASR（自動語音辨識）、TTS（text-to-speech，文字轉語音）、speaker diarization（說話者分離）、image generation（影像生成）、video generation（影片生成）、embedding（向量嵌入）、reranking（檢索排序重排）、coding（程式碼）與 agent（代理工作流）等模型類型。
 
 ## 常用指令
 
