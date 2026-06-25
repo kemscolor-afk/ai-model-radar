@@ -48,6 +48,24 @@ const dataQualityOptions: DataQuality[] = [
   "retired_confirmed",
 ];
 
+const lifecycleShortLabels: Record<LifecycleStatus, string> = {
+  discovered: "discovered",
+  source_verified: "verified",
+  published: "published",
+  deprecated: "deprecated",
+  retired: "retired",
+  unknown: "unknown",
+};
+
+const dataQualityShortLabels: Record<DataQuality, string> = {
+  verified: "verified",
+  pricing_unverified: "pricing",
+  needs_review: "review",
+  source_missing: "missing",
+  data_dirty: "dirty",
+  retired_confirmed: "retired",
+};
+
 const summaryCards = [
   { key: "total", label: "已收錄模型數", tone: "text-slate-950" },
   { key: "usable", label: "可用模型數", tone: "text-emerald-700" },
@@ -249,7 +267,7 @@ export default function App() {
         </div>
       </header>
 
-      <main className="mx-auto max-w-7xl space-y-6 px-5 py-6">
+      <main className="mx-auto max-w-7xl space-y-4 px-5 py-5">
         {loadError && (
           <div className="flex items-start gap-3 rounded-lg border border-amber-200 bg-amber-50 p-4 text-amber-800">
             <AlertCircle className="mt-0.5 h-5 w-5 shrink-0" />
@@ -257,61 +275,61 @@ export default function App() {
           </div>
         )}
 
-        <section className="rounded-lg border border-indigo-100 bg-indigo-50 p-5">
-          <h2 className="text-xl font-bold text-indigo-950">模型可用性目錄</h2>
-          <p className="mt-2 max-w-5xl text-base leading-7 text-indigo-950">
+        <section className="rounded-lg border border-indigo-100 bg-indigo-50 p-4">
+          <h2 className="text-lg font-bold text-indigo-950">模型可用性目錄</h2>
+          <p className="mt-2 max-w-5xl text-[10px] leading-4 text-indigo-950">
             本站收錄「指定監控廠商與平台中，官方文件、API 文件、模型頁、定價頁、模型卡或公開平台頁面可確認的可用模型」。若模型僅由新聞、社群或 AI 搜尋發現，會先列為待查核，不視為正式可用模型。
           </p>
-          <p className="mt-2 max-w-5xl text-base leading-7 text-indigo-950">
+          <p className="mt-1 max-w-5xl text-[10px] leading-4 text-indigo-950">
             本站整理市場上可用的 AI 模型，協助使用者依照文字、影像、語音、影片、embedding（向量嵌入）、reranking（檢索排序重排）、coding（程式碼能力）、agent（代理工作流）等需求，快速查找官方來源、計費方式與生命週期狀態。
           </p>
         </section>
 
-        <section className="grid grid-cols-2 gap-3 md:grid-cols-3 xl:grid-cols-6">
+        <section className="grid grid-cols-6 gap-2">
           {summaryCards.map((card) => (
-            <div key={card.key} className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
-              <span className="text-sm font-bold text-slate-500">{card.label}</span>
-              <p className={`mt-2 truncate text-2xl font-black ${card.tone}`}>
+            <div key={card.key} className="min-w-0 rounded-lg border border-slate-200 bg-white px-3 py-2 shadow-sm">
+              <span className="block truncate text-[11px] font-bold text-slate-500">{card.label}</span>
+              <p className={`mt-1 truncate text-lg font-black ${card.tone}`}>
                 {summary[card.key]}
               </p>
             </div>
           ))}
         </section>
 
-        <section className="space-y-4">
-          <div className="space-y-4 rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+        <section className="space-y-3">
+          <div className="space-y-2 rounded-lg border border-slate-200 bg-white px-3 py-2.5 shadow-sm">
             <div className="flex flex-col gap-1 md:flex-row md:items-end md:justify-between">
               <div>
-                <h2 className="flex items-center gap-2 text-lg font-bold text-slate-950">
-                  <Filter className="h-5 w-5 text-indigo-600" />
+                <h2 className="flex items-center gap-2 text-base font-bold text-slate-950">
+                  <Filter className="h-4 w-4 text-indigo-600" />
                   篩選與排序
                 </h2>
-                <p className="mt-1 text-sm text-slate-500">
+                <p className="mt-0.5 text-xs text-slate-500">
                   目前顯示 {filteredModels.length} / {catalog.length} 筆
                 </p>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-[minmax(18rem,1.4fr)_1fr_1fr_1fr]">
+            <div className="grid grid-cols-1 gap-2 md:grid-cols-2 xl:grid-cols-[minmax(18rem,1.4fr)_1fr_1fr_1fr]">
               <label className="block">
-                <span className="text-sm font-bold text-slate-600">搜尋</span>
-                <span className="relative mt-2 block">
-                  <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
+                <span className="text-xs font-bold text-slate-600">搜尋</span>
+                <span className="relative mt-1 block">
+                  <Search className="absolute left-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
                   <input
                     value={searchTerm}
                     onChange={(event) => setSearchTerm(event.target.value)}
                     placeholder="模型、廠商、ID、能力"
-                    className="w-full rounded-md border border-slate-200 bg-slate-50 py-3 pl-10 pr-3 text-base outline-none focus:border-indigo-500 focus:bg-white"
+                    className="w-full rounded-md border border-slate-200 bg-slate-50 py-2 pl-8 pr-2 text-sm outline-none focus:border-indigo-500 focus:bg-white"
                   />
                 </span>
               </label>
 
               <label className="block">
-                <span className="text-sm font-bold text-slate-600">廠商</span>
+                <span className="text-xs font-bold text-slate-600">廠商</span>
                 <select
                   value={vendorFilter}
                   onChange={(event) => setVendorFilter(event.target.value)}
-                  className="mt-2 w-full rounded-md border border-slate-200 bg-slate-50 px-3 py-3 text-base font-medium outline-none focus:border-indigo-500"
+                  className="mt-1 w-full rounded-md border border-slate-200 bg-slate-50 px-2 py-2 text-sm font-medium outline-none focus:border-indigo-500"
                 >
                   <option value="all">全部廠商</option>
                   {uniqueVendors.map((vendor) => (
@@ -323,11 +341,11 @@ export default function App() {
               </label>
 
               <label className="block">
-                <span className="text-sm font-bold text-slate-600">模態</span>
+                <span className="text-xs font-bold text-slate-600">模態</span>
                 <select
                   value={modalityFilter}
                   onChange={(event) => setModalityFilter(event.target.value)}
-                  className="mt-2 w-full rounded-md border border-slate-200 bg-slate-50 px-3 py-3 text-base font-medium outline-none focus:border-indigo-500"
+                  className="mt-1 w-full rounded-md border border-slate-200 bg-slate-50 px-2 py-2 text-sm font-medium outline-none focus:border-indigo-500"
                 >
                   <option value="all">全部模態</option>
                   {uniqueModalities.map((modality) => (
@@ -339,11 +357,11 @@ export default function App() {
               </label>
 
               <label className="block">
-                <span className="text-sm font-bold text-slate-600">排序</span>
+                <span className="text-xs font-bold text-slate-600">排序</span>
                 <select
                   value={sortBy}
                   onChange={(event) => setSortBy(event.target.value as DirectorySortKey)}
-                  className="mt-2 w-full rounded-md border border-slate-200 bg-slate-50 px-3 py-3 text-base font-medium outline-none focus:border-indigo-500"
+                  className="mt-1 w-full rounded-md border border-slate-200 bg-slate-50 px-2 py-2 text-sm font-medium outline-none focus:border-indigo-500"
                 >
                   <option value="lastVerifiedAt">最近確認</option>
                   <option value="officialLaunchDate">最近上架</option>
@@ -357,45 +375,43 @@ export default function App() {
               </label>
             </div>
 
-            <div className="grid gap-3 xl:grid-cols-2">
-              <div className="space-y-2">
-                <p className="text-sm font-bold text-slate-600">生命週期</p>
-                <div className="flex flex-wrap gap-2">
-                  {lifecycleOptions.map((status) => (
-                    <button
-                      key={status}
-                      type="button"
-                      onClick={() => toggleLifecycle(status)}
-                      className={`rounded-md border px-2.5 py-2 text-xs font-bold ${
-                        lifecycleFilter.includes(status)
-                          ? lifecycleStyle(status)
-                          : "border-slate-200 bg-white text-slate-500"
-                      }`}
-                    >
-                      {lifecycleLabels[status]}
-                    </button>
-                  ))}
-                </div>
+            <div className="grid gap-1.5 xl:grid-cols-2">
+              <div className="flex min-w-0 flex-wrap items-center gap-1.5">
+                <span className="mr-1 text-xs font-bold text-slate-600">生命週期</span>
+                {lifecycleOptions.map((status) => (
+                  <button
+                    key={status}
+                    type="button"
+                    onClick={() => toggleLifecycle(status)}
+                    title={lifecycleLabels[status]}
+                    className={`rounded-md border px-2 py-1 text-[11px] font-bold ${
+                      lifecycleFilter.includes(status)
+                        ? lifecycleStyle(status)
+                        : "border-slate-200 bg-white text-slate-500"
+                    }`}
+                  >
+                    {lifecycleShortLabels[status]}
+                  </button>
+                ))}
               </div>
 
-              <div className="space-y-2">
-                <p className="text-sm font-bold text-slate-600">資料品質</p>
-                <div className="flex flex-wrap gap-2">
-                  {dataQualityOptions.map((status) => (
-                    <button
-                      key={status}
-                      type="button"
-                      onClick={() => toggleDataQuality(status)}
-                      className={`rounded-md border px-2.5 py-2 text-xs font-bold ${
-                        dataQualityFilter.includes(status)
-                          ? "border-indigo-200 bg-indigo-50 text-indigo-700"
-                          : "border-slate-200 bg-white text-slate-500"
-                      }`}
-                    >
-                      {dataQualityLabels[status]}
-                    </button>
-                  ))}
-                </div>
+              <div className="flex min-w-0 flex-wrap items-center gap-1.5">
+                <span className="mr-1 text-xs font-bold text-slate-600">資料品質</span>
+                {dataQualityOptions.map((status) => (
+                  <button
+                    key={status}
+                    type="button"
+                    onClick={() => toggleDataQuality(status)}
+                    title={dataQualityLabels[status]}
+                    className={`rounded-md border px-2 py-1 text-[11px] font-bold ${
+                      dataQualityFilter.includes(status)
+                        ? "border-indigo-200 bg-indigo-50 text-indigo-700"
+                        : "border-slate-200 bg-white text-slate-500"
+                    }`}
+                  >
+                    {dataQualityShortLabels[status]}
+                  </button>
+                ))}
               </div>
             </div>
           </div>
@@ -444,8 +460,11 @@ export default function App() {
                   <Field
                     label="生命週期"
                     value={
-                      <span className={`inline-flex rounded-md border px-2.5 py-1 text-xs font-bold ${lifecycleStyle(model.lifecycleStatus)}`}>
-                        {lifecycleLabels[model.lifecycleStatus]}
+                      <span
+                        title={lifecycleLabels[model.lifecycleStatus]}
+                        className={`inline-flex rounded-md border px-2.5 py-1 text-xs font-bold ${lifecycleStyle(model.lifecycleStatus)}`}
+                      >
+                        {lifecycleShortLabels[model.lifecycleStatus]}
                       </span>
                     }
                   />
@@ -455,8 +474,11 @@ export default function App() {
                     value={
                       <div className="space-y-1">
                         <p className="line-clamp-2 text-sm">{model.pricingSummary}</p>
-                        <p className={`text-xs font-black ${dataQualityStyle(model.dataQuality)}`}>
-                          {dataQualityLabels[model.dataQuality]} / {model.pricingStatus}
+                        <p
+                          title={dataQualityLabels[model.dataQuality]}
+                          className={`text-xs font-black ${dataQualityStyle(model.dataQuality)}`}
+                        >
+                          {dataQualityShortLabels[model.dataQuality]} / {model.pricingStatus}
                         </p>
                       </div>
                     }
