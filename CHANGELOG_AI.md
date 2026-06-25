@@ -8,6 +8,7 @@
 - 試套 `Synthetic Intelligence Index` 深色玻璃感視覺主題；透過 `.synthetic-theme` CSS scope 覆蓋，方便不喜歡時 revert 單一 commit 回到原本淺色版。
 - 新增 Dockerfile / .dockerignore，讓 Zeabur 以 Node Express 服務部署，而不是只部署靜態 Vite 檔案；否則 `/api/*` 會回首頁 HTML，前台會顯示「模型目錄載入失敗」。
 - 新增 favicon 資產：`public/favicon.ico`、`favicon-32x32.png`、`apple-touch-icon.png`、`icon-192.png`，並在 `index.html` 設定對應 link。
+- 擴充中國重點 AI 廠商與模型覆蓋：新增 Zhipu AI、Moonshot AI、Baichuan AI、MiniMax、ModelBest、SenseTime 監控來源，並補入 Qwen-VL、Doubao、Hunyuan、ERNIE、GLM、DeepSeek、Kimi、Baichuan、MiniMax、MiniCPM、SenseChat / SenseNova 等代表模型。後端合併後本機 catalog 約 64 筆。
 - 模型卡片列表改成單欄排列：每列只顯示一張模型卡片，全部上下堆疊，避免桌面版三欄卡片造成閱讀跳躍。
 - 目前沒有使用資料庫。後端以本機 `data_store.json` 做 runtime 檔案式儲存，啟動時讀取，更新時寫入暫存檔後替換，並保留備份檔。
 - `data_store.json` 已加入 `.gitignore`，不再推送到 GitHub；它應視為部署環境的本機資料檔。

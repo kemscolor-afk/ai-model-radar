@@ -151,6 +151,67 @@ export const defaultVendors: Vendor[] = [
     ]
   },
   {
+    id: "zhipu",
+    name: "Zhipu AI",
+    website: "https://www.bigmodel.cn",
+    priority: "important",
+    sourceUrls: [
+      { url: "https://docs.bigmodel.cn/cn/guide/models", sourceType: "models_page", trustLevel: "official", scanMode: "inventory" },
+      { url: "https://open.bigmodel.cn/pricing", sourceType: "pricing_page", trustLevel: "official", scanMode: "pricing" },
+      { url: "https://github.com/THUDM", sourceType: "github", trustLevel: "official", scanMode: "inventory" }
+    ]
+  },
+  {
+    id: "moonshot",
+    name: "Moonshot AI",
+    website: "https://www.moonshot.cn",
+    priority: "important",
+    sourceUrls: [
+      { url: "https://platform.moonshot.cn/docs/intro", sourceType: "models_page", trustLevel: "official", scanMode: "inventory" },
+      { url: "https://platform.moonshot.cn/docs/pricing", sourceType: "pricing_page", trustLevel: "official", scanMode: "pricing" }
+    ]
+  },
+  {
+    id: "baichuan",
+    name: "Baichuan AI",
+    website: "https://www.baichuan-ai.com",
+    priority: "important",
+    sourceUrls: [
+      { url: "https://platform.baichuan-ai.com/docs/api", sourceType: "models_page", trustLevel: "official", scanMode: "inventory" },
+      { url: "https://huggingface.co/baichuan-inc", sourceType: "huggingface", trustLevel: "platform", scanMode: "inventory" }
+    ]
+  },
+  {
+    id: "minimax",
+    name: "MiniMax",
+    website: "https://www.minimaxi.com",
+    priority: "important",
+    sourceUrls: [
+      { url: "https://platform.minimaxi.com/document/guides/chat-model/V2", sourceType: "models_page", trustLevel: "official", scanMode: "inventory" },
+      { url: "https://platform.minimaxi.com/document/guides/T2A-model/V2", sourceType: "docs", trustLevel: "official", scanMode: "inventory" }
+    ]
+  },
+  {
+    id: "modelbest",
+    name: "ModelBest",
+    website: "https://www.modelbest.cn",
+    priority: "important",
+    sourceUrls: [
+      { url: "https://github.com/OpenBMB/MiniCPM", sourceType: "github", trustLevel: "official", scanMode: "inventory" },
+      { url: "https://huggingface.co/openbmb", sourceType: "huggingface", trustLevel: "platform", scanMode: "inventory" }
+    ]
+  },
+  {
+    id: "sensetime",
+    name: "SenseTime",
+    website: "https://www.sensetime.com",
+    priority: "watch",
+    sourceUrls: [
+      { url: "https://www.sensecore.cn/model-as-a-service", sourceType: "models_page", trustLevel: "official", scanMode: "inventory" },
+      { url: "https://chat.sensetime.com", sourceType: "models_page", trustLevel: "official", scanMode: "inventory" }
+    ]
+  },
+  {
     id: "aws",
     name: "Amazon Bedrock",
     website: "https://aws.amazon.com/bedrock",
